@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { publications, projects } from "../data/researchData";
-import PublicationCard from "../components/PublicationCard";
-import ProjectCard from "../components/ProjectCard";
+import PublicationCard from "../components/research/PublicationCard";
+import ProjectCard from "../components/research/ProjectCard";
 import "../styles/research.css";
 
 const TABS = ["Publications", "Projects"];

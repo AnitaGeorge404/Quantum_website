@@ -1,5 +1,5 @@
 import { people } from "../data/peopleData.js";
-import PersonCard from "../components/PersonCard";
+import PersonCard from "../components/people/PersonCard";
 import "../styles/People.css";
 
 const SECTIONS = [
