@@ -1,14 +1,25 @@
-﻿import AboutSection from '../components/home/AboutSection';
-import NewsSection from '../components/home/NewsSection';
-import HighlightsSection from '../components/home/HighlightsSection';
+﻿import HeroSection from "../components/home/HeroSection";
+import LabOverview from "../components/home/LabOverview";
+import ResearchHighlights from "../components/home/ResearchHighlights";
+import LatestNews from "../components/home/LatestNews";
+import ResearcherSpotlight from "../components/home/ResearcherSpotlight";
+import FacilitiesPreview from "../components/home/FacilitiesPreview";
+import CollaborationsPreview from "../components/home/CollaborationsPreview";
+import JoinLab from "../components/home/JoinLab";
+import CTASection from "../components/home/CTASection";
 
 export default function Home() {
   return (
-    <div className="p-10">
-      <h1 className="text-3xl font-bold">Home</h1>
-      <AboutSection />
-      <NewsSection />
-      <HighlightsSection />
-    </div>
+    <>
+      <HeroSection />
+      <LabOverview />
+      <ResearchHighlights />
+      <LatestNews />
+      <ResearcherSpotlight />
+      <FacilitiesPreview />
+      <CollaborationsPreview />
+      <JoinLab />
+      <CTASection />
+    </>
   );
 }
