@@ -1,8 +1,18 @@
-﻿export default function OpportunitiesSection() {
+export default function OpportunitySection({
+  title,
+  category,
+  type,
+  eligibility,
+  description,
+  
+}) {
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-semibold">Open Positions & Opportunities</h2>
+    <div className="opportunity-card">
+      <h2 className="opportunity-category"><b>{category}</b></h2>
+      <h3>{title}</h3>
+      <p><strong>Type:</strong> {type}</p>
+      <p><strong>Eligibility:</strong> {eligibility}</p>
+      <p>{description}</p>
     </div>
   );
 }
-

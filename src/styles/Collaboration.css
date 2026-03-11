@@ -1,0 +1,50 @@
+.collaborations-page {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+}
+
+.collaboration-section {
+    margin-bottom: 3rem;
+}
+
+.collaboration-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .collaboration-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.collaboration-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    border: 1px solid;
+    /* Creates the textbox structure without defining a specific theme color */
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.collab-category {
+  font-size: 1.5rem; /* Structural H2 size */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.collab-title {
+  font-size: 1.17rem; /* Structural H3 size */
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+}
+
+.collab-description {
+  font-size: 1rem;
+  margin: 0;
+}

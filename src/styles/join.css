@@ -1,0 +1,35 @@
+.join-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+}
+
+.opportunity-list, .contact-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .opportunity-list, .contact-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.opportunity-card, .contact-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border: 1px solid; /* Creates the textbox structure without defining a specific theme color */
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.opportunity-category {
+  font-size: 1.5rem; /* Structural H2 size */
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
