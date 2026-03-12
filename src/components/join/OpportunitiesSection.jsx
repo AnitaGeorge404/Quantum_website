@@ -7,12 +7,14 @@ export default function OpportunitySection({
   
 }) {
   return (
-    <div className="opportunity-card">
-      <h2 className="opportunity-category"><b>{category}</b></h2>
+    <div className="opportunity-card" data-category={category}>
+      <span className="opportunity-category">{category}</span>
       <h3>{title}</h3>
-      <p><strong>Type:</strong> {type}</p>
-      <p><strong>Eligibility:</strong> {eligibility}</p>
-      <p>{description}</p>
+      <div className="opportunity-details">
+        <p><strong>Type:</strong> {type}</p>
+        <p><strong>Eligibility:</strong> {eligibility}</p>
+        <p className="description">{description}</p>
+      </div>
     </div>
   );
 }

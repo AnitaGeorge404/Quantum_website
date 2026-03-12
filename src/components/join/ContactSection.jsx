@@ -3,13 +3,15 @@ export default function ContactSection({ title, email, phone }) {
     <div className="contact-card">
       <h3>{title}</h3>
 
-      <p>
-        <strong>Email:</strong> {email}
-      </p>
+      <div className="contact-info">
+        <p>
+          <strong>Email</strong> {email}
+        </p>
 
-      <p>
-        <strong>Phone:</strong> {phone}
-      </p>
+        <p>
+          <strong>Phone</strong> {phone}
+        </p>
+      </div>
     </div>
   );
 }

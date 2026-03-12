@@ -1,10 +1,16 @@
 import CollaborationCard from '../components/collaborationcard.jsx';
 import '../styles/Collaboration.css';
+import quantumLogo from '../logos/quantum.png';
+import quantum2Logo from '../logos/quantum2.webp';
 
 export default function Collaborations() {
   return (
     <div className="collaborations-page">
-      <h1 className="page-title">Collaborations</h1>
+      <div className="title-container">
+        <img src={quantumLogo} alt="Quantum Logo" className="heading-logo" />
+        <h1 className="page-title">Collaborations</h1>
+        <img src={quantum2Logo} alt="Quantum 2 Logo" className="heading-logo" />
+      </div>
 
       <div className="collaboration-section">
         <h2 className="section-title">Partner Institutions</h2>
