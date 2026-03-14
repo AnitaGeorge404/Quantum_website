@@ -1,89 +1,96 @@
-import CollaborationCard from '../components/collaborationcard.jsx';
-import '../styles/Collaboration.css';
-import quantumLogo from '../logos/quantum.png';
-import quantum2Logo from '../logos/quantum2.webp';
+import PageHero from "../components/ui/PageHero";
+import SectionWrapper from "../components/ui/SectionWrapper";
+import SectionHeader from "../components/ui/SectionHeader";
+import Card from "../components/ui/Card";
+import Button from "../components/ui/Button";
+
+const partnerUniversities = [
+  "Massachusetts Institute of Technology",
+  "University of Oxford",
+  "ETH Zurich",
+  "Indian Institute of Science",
+  "Stanford University",
+  "National University of Singapore",
+];
+
+const industryPartners = [
+  "IBM Research",
+  "Google Quantum AI",
+  "Microsoft Quantum",
+  "NVIDIA Research",
+  "Intel Labs",
+  "Tata Research Development",
+];
+
+const fundingAgencies = [
+  "National Science Foundation",
+  "Department of Science and Technology",
+  "European Research Council",
+  "Quantum Technology Mission",
+  "Industry Innovation Consortia",
+  "International Research Funds",
+];
+
+function LogoGrid({ title, items }) {
+  return (
+    <div>
+      <h3 className="text-2xl font-semibold text-gray-900 mb-6">{title}</h3>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {items.map((item) => (
+          <Card key={item} className="p-6 flex items-center justify-center text-center min-h-[112px]">
+            <span className="text-sm font-semibold tracking-wide text-blue-900">{item}</span>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Collaborations() {
   return (
-    <div className="collaborations-page">
-      <div className="title-container">
-        <img src={quantumLogo} alt="Quantum Logo" className="heading-logo" />
-        <h1 className="page-title">Collaborations</h1>
-        <img src={quantum2Logo} alt="Quantum 2 Logo" className="heading-logo" />
-      </div>
+    <>
+      <PageHero
+        title="Collaborations"
+        description="Our institute works with leading universities, industry laboratories, and funding organizations to accelerate quantum innovation."
+        accent="Global Partnerships"
+      />
 
-      <div className="collaboration-section">
-        <h2 className="section-title">Partner Institutions</h2>
-        <div className="collaboration-grid">
-          <CollaborationCard
-            title="National Quantum Research Centre"
-            description="Collaborative research on quantum algorithms and quantum information theory."
-          />
-          <CollaborationCard
-            title="Photonics and Quantum Systems Lab"
-            description="Joint work on photonic quantum computing and experimental quantum devices."
-          />
-          <CollaborationCard
-            title="Quantum Materials Group"
-            description="Interdisciplinary work on materials and devices for emerging quantum systems."
-          />
+      <SectionWrapper>
+        <SectionHeader
+          eyebrow="Partner Universities"
+          title="Academic collaboration network"
+          description="Joint research programs, scholar exchanges, and co-authored publications across global institutions."
+        />
+        <LogoGrid title="Universities" items={partnerUniversities} />
+      </SectionWrapper>
+
+      <SectionWrapper className="bg-gray-50 border-y border-gray-200">
+        <SectionHeader
+          eyebrow="Industry Collaborations"
+          title="Translational research alliances"
+          description="Co-development with industry partners to bridge fundamental science and deployable systems."
+        />
+        <LogoGrid title="Industry" items={industryPartners} />
+      </SectionWrapper>
+
+      <SectionWrapper>
+        <SectionHeader
+          eyebrow="Funding Agencies"
+          title="Strategic supported programs"
+          description="National and international grants sustaining long-horizon scientific excellence."
+        />
+        <LogoGrid title="Funding" items={fundingAgencies} />
+      </SectionWrapper>
+
+      <SectionWrapper className="bg-gray-50 border-y border-gray-200">
+        <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-10 text-center">
+          <h2 className="text-3xl font-semibold text-gray-900">Build impact with us</h2>
+          <p className="mt-4 text-lg text-gray-600">We welcome co-funded projects, visiting scholar programs, and long-term institutional partnerships.</p>
+          <div className="mt-8">
+            <Button to="/join">Initiate Collaboration</Button>
+          </div>
         </div>
-      </div>
-
-      <div className="collaboration-section">
-        <h2 className="section-title">Industry Collaborations</h2>
-        <div className="collaboration-grid">
-          <CollaborationCard
-            title="QubitX Technologies"
-            description="Exploring practical applications of quantum optimization and hybrid quantum-classical workflows."
-          />
-          <CollaborationCard
-            title="Quantum Software Initiative"
-            description="Industry collaboration focused on scalable quantum programming tools."
-          />
-          <CollaborationCard
-            title="NextGen Compute Labs"
-            description="Research partnership on benchmarking and applied quantum software development."
-          />
-        </div>
-      </div>
-
-      <div className="collaboration-section">
-        <h2 className="section-title">Funded Projects</h2>
-        <div className="collaboration-grid">
-          <CollaborationCard
-            title="Quantum Communication Networks"
-            description="A funded project investigating secure quantum communication protocols."
-          />
-          <CollaborationCard
-            title="Error Mitigation in Quantum Circuits"
-            description="Research project studying error mitigation techniques for near-term quantum devices."
-          />
-        </div>
-      </div>
-
-      <div className="collaboration-section">
-        <h2 className="section-title">Academic Partnerships</h2>
-        <div className="collaboration-grid">
-          <CollaborationCard
-            title="International Quantum Computing Consortium"
-            description="Partnership with global universities to advance interdisciplinary quantum research."
-          />
-          <CollaborationCard
-            title="Quantum Education Initiative"
-            description="Academic collaboration supporting student research and curriculum development."
-          />
-        </div>
-      </div>
-
-      <div className="collaboration-cta">
-        <h2>Interested in collaborating or joining us?</h2>
-        <p>
-          We welcome students, researchers, institutions, and industry partners
-          interested in quantum computing research.
-        </p>
-        <a href="/join" className="cta-link">Join Us / Contact</a>
-      </div>
-    </div>
+      </SectionWrapper>
+    </>
   );
 }
