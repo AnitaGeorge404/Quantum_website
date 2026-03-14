@@ -9,7 +9,6 @@ const variants = {
   ghost: "text-blue-900 hover:text-blue-800",
 };
 
-<<<<<<< HEAD
 export default function Button({
   to,
   href,
@@ -19,9 +18,6 @@ export default function Button({
   children,
   type = "button",
 }) {
-=======
-export default function Button({ to, href, onClick, variant = "primary", className = "", children, type = "button" }) {
->>>>>>> Vamsi
   const buttonClass = `${baseClass} ${variants[variant] ?? variants.primary} ${className}`;
 
   if (to) {
@@ -33,11 +29,7 @@ export default function Button({ to, href, onClick, variant = "primary", classNa
   }
 
   if (href) {
-    return (
-      <a href={href} className={buttonClass}>
-        {children}
-      </a>
-    );
+    return <a href={href} className={buttonClass}>{children}</a>;
   }
 
   return (
