@@ -1,8 +1,17 @@
-﻿export default function ContactSection() {
+export default function ContactSection({ title, email, phone }) {
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-semibold">Contact & Lab Address</h2>
+    <div className="contact-card">
+      <h3>{title}</h3>
+
+      <div className="contact-info">
+        <p>
+          <strong>Email</strong> {email}
+        </p>
+
+        <p>
+          <strong>Phone</strong> {phone}
+        </p>
+      </div>
     </div>
   );
 }
-
