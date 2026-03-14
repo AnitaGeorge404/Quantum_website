@@ -2,32 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom animations */
-@layer utilities {
-  .animate-pulse-slow {
-    animation: pulse-slow 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-
-  .animation-delay-4000 {
-    animation-delay: 4s;
-  }
-}
-
-@keyframes pulse-slow {
-  0%,
-  100% {
-    opacity: 0.4;
-  }
-  50% {
-    opacity: 0.8;
-  }
-}
-
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-gray-700 antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply text-gray-900;
 }
