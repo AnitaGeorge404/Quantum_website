@@ -1,10 +1,22 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { publications, projects } from "../data/researchData";
-import PublicationCard from "../components/people/PublicationCard";
-import ProjectCard from "../components/people/ProjectCard";
+import PublicationCard from "../components/research/PublicationCard";
+import ProjectCard from "../components/research/ProjectCard";
+import PageHero from "../components/ui/PageHero";
+import SectionWrapper from "../components/ui/SectionWrapper";
+import SectionHeader from "../components/ui/SectionHeader";
+import Card from "../components/ui/Card";
+import Button from "../components/ui/Button";
 
 const TABS = ["Publications", "Projects"];
+
+const researchMetrics = [
+  { label: "Peer-Reviewed Papers", value: `${publications.length}+` },
+  { label: "Active Projects", value: `${projects.length}` },
+  { label: "Research Tracks", value: "4" },
+  { label: "Industry Collaborations", value: "15+" },
+];
 
 const pageVariants = {
   hidden:  { opacity: 0, y: 24 },
@@ -21,77 +33,112 @@ export default function Research() {
   const [activeTab, setActiveTab] = useState("Publications");
 
   return (
-    <motion.div
-      className="container"
-      variants={pageVariants}
-      initial="hidden"
-      animate="visible"
-    >
-      <h1>Quantum Research Lab</h1>
-      <p>Explore our latest publications and ongoing research projects.</p>
+    <>
+      <PageHero
+        title="Research"
+        description="Explore our active projects and latest peer-reviewed publications across quantum algorithms, systems, and fault-tolerant architectures."
+        accent="Scientific Programs"
+      />
 
-      {/* Tab Bar */}
-      <div className="tab-bar">
-        {TABS.map((tab) => (
-          <button
-            key={tab}
-            className={`tab-btn ${activeTab === tab ? "tab-btn--active" : ""}`}
-            onClick={() => setActiveTab(tab)}
-          >
-            {tab}
-            {/* Animated active underline */}
-            {activeTab === tab && (
-              <motion.span
-                layoutId="tab-underline"
-                style={{
-                  position: "absolute",
-                  bottom: -1,
-                  left: 0,
-                  right: 0,
-                  height: 2,
-                  backgroundColor: "#1a3a6b",
-                  borderRadius: 1,
-                }}
-              />
+      <SectionWrapper>
+        <motion.div
+          variants={pageVariants}
+          initial="hidden"
+          animate="visible"
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {researchMetrics.map((item) => (
+            <Card key={item.label} className="p-6">
+              <p className="text-3xl font-semibold text-gray-900">{item.value}</p>
+              <p className="mt-2 text-sm text-gray-600">{item.label}</p>
+            </Card>
+          ))}
+        </motion.div>
+      </SectionWrapper>
+
+      <SectionWrapper className="bg-gray-50 border-y border-gray-200">
+        <SectionHeader
+          eyebrow="Research Portfolio"
+          title="Programs and publications"
+          description="Switch between research outputs and project programs to explore our institute's ongoing work."
+        />
+
+        <div className="inline-flex flex-wrap items-center gap-2 rounded-lg border border-gray-200 bg-white p-2">
+          {TABS.map((tab) => {
+            const isActive = activeTab === tab;
+
+            return (
+              <button
+                key={tab}
+                className={`relative rounded-md px-5 py-2 text-sm font-medium transition-colors duration-200 ${
+                  isActive
+                    ? "bg-blue-900 text-white"
+                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
+                }`}
+                onClick={() => setActiveTab(tab)}
+                type="button"
+              >
+                {tab}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className="mt-10">
+          <AnimatePresence mode="wait">
+            {activeTab === "Publications" && (
+              <motion.div
+                key="publications"
+                className="grid md:grid-cols-2 gap-6"
+                variants={tabContentVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                {publications.map((publication, i) => (
+                  <PublicationCard key={publication.id} publication={publication} index={i} />
+                ))}
+              </motion.div>
             )}
-          </button>
-        ))}
-      </div>
 
-      {/* Tab Content with AnimatePresence for exit animations */}
-      <div className="tab-content">
-        <AnimatePresence mode="wait">
-          {activeTab === "Publications" && (
-            <motion.div
-              key="publications"
-              className="card-list"
-              variants={tabContentVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              {publications.map((pub, i) => (
-                <PublicationCard key={pub.id} publication={pub} index={i} />
-              ))}
-            </motion.div>
-          )}
+            {activeTab === "Projects" && (
+              <motion.div
+                key="projects"
+                className="grid md:grid-cols-2 gap-6"
+                variants={tabContentVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                {projects.map((project, i) => (
+                  <ProjectCard key={project.id} project={project} index={i} />
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      </SectionWrapper>
 
-          {activeTab === "Projects" && (
-            <motion.div
-              key="projects"
-              className="card-list"
-              variants={tabContentVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              {projects.map((proj, i) => (
-                <ProjectCard key={proj.id} project={proj} index={i} />
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
-    </motion.div>
+      <SectionWrapper>
+        <div className="rounded-2xl border border-blue-100 bg-blue-50 p-10 md:p-14 text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-900 mb-4">
+            Collaborate
+          </p>
+          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
+            Build the next generation of quantum systems
+          </h2>
+          <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+            We welcome cross-disciplinary collaborations from academia, industry,
+            and mission-focused research organizations.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Button to="/collaborations">Explore Collaborations</Button>
+            <Button to="/join" variant="secondary">
+              Join Research Programs
+            </Button>
+          </div>
+        </div>
+      </SectionWrapper>
+    </>
   );
 }

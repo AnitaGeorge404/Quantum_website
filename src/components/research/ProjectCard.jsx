@@ -1,25 +1,37 @@
+import { motion } from "framer-motion";
+import Card from "../ui/Card";
+
 const STATUS_STYLES = {
-  Active: { backgroundColor: "#e6f4ea", color: "#2d6a4f" },
-  Completed: { backgroundColor: "#eaf0fb", color: "#1a3a6b" },
-  Proposed: { backgroundColor: "#fef9e7", color: "#7d5a00" },
+  Active: "bg-emerald-100 text-emerald-800",
+  Completed: "bg-blue-100 text-blue-800",
+  Proposed: "bg-amber-100 text-amber-800",
 };
 
-export default function ProjectCard({ project }) {
+export default function ProjectCard({ project, index = 0 }) {
   const { title, description, facultyLead, status } = project;
-  const badgeStyle = STATUS_STYLES[status] ?? { backgroundColor: "#f0f0f0", color: "#333" };
+  const badgeClass = STATUS_STYLES[status] ?? "bg-gray-100 text-gray-700";
 
   return (
-    <div className="card">
-      <div className="card-header">
-        <h3 className="card-title">{title}</h3>
-        <span className="card-badge" style={badgeStyle}>
-          {status}
-        </span>
-      </div>
-      <p className="card-description">{description}</p>
-      <p className="card-faculty">
-        <strong>Faculty Lead:</strong> {facultyLead}
-      </p>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.35, ease: "easeOut", delay: index * 0.07 }}
+      whileHover={{ y: -3, transition: { duration: 0.2 } }}
+    >
+      <Card className="h-full p-7">
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <h3 className="text-xl font-semibold text-gray-900 leading-snug">{title}</h3>
+          <span
+            className={`inline-flex rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide ${badgeClass}`}
+          >
+            {status}
+          </span>
+        </div>
+        <p className="mt-4 text-gray-600 leading-relaxed">{description}</p>
+        <p className="mt-5 text-sm text-gray-700">
+          <span className="font-semibold text-gray-900">Faculty Lead:</span> {facultyLead}
+        </p>
+      </Card>
+    </motion.div>
   );
 }
