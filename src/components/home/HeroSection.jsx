@@ -1,56 +1,65 @@
 ﻿import { Link } from "react-router-dom";
+import Button from "../ui/Button";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-white overflow-hidden border-b border-gray-200">
-      {/* Subtle dot-grid background */}
-      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:20px_20px] opacity-60" />
+    <section className="relative overflow-hidden min-h-[95vh] flex flex-col justify-center bg-[#f8fbff]">
+      {/* Absolute clean geometric elements for modern aesthetic */}
+      <div className="absolute top-0 right-0 w-[40vw] h-[40vw] max-w-3xl max-h-[800px] bg-gradient-to-br from-primary-100 to-transparent rounded-full blur-3xl opacity-60 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[40vw] h-[40vw] max-w-3xl max-h-[800px] bg-gradient-to-tr from-secondary-50 to-transparent rounded-full blur-3xl opacity-60 -translate-x-1/3 translate-y-1/3 pointer-events-none" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
-        <div className="max-w-2xl">
-          <p className="text-xs font-semibold text-blue-700 uppercase tracking-[0.2em] mb-5">
-            Department of Computer Science &amp; Engineering
-          </p>
+      <div className="relative max-w-7xl mx-auto px-6 pt-32 pb-20 md:pb-28 z-10 w-full flex-grow flex flex-col justify-center text-center items-center">
+        <div className="max-w-[1000px] mx-auto flex flex-col items-center">
+          
+          <div className="fade-up mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-primary-100 shadow-sm text-xs font-semibold tracking-widest text-slate-500 uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-secondary-400"></span>
+              Department of Computer Science
+            </span>
+          </div>
 
-          <h1 className="text-4xl md:text-5xl font-semibold text-gray-900 leading-[1.15] tracking-tight">
-            Quantum Computing{" "}
-            <span className="block mt-1 text-blue-700">Research Laboratory</span>
+          <h1 className="text-6xl md:text-8xl font-extrabold text-primary-900 leading-[1.05] tracking-tight mb-8 fade-up" style={{animationDelay: "0.1s"}}>
+            Quantum Computing <br className="hidden md:block" />
+            <span className="relative inline-block mt-2">
+              <span className="relative z-10 bg-gradient-to-r from-primary-900 to-primary-700 bg-clip-text text-transparent">Research Lab</span>
+              {/* Subtle pink swoosh underline */}
+              <svg className="absolute -bottom-4 left-0 w-full h-4 text-secondary-200" viewBox="0 0 500 12" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0 10C150 -2 350 -2 500 10" stroke="currentColor" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </span>
           </h1>
 
-          <p className="mt-6 text-lg text-gray-600 leading-relaxed max-w-xl">
-            Advancing research in quantum algorithms, quantum information, and
-            emerging quantum technologies.
+          <p className="mt-4 text-xl md:text-2xl text-slate-500 leading-relaxed max-w-3xl font-normal fade-up" style={{animationDelay: "0.2s"}}>
+            Bridging fundamental quantum mechanics with advanced computer science to accelerate the future of computation.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
+          <div className="mt-12 flex flex-wrap justify-center gap-4 fade-up" style={{animationDelay: "0.3s"}}>
+            <Button
               to="/research"
-              className="px-6 py-3 bg-blue-700 text-white text-sm font-semibold rounded-md hover:bg-blue-800 transition-colors"
+              variant="primary"
             >
               Explore Research
-            </Link>
-            <Link
+            </Button>
+            <Button
               to="/join"
-              className="px-6 py-3 border border-gray-300 text-gray-700 text-sm font-semibold rounded-md hover:bg-gray-50 transition-colors"
+              variant="secondary"
             >
               Join the Lab
-            </Link>
+            </Button>
           </div>
         </div>
       </div>
 
-      {/* Stats strip */}
-      <div className="relative border-t border-gray-200 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 py-6 grid grid-cols-2 sm:grid-cols-4 gap-6">
+      {/* Modern minimal stats */}
+      <div className="relative mt-8 max-w-5xl mx-auto px-6 z-10 fade-up" style={{animationDelay: "0.4s"}}>
+        <div className="bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.03)] rounded-3xl p-8 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-primary-100/50">
           {[
             { value: "50+", label: "Publications" },
             { value: "12", label: "Researchers" },
             { value: "8", label: "Active Projects" },
-            { value: "15+", label: "Global Partners" },
+            { value: "15+", label: "Partners" },
           ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div className="text-2xl font-semibold text-gray-900">{stat.value}</div>
-              <div className="mt-1 text-xs text-gray-500 uppercase tracking-wider">{stat.label}</div>
+            <div key={stat.label} className="text-center group pl-8 first:pl-0 border-transparent">
+              <div className="text-4xl font-extrabold text-primary-900 mb-1 group-hover:text-secondary-500 transition-colors">{stat.value}</div>
+              <div className="text-sm font-medium text-slate-500">{stat.label}</div>
             </div>
           ))}
         </div>

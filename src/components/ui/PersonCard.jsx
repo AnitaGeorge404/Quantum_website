@@ -2,11 +2,20 @@ import Card from "./Card";
 
 export default function PersonCard({ name, role, focus, image }) {
   return (
-    <Card className="p-6">
-      <img src={image} alt={name} className="w-full h-52 object-cover rounded-lg" />
-      <h3 className="mt-5 text-xl font-semibold text-gray-900">{name}</h3>
-      <p className="mt-1 text-sm font-medium text-blue-900">{role}</p>
-      <p className="mt-3 text-gray-600 text-sm leading-relaxed">{focus}</p>
+    <Card className="h-full p-6 md:p-7">
+      <div className="relative overflow-hidden rounded-xl">
+        <img
+          src={image}
+          alt={name}
+          className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/28 to-transparent" />
+      </div>
+      <h3 className="mt-5 text-xl font-semibold text-slate-900">{name}</h3>
+      <p className="mt-2 inline-flex rounded-full border border-blue-700 bg-blue-600 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+        {role}
+      </p>
+      <p className="mt-4 text-sm leading-relaxed text-slate-600">{focus}</p>
     </Card>
   );
 }

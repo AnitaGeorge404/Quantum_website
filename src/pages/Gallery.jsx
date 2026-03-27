@@ -65,10 +65,10 @@ export default function Gallery() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper className="bg-gray-50 border-y border-gray-200">
-        <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-10 text-center">
-          <h2 className="text-3xl font-semibold text-gray-900">Participate in upcoming institute events</h2>
-          <p className="mt-4 text-lg text-gray-600">Join technical workshops, symposia, and annual research showcases.</p>
+      <SectionWrapper className="soft-section border-y border-sky-100/80">
+        <div className="glass-surface rounded-3xl p-10 text-center">
+          <h2 className="text-3xl font-semibold text-slate-900">Participate in upcoming institute events</h2>
+          <p className="mt-4 text-lg text-slate-600">Join technical workshops, symposia, and annual research showcases.</p>
           <div className="mt-8">
             <Button to="/join" variant="secondary">Contact Event Team</Button>
           </div>

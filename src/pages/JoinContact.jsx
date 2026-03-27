@@ -65,7 +65,7 @@ export default function JoinContact() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper className="bg-gray-50 border-y border-gray-200">
+      <SectionWrapper className="soft-section border-y border-sky-100/80">
         <SectionHeader
           eyebrow="Contact Information"
           title="Connect with the institute"
@@ -81,18 +81,18 @@ export default function JoinContact() {
           ))}
         </div>
 
-        <form className="max-w-3xl rounded-xl border border-gray-200 bg-white shadow-sm p-8 space-y-6">
+        <form className="glass-surface max-w-3xl rounded-3xl p-8 space-y-6">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
-            <input id="name" type="text" className="w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900" placeholder="Your name" />
+            <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-700">Full Name</label>
+            <input id="name" type="text" className="w-full rounded-xl border border-sky-100 bg-white/80 px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-pink-300" placeholder="Your name" />
           </div>
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">Email</label>
-            <input id="email" type="email" className="w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900" placeholder="your.email@domain.com" />
+            <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-700">Email</label>
+            <input id="email" type="email" className="w-full rounded-xl border border-sky-100 bg-white/80 px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-pink-300" placeholder="your.email@domain.com" />
           </div>
           <div>
-            <label htmlFor="interest" className="block text-sm font-medium text-gray-700 mb-2">Interest Area</label>
-            <select id="interest" className="w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900">
+            <label htmlFor="interest" className="mb-2 block text-sm font-medium text-slate-700">Interest Area</label>
+            <select id="interest" className="w-full rounded-xl border border-sky-100 bg-white/80 px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-pink-300">
               <option>PhD Admissions</option>
               <option>Internship</option>
               <option>Research Collaboration</option>
@@ -100,8 +100,8 @@ export default function JoinContact() {
             </select>
           </div>
           <div>
-            <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-            <textarea id="message" rows="5" className="w-full rounded-md border border-gray-300 px-4 py-3 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-900/20 focus:border-blue-900" placeholder="Write your message" />
+            <label htmlFor="message" className="mb-2 block text-sm font-medium text-slate-700">Message</label>
+            <textarea id="message" rows="5" className="w-full rounded-xl border border-sky-100 bg-white/80 px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-pink-300" placeholder="Write your message" />
           </div>
           <Button type="submit">Send Inquiry</Button>
         </form>

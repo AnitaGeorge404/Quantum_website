@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 
 const baseClass =
-  "inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-medium transition-all duration-300";
+  "inline-flex items-center justify-center rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary-500 focus-visible:ring-offset-2";
 
 const variants = {
-  primary: "bg-blue-900 text-white hover:bg-blue-800",
-  secondary: "border border-blue-900 text-blue-900 hover:bg-blue-50",
-  ghost: "text-blue-900 hover:text-blue-800",
+  primary:
+    "bg-primary-900 text-white shadow-[0_8px_20px_rgb(15,23,42,0.14)] hover:-translate-y-0.5 hover:bg-secondary-500 hover:shadow-[0_10px_25px_rgba(236,72,153,0.3)]",
+  secondary:
+    "bg-white text-primary-900 shadow-[0_4px_14px_rgba(0,0,0,0.05)] border border-primary-100 hover:-translate-y-0.5 hover:border-secondary-200 hover:text-secondary-600 hover:shadow-[0_8px_25px_rgba(236,72,153,0.15)]",
+  ghost: "text-slate-500 hover:bg-slate-50 hover:text-secondary-500 rounded-full px-5 py-2.5",
 };
 
 export default function Button({

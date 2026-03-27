@@ -82,7 +82,7 @@ const alumni = [
 
 function PeopleSection({ eyebrow, title, description, entries, striped = false }) {
   return (
-    <SectionWrapper className={striped ? "bg-gray-50 border-y border-gray-200" : ""}>
+    <SectionWrapper className={striped ? "soft-section border-y border-sky-100/80" : ""}>
       <SectionHeader eyebrow={eyebrow} title={title} description={description} />
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {entries.map((person) => (
@@ -119,7 +119,7 @@ export default function People() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper className="bg-gray-50 border-y border-gray-200">
+      <SectionWrapper className="soft-section border-y border-sky-100/80">
         <SectionHeader
           eyebrow="Leadership"
           title="Faculty leadership spotlight"
@@ -188,14 +188,14 @@ export default function People() {
       />
 
       <SectionWrapper>
-        <div className="rounded-2xl border border-blue-100 bg-blue-50 p-10 md:p-14 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-900 mb-4">
+        <div className="glass-surface rounded-3xl p-10 text-center md:p-14">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-pink-500">
             Join The Community
           </p>
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
+          <h2 className="text-3xl font-semibold text-slate-900 md:text-4xl">
             Build your research career with us
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
             Explore open roles, doctoral admissions, and visiting researcher
             opportunities across our institute.
           </p>

@@ -1,13 +1,15 @@
 import { Link } from "react-router-dom";
+import Container from "./ui/Container";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-6 py-14">
-        <div className="grid md:grid-cols-4 gap-10">
+    <footer className="bg-primary-900 border-t-4 border-secondary-400 text-primary-200 mt-10 py-16 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-primary-800 rounded-full blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+      <Container>
+        <div className="relative grid gap-12 md:grid-cols-4 px-4 sm:px-6 z-10">
           <div>
-            <h3 className="text-base font-semibold text-gray-900">Quantum Research Lab</h3>
-            <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+            <h3 className="text-lg font-bold text-white mb-4">Quantum Research Lab</h3>
+            <p className="text-sm leading-relaxed text-primary-300">
               Department of Computer Science and Engineering
               <br />
               Global Institute of Technology
@@ -15,38 +17,39 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-base font-semibold text-gray-900">Quick Links</h3>
-            <div className="mt-3 flex flex-col gap-2 text-sm text-gray-600">
-              <Link to="/research" className="hover:text-blue-900">Research</Link>
-              <Link to="/facilities" className="hover:text-blue-900">Facilities</Link>
-              <Link to="/people" className="hover:text-blue-900">People</Link>
-              <Link to="/gallery" className="hover:text-blue-900">Gallery</Link>
+            <h3 className="text-lg font-bold text-white mb-4">Quick Links</h3>
+            <div className="flex flex-col gap-3 text-sm text-primary-300">
+              <Link to="/research" className="transition-colors hover:text-secondary-300">Research Focus</Link>
+              <Link to="/facilities" className="transition-colors hover:text-secondary-300">Lab Facilities</Link>
+              <Link to="/people" className="transition-colors hover:text-secondary-300">Our Team</Link>
+              <Link to="/gallery" className="transition-colors hover:text-secondary-300">Media & Gallery</Link>
             </div>
           </div>
 
           <div>
-            <h3 className="text-base font-semibold text-gray-900">Collaborations</h3>
-            <p className="mt-3 text-sm text-gray-600 leading-relaxed">
+            <h3 className="text-lg font-bold text-white mb-4">Collaborations</h3>
+            <p className="text-sm leading-relaxed text-primary-300">
               University and industry partnerships
               <br />
-              collaborations@institute.edu
+              <a href="mailto:collaborations@institute.edu" className="text-primary-100 hover:text-secondary-300 mt-1 inline-block transition-colors font-medium">collaborations@institute.edu</a>
             </p>
           </div>
 
           <div>
-            <h3 className="text-base font-semibold text-gray-900">Contact</h3>
-            <p className="mt-3 text-sm text-gray-600 leading-relaxed">
-              quantumlab@institute.edu
+            <h3 className="text-lg font-bold text-white mb-4">Contact</h3>
+            <p className="text-sm leading-relaxed text-primary-300">
+              <a href="mailto:quantumlab@institute.edu" className="text-primary-100 hover:text-secondary-300 mb-1 inline-block transition-colors font-medium">quantumlab@institute.edu</a>
               <br />
               +91 98765 43210
             </p>
           </div>
         </div>
-
-        <div className="mt-12 pt-6 border-t border-gray-200 text-sm text-gray-500">
-          © 2026 Quantum Computing Research Laboratory. All rights reserved.
+        
+        <div className="relative mt-16 pt-8 border-t border-primary-800 px-4 sm:px-6 text-sm text-primary-400 flex flex-col md:flex-row justify-between items-center gap-4 z-10">
+            <p>&copy; {new Date().getFullYear()} Quantum Computing Research Laboratory.</p>
+            <p>All Rights Reserved.</p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

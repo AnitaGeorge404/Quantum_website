@@ -113,7 +113,7 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper className="bg-gray-50 border-y border-gray-200">
+      <SectionWrapper className="soft-section border-y border-sky-100/80">
         <SectionHeader
           eyebrow="Research Highlights"
           title="Core scientific focus areas"
@@ -149,7 +149,7 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper className="bg-gray-50 border-y border-gray-200">
+      <SectionWrapper className="soft-section border-y border-sky-100/80">
         <SectionHeader
           eyebrow="Facilities Preview"
           title="Advanced institute infrastructure"
@@ -174,7 +174,7 @@ export default function Home() {
           description="Our faculty, researchers, and scholars collaborate globally to produce high-impact outcomes."
         />
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-8">
+          <div className="glass-surface rounded-2xl p-8">
             <h3 className="text-xl font-semibold text-gray-900">People</h3>
             <p className="mt-3 text-gray-600">
               Explore faculty leadership, research staff, student scholars, and
@@ -184,7 +184,7 @@ export default function Home() {
               Explore People
             </Button>
           </div>
-          <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-8">
+          <div className="glass-surface rounded-2xl p-8">
             <h3 className="text-xl font-semibold text-gray-900">
               Collaborations Preview
             </h3>
@@ -199,19 +199,19 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper className="bg-gray-50 border-y border-gray-200">
-        <div className="rounded-2xl border border-blue-100 bg-blue-50 p-10 md:p-14 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-900 mb-4">
+      <SectionWrapper className="soft-section border-y border-sky-100/80">
+        <div className="glass-surface rounded-3xl p-10 text-center md:p-14">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-pink-500">
             Join The Lab
           </p>
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
+          <h2 className="text-3xl font-semibold text-slate-900 md:text-4xl">
             Build the future of quantum technology with us
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
             We welcome doctoral candidates, interns, and collaborators committed
             to rigorous, high-impact scientific research.
           </p>
-          <div className="mt-8 flex flex-wrap gap-4 justify-center">
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button to="/join">Open Positions</Button>
             <Button to="/research" variant="secondary">
               Explore Research

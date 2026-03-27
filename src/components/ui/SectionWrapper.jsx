@@ -6,7 +6,7 @@ export default function SectionWrapper({
   containerClassName = "",
 }) {
   return (
-    <section className={`py-20 ${className}`}>
+    <section className={`relative py-20 md:py-24 ${className}`}>
       <Container className={containerClassName}>{children}</Container>
     </section>
   );

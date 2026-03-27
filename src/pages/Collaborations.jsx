@@ -64,7 +64,7 @@ export default function Collaborations() {
         <LogoGrid title="Universities" items={partnerUniversities} />
       </SectionWrapper>
 
-      <SectionWrapper className="bg-gray-50 border-y border-gray-200">
+      <SectionWrapper className="soft-section border-y border-sky-100/80">
         <SectionHeader
           eyebrow="Industry Collaborations"
           title="Translational research alliances"
@@ -82,10 +82,10 @@ export default function Collaborations() {
         <LogoGrid title="Funding" items={fundingAgencies} />
       </SectionWrapper>
 
-      <SectionWrapper className="bg-gray-50 border-y border-gray-200">
-        <div className="rounded-xl border border-gray-200 bg-white shadow-sm p-10 text-center">
-          <h2 className="text-3xl font-semibold text-gray-900">Build impact with us</h2>
-          <p className="mt-4 text-lg text-gray-600">We welcome co-funded projects, visiting scholar programs, and long-term institutional partnerships.</p>
+      <SectionWrapper className="soft-section border-y border-sky-100/80">
+        <div className="glass-surface rounded-3xl p-10 text-center">
+          <h2 className="text-3xl font-semibold text-slate-900">Build impact with us</h2>
+          <p className="mt-4 text-lg text-slate-600">We welcome co-funded projects, visiting scholar programs, and long-term institutional partnerships.</p>
           <div className="mt-8">
             <Button to="/join">Initiate Collaboration</Button>
           </div>

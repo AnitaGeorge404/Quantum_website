@@ -62,12 +62,12 @@ export default function Facilities() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper className="bg-gray-50 border-y border-gray-200">
-        <div className="rounded-xl border border-gray-200 bg-white p-10 text-center">
-          <h2 className="text-3xl font-semibold text-gray-900">
+      <SectionWrapper className="soft-section border-y border-sky-100/80">
+        <div className="glass-surface rounded-3xl p-10 text-center">
+          <h2 className="text-3xl font-semibold text-slate-900">
             Need access through collaboration?
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
             We support approved academic and industry collaborations through
             structured facility access programs.
           </p>

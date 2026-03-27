@@ -56,7 +56,7 @@ export default function Research() {
         </motion.div>
       </SectionWrapper>
 
-      <SectionWrapper className="bg-gray-50 border-y border-gray-200">
+      <SectionWrapper className="soft-section border-y border-sky-100/80">
         <SectionHeader
           eyebrow="Research Portfolio"
           title="Programs and publications"
@@ -120,14 +120,14 @@ export default function Research() {
       </SectionWrapper>
 
       <SectionWrapper>
-        <div className="rounded-2xl border border-blue-100 bg-blue-50 p-10 md:p-14 text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-900 mb-4">
+        <div className="glass-surface rounded-3xl p-10 text-center md:p-14">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-pink-500">
             Collaborate
           </p>
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
+          <h2 className="text-3xl font-semibold text-slate-900 md:text-4xl">
             Build the next generation of quantum systems
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
             We welcome cross-disciplinary collaborations from academia, industry,
             and mission-focused research organizations.
           </p>

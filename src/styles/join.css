@@ -46,7 +46,7 @@
     left: 20%;
     right: 20%;
     height: 4px;
-    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+    background-color: #3b82f6;
 }
 
 .opportunity-list, .contact-list {
@@ -120,7 +120,9 @@
 
 /* Specific Tints & Images */
 .opportunity-card[data-category="Research"]::before {
-    background-image: linear-gradient(to bottom, rgba(59, 130, 246, 0.4), rgba(59, 130, 246, 0.1)), url('../logos/quantum_research.png');
+    background-image: url('../logos/quantum_research.png');
+    background-color: rgba(59, 130, 246, 0.24);
+    background-blend-mode: multiply;
 }
 
 .opportunity-card[data-category="Engineering"]::before {
