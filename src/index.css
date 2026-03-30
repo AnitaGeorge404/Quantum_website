@@ -20,6 +20,8 @@ html {
 }
 
 body {
+  margin: 0;
+  padding: 0;
   font-family: "Manrope", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   background:
     radial-gradient(circle at 85% 0%, rgba(30, 58, 138, 0.03), transparent 38%),

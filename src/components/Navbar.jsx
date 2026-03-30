@@ -13,7 +13,7 @@ const links = [
 
 export default function Navbar() {
   return (
-    <header className="sticky top-4 z-50 transition-all px-4 sm:px-6 pointer-events-none">
+    <header className="sticky top-0 z-50 transition-all px-4 sm:px-6 pointer-events-none">
       <Container className="pointer-events-none">
         <div className="mx-auto max-w-5xl">
           <div className="bg-white/80 backdrop-blur-xl border border-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-full px-6 py-3 flex flex-wrap items-center justify-between gap-4 pointer-events-auto transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
