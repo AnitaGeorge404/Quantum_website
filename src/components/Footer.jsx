@@ -8,11 +8,11 @@ export default function Footer() {
       <Container>
         <div className="relative grid gap-12 md:grid-cols-4 px-4 sm:px-6 z-10">
           <div>
-            <h3 className="text-lg font-bold text-white mb-4">Quantum Research Lab</h3>
+            <h3 className="text-lg font-bold text-white mb-4">QuDAIS Research Lab</h3>
             <p className="text-sm leading-relaxed text-primary-300">
-              Department of Computer Science and Engineering
+              Quantum Technology Developments in Artificial Intelligence Systems
               <br />
-              Global Institute of Technology
+              Department of Computer Science and Engineering
             </p>
           </div>
 
@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
         
         <div className="relative mt-16 pt-8 border-t border-primary-800 px-4 sm:px-6 text-sm text-primary-400 flex flex-col md:flex-row justify-between items-center gap-4 z-10">
-            <p>&copy; {new Date().getFullYear()} Quantum Computing Research Laboratory.</p>
+            <p>&copy; {new Date().getFullYear()} QuDAIS Lab.</p>
             <p>All Rights Reserved.</p>
         </div>
       </Container>

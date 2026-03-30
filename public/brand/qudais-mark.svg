@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">QuDAIS Mark</title>
+  <desc id="desc">Atom-inspired line mark for QuDAIS Lab</desc>
+  <defs>
+    <linearGradient id="orbit" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2b71d8"/>
+      <stop offset="55%" stop-color="#8b5fd7"/>
+      <stop offset="100%" stop-color="#ee9cc8"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="52" fill="#edf6ff"/>
+  <circle cx="128" cy="128" r="15" fill="#5f1f74"/>
+  <ellipse cx="128" cy="128" rx="88" ry="34" fill="none" stroke="url(#orbit)" stroke-width="8"/>
+  <ellipse cx="128" cy="128" rx="88" ry="34" fill="none" stroke="url(#orbit)" stroke-width="8" transform="rotate(60 128 128)"/>
+  <ellipse cx="128" cy="128" rx="88" ry="34" fill="none" stroke="url(#orbit)" stroke-width="8" transform="rotate(-60 128 128)"/>
+  <circle cx="206" cy="118" r="8" fill="#5f1f74"/>
+  <circle cx="80" cy="68" r="8" fill="#2b71d8"/>
+  <circle cx="62" cy="154" r="8" fill="#ee9cc8"/>
+</svg>

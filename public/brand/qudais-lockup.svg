@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 520" role="img" aria-labelledby="title desc">
+  <title id="title">QuDAIS Lab Full Lockup</title>
+  <desc id="desc">QuDAIS Lab logo and full expansion text</desc>
+  <defs>
+    <linearGradient id="orbitLine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2b71d8"/>
+      <stop offset="50%" stop-color="#7c4ed5"/>
+      <stop offset="100%" stop-color="#ea8fbe"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1240" height="520" fill="#f7fbff"/>
+
+  <g transform="translate(60,40)">
+    <rect x="0" y="0" width="220" height="220" rx="44" fill="#edf6ff"/>
+    <circle cx="110" cy="110" r="12" fill="#5f1f74"/>
+    <ellipse cx="110" cy="110" rx="78" ry="30" fill="none" stroke="url(#orbitLine)" stroke-width="7"/>
+    <ellipse cx="110" cy="110" rx="78" ry="30" fill="none" stroke="url(#orbitLine)" stroke-width="7" transform="rotate(60 110 110)"/>
+    <ellipse cx="110" cy="110" rx="78" ry="30" fill="none" stroke="url(#orbitLine)" stroke-width="7" transform="rotate(-60 110 110)"/>
+    <circle cx="177" cy="103" r="7" fill="#5f1f74"/>
+    <circle cx="68" cy="63" r="7" fill="#2b71d8"/>
+    <circle cx="52" cy="135" r="7" fill="#ea8fbe"/>
+  </g>
+
+  <line x1="330" y1="64" x2="330" y2="275" stroke="#0f172a" stroke-width="6"/>
+
+  <text x="380" y="145" font-family="Georgia, 'Times New Roman', serif" font-size="98" font-weight="600" fill="#5f1f74">QuDAIS LAB</text>
+
+  <text x="60" y="360" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" fill="#111827">
+    Quantum Technology
+    <tspan fill="#5f1f74"> Developments </tspan>
+    in
+  </text>
+
+  <text x="60" y="436" font-family="Georgia, 'Times New Roman', serif" font-size="58" font-weight="700" fill="#5f1f74">
+    Artificial Intelligence Systems
+    <tspan fill="#111827"> Research Lab</tspan>
+  </text>
+</svg>

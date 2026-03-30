@@ -5,14 +5,14 @@
 @tailwind utilities;
 
 :root {
-  --page-bg: #f7f8fb;
+  --page-bg: #f3f9ff;
   --surface: rgba(255, 255, 255, 0.92);
   --surface-strong: #ffffff;
-  --line: #e6eaf0;
+  --line: #dce9f8;
   --text-main: #0f172a;
-  --text-muted: #475569;
-  --brand-blue: #1e3a8a;
-  --brand-pink: #f5cddb;
+  --text-muted: #42526d;
+  --brand-blue: #3f73c9;
+  --brand-pink: #f6c9df;
 }
 
 html {
@@ -24,8 +24,9 @@ body {
   padding: 0;
   font-family: "Manrope", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
   background:
-    radial-gradient(circle at 85% 0%, rgba(30, 58, 138, 0.03), transparent 38%),
-    linear-gradient(180deg, #fbfcfe 0%, var(--page-bg) 24%, var(--page-bg) 100%);
+    radial-gradient(circle at 82% 0%, rgba(63, 115, 201, 0.16), transparent 36%),
+    radial-gradient(circle at 18% 18%, rgba(246, 201, 223, 0.18), transparent 34%),
+    linear-gradient(180deg, #fcfeff 0%, var(--page-bg) 28%, #f8fcff 100%);
   color: var(--text-muted);
   min-height: 100vh;
   line-height: 1.65;
@@ -43,13 +44,13 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 ::selection {
-  background: rgba(30, 58, 138, 0.14);
+  background: rgba(111, 78, 168, 0.18);
   color: #0f172a;
 }
 
 .soft-section {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.88));
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(246, 250, 255, 0.9));
 }
 
 .glass-surface {

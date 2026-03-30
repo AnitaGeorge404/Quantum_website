@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="QuDAIS favicon">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2b71d8"/>
+      <stop offset="50%" stop-color="#7c4ed5"/>
+      <stop offset="100%" stop-color="#ea8fbe"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="24" fill="#edf6ff"/>
+  <circle cx="64" cy="64" r="8" fill="#5f1f74"/>
+  <ellipse cx="64" cy="64" rx="42" ry="16" fill="none" stroke="url(#g)" stroke-width="5"/>
+  <ellipse cx="64" cy="64" rx="42" ry="16" fill="none" stroke="url(#g)" stroke-width="5" transform="rotate(60 64 64)"/>
+  <ellipse cx="64" cy="64" rx="42" ry="16" fill="none" stroke="url(#g)" stroke-width="5" transform="rotate(-60 64 64)"/>
+</svg>

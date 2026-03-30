@@ -5,6 +5,7 @@ import ResearchCard from "../components/ui/ResearchCard";
 import NewsCard from "../components/ui/NewsCard";
 import GalleryCard from "../components/ui/GalleryCard";
 import Button from "../components/ui/Button";
+import AboutLabBrandSection from "../components/home/AboutLabBrandSection";
 
 const labOverview = [
   {
@@ -90,10 +91,12 @@ export default function Home() {
   return (
     <>
       <PageHero
-        title="Quantum Computing Research Laboratory"
+        title="QuDAIS Lab"
         description="A world-class academic institute advancing foundational and applied quantum science through rigorous research, global collaborations, and high-impact scholarship."
         accent="Institute Overview"
       />
+
+      <AboutLabBrandSection />
 
       <SectionWrapper>
         <SectionHeader
