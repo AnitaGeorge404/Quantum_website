@@ -19,13 +19,10 @@ export default function Navbar() {
           <div className="bg-white/80 backdrop-blur-xl border border-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-full px-6 py-3 flex flex-wrap items-center justify-between gap-4 pointer-events-auto transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
             <Link to="/" className="inline-flex items-center gap-3 group">
               <img
-                src="/brand/qudais-mark.svg"
+                src="/brand/qudais-lockup.svg"
                 alt="QuDAIS Lab"
-                className="h-10 w-10 rounded-xl border border-primary-100/70 bg-white/90 p-1.5 shadow-sm"
+                className="h-11 w-auto max-w-[210px] rounded-xl border border-primary-100/70 bg-white/90 p-1.5 shadow-sm"
               />
-              <span className="text-sm font-bold tracking-tight text-primary-900 group-hover:text-secondary-600 transition-colors duration-300">
-                QuDAIS Lab
-              </span>
             </Link>
 
             <nav className="hidden md:flex items-center gap-1">

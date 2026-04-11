@@ -14,12 +14,12 @@ export default function HeroSection() {
           <div className="fade-up mb-8">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-primary-100 shadow-sm text-xs font-semibold tracking-widest text-slate-500 uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-secondary-400"></span>
-              Department of Computer Science
+              IIIT Kottayam
             </span>
           </div>
 
           <h1 className="text-6xl md:text-8xl font-extrabold text-primary-900 leading-[1.05] tracking-tight mb-8 fade-up" style={{animationDelay: "0.1s"}}>
-            Quantum Computing <br className="hidden md:block" />
+            QuDAIS <br className="hidden md:block" />
             <span className="relative inline-block mt-2">
               <span className="relative z-10 bg-gradient-to-r from-primary-900 to-primary-700 bg-clip-text text-transparent">Research Lab</span>
               {/* Subtle pink swoosh underline */}
@@ -28,7 +28,7 @@ export default function HeroSection() {
           </h1>
 
           <p className="mt-4 text-xl md:text-2xl text-slate-500 leading-relaxed max-w-3xl font-normal fade-up" style={{animationDelay: "0.2s"}}>
-            Bridging fundamental quantum mechanics with advanced computer science to accelerate the future of computation.
+            Quantum Technology Developments in Artificial Intelligence Systems for interdisciplinary innovation in AI, FinTech, communication, and sensing.
           </p>
 
           <div className="mt-12 flex flex-wrap justify-center gap-4 fade-up" style={{animationDelay: "0.3s"}}>
@@ -52,10 +52,10 @@ export default function HeroSection() {
       <div className="relative mt-8 max-w-5xl mx-auto px-6 z-10 fade-up" style={{animationDelay: "0.4s"}}>
         <div className="bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_8px_30px_rgb(0,0,0,0.03)] rounded-3xl p-8 grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-primary-100/50">
           {[
-            { value: "50+", label: "Publications" },
-            { value: "12", label: "Researchers" },
-            { value: "8", label: "Active Projects" },
-            { value: "15+", label: "Partners" },
+            { value: "15", label: "Faculty Members" },
+            { value: "4", label: "Core Domains" },
+            { value: "20+", label: "Focus Areas" },
+            { value: "Ongoing", label: "Workshops" },
           ].map((stat) => (
             <div key={stat.label} className="text-center group pl-8 first:pl-0 border-transparent">
               <div className="text-4xl font-extrabold text-primary-900 mb-1 group-hover:text-secondary-500 transition-colors">{stat.value}</div>

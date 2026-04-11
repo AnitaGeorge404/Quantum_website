@@ -23,11 +23,10 @@
                 <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-1.1.9-2 2-2V8zm14 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-1.1.9-2 2-2V8z" />
               </svg>
               <p className="relative text-xl md:text-2xl text-gray-800 leading-relaxed font-light italic pl-6">
-                &ldquo;Quantum computing is not just about faster computation
-                — it fundamentally changes what questions we can ask about nature.
-                Our lab is driven by the belief that understanding quantum
-                information will reshape science and technology in ways we are
-                only beginning to imagine.&rdquo;
+                &ldquo;QuDAIS is committed to building practical and responsible
+                quantum technologies by combining foundational science,
+                interdisciplinary engineering, and community-oriented
+                knowledge sharing.&rdquo;
               </p>
             </blockquote>
           </div>
@@ -41,13 +40,13 @@
               </svg>
             </div>
             <div className="text-center sm:text-left">
-              <h3 className="text-lg font-semibold text-gray-900">Dr. Sarah Chen</h3>
-              <p className="text-sm text-blue-700 font-medium mt-1">Principal Investigator</p>
+              <h3 className="text-lg font-semibold text-gray-900">Dr. Asha Sebastian</h3>
+              <p className="text-sm text-blue-700 font-medium mt-1">Faculty Member, QuDAIS Lab</p>
               <p className="text-sm text-gray-500 mt-3 leading-relaxed">
-                Dr. Chen leads the lab's research on fault-tolerant quantum
-                computation and quantum complexity theory. Her work has been
-                recognised with the Young Scientist Award and published in
-                leading journals worldwide.
+                Dr. Asha Sebastian contributes to research in quantum
+                computing, mathematics for quantum computing, and post-quantum
+                cryptography, while supporting training and outreach activities
+                through QuDAIS programs.
               </p>
             </div>
           </div>

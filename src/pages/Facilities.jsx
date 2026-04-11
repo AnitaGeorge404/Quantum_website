@@ -9,29 +9,25 @@ const facilityCards = [
     title: "Quantum Hardware Laboratory",
     subtitle:
       "Cryogenic and electronic control systems for superconducting qubit experiments.",
-    image:
-      "https://images.unsplash.com/photo-1581092921461-eab10380cb48?auto=format&fit=crop&w=1200&q=80",
+    image: "/photos/riyasudheen.jpg",
   },
   {
     title: "Photonics and Optics Suite",
     subtitle:
       "Integrated setup for photonic quantum information processing and precision measurement.",
-    image:
-      "https://images.unsplash.com/photo-1582719478185-0c4f6dd2f3e1?auto=format&fit=crop&w=1200&q=80",
+    image: "/photos/2.%20Della%20Photo%2054%20kb_11zon%20-%20Dr.%20Della%20Thomas%20-IIITK.jpg",
   },
   {
     title: "Simulation Infrastructure",
     subtitle:
       "Large-scale simulation resources for algorithm validation and circuit performance studies.",
-    image:
-      "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80",
+    image: "/photos/IITM%20-%20Mirothali%20Chand.jpeg",
   },
   {
     title: "Computing Clusters",
     subtitle:
       "High-performance compute nodes supporting reproducible scientific workloads.",
-    image:
-      "https://images.unsplash.com/photo-1597852074816-d933c7d2b988?auto=format&fit=crop&w=1200&q=80",
+    image: "/photos/xtina-pic%20-%20Dr.%20Christina%20-IIITK.jpg",
   },
 ];
 
@@ -42,6 +38,8 @@ export default function Facilities() {
         title="Facilities"
         description="Our institute combines specialized laboratory environments and computational infrastructure to support world-class quantum research."
         accent="Institute Infrastructure"
+        ctaText="Request Access"
+        ctaTo="/collaborations"
       />
 
       <SectionWrapper>

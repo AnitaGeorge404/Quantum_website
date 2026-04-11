@@ -5,30 +5,30 @@ import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
 
 const partnerUniversities = [
-  "Massachusetts Institute of Technology",
-  "University of Oxford",
-  "ETH Zurich",
-  "Indian Institute of Science",
-  "Stanford University",
-  "National University of Singapore",
+  "IIIT Kottayam Academic Departments",
+  "Indian Institute of Science (IISc)",
+  "IIT Madras",
+  "IIT Bombay",
+  "IISER Research Community",
+  "National Academic Research Networks",
 ];
 
 const industryPartners = [
-  "IBM Research",
-  "Google Quantum AI",
-  "Microsoft Quantum",
-  "NVIDIA Research",
-  "Intel Labs",
-  "Tata Research Development",
+  "Applied AI and FinTech Organizations",
+  "Quantum-Safe Cybersecurity Partners",
+  "Cloud and Edge Infrastructure Providers",
+  "Advanced Computing and Semiconductor Partners",
+  "Healthcare Technology Collaborators",
+  "Sensing and Instrumentation Stakeholders",
 ];
 
 const fundingAgencies = [
-  "National Science Foundation",
-  "Department of Science and Technology",
-  "European Research Council",
-  "Quantum Technology Mission",
-  "Industry Innovation Consortia",
-  "International Research Funds",
+  "Department of Science and Technology (DST)",
+  "Ministry of Electronics and Information Technology (MeitY)",
+  "Anusandhan National Research Foundation (ANRF)",
+  "National Quantum Mission",
+  "Industry Co-funded Research Consortia",
+  "Interdisciplinary Innovation Grants",
 ];
 
 function LogoGrid({ title, items }) {
@@ -51,15 +51,17 @@ export default function Collaborations() {
     <>
       <PageHero
         title="Collaborations"
-        description="Our institute works with leading universities, industry laboratories, and funding organizations to accelerate quantum innovation."
-        accent="Global Partnerships"
+        description="QuDAIS engages with academic, industry, and funding partners to accelerate impactful quantum technology development."
+        accent="Partnership Ecosystem"
+        ctaText="Contact QuDAIS"
+        ctaTo="/join"
       />
 
       <SectionWrapper>
         <SectionHeader
           eyebrow="Partner Universities"
           title="Academic collaboration network"
-          description="Joint research programs, scholar exchanges, and co-authored publications across global institutions."
+          description="Joint research programs, knowledge exchange, and interdisciplinary publication efforts."
         />
         <LogoGrid title="Universities" items={partnerUniversities} />
       </SectionWrapper>
@@ -68,7 +70,7 @@ export default function Collaborations() {
         <SectionHeader
           eyebrow="Industry Collaborations"
           title="Translational research alliances"
-          description="Co-development with industry partners to bridge fundamental science and deployable systems."
+          description="Co-development initiatives to bridge laboratory research with deployable technologies."
         />
         <LogoGrid title="Industry" items={industryPartners} />
       </SectionWrapper>
@@ -76,7 +78,7 @@ export default function Collaborations() {
       <SectionWrapper>
         <SectionHeader
           eyebrow="Funding Agencies"
-          title="Strategic supported programs"
+          title="Strategically supported programs"
           description="National and international grants sustaining long-horizon scientific excellence."
         />
         <LogoGrid title="Funding" items={fundingAgencies} />
@@ -85,7 +87,7 @@ export default function Collaborations() {
       <SectionWrapper className="soft-section border-y border-sky-100/80">
         <div className="glass-surface rounded-3xl p-10 text-center">
           <h2 className="text-3xl font-semibold text-slate-900">Build impact with us</h2>
-          <p className="mt-4 text-lg text-slate-600">We welcome co-funded projects, visiting scholar programs, and long-term institutional partnerships.</p>
+          <p className="mt-4 text-lg text-slate-600">We welcome co-funded projects, shared infrastructure initiatives, and long-term institutional partnerships.</p>
           <div className="mt-8">
             <Button to="/join">Initiate Collaboration</Button>
           </div>

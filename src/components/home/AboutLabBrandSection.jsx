@@ -2,10 +2,10 @@ import SectionWrapper from "../ui/SectionWrapper";
 import SectionHeader from "../ui/SectionHeader";
 
 const pillars = [
-  "Quantum algorithms and complexity",
-  "Artificial intelligence systems for quantum workflows",
-  "Hardware-software co-design and optimization",
-  "Collaborative technology translation",
+  "Foster research and innovation among BTech, MTech, iMTech, and PhD students.",
+  "Conduct outreach to build awareness on quantum technologies and their societal applications.",
+  "Undertake socially relevant projects that produce quality publications and deliverables.",
+  "Offer courses, workshops, and training programs to demystify quantum computing.",
 ];
 
 export default function AboutLabBrandSection() {
@@ -14,7 +14,7 @@ export default function AboutLabBrandSection() {
       <SectionHeader
         eyebrow="About The Lab"
         title="QuDAIS Lab: where quantum technology meets intelligent systems"
-        description="QuDAIS stands for Quantum Technology Developments in Artificial Intelligence Systems Research Lab. We build practical pathways from foundational science to deployable impact."
+        description="QuDAIS stands for Quantum Technology Developments in Artificial Intelligence Systems Research Lab at the Indian Institute of Information Technology Kottayam."
       />
 
       <div className="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
@@ -23,15 +23,22 @@ export default function AboutLabBrandSection() {
             Identity and Mission
           </h3>
           <p className="mt-4 text-base leading-relaxed text-primary-700">
-            We advance cutting-edge research at the intersection of quantum
-            computing and artificial intelligence systems. Our team blends
-            theoretical depth, engineering discipline, and interdisciplinary
-            collaboration to create scalable quantum solutions.
+            QuDAIS Lab focuses on spearheading developments in quantum
+            computing and associated technologies that aid interdisciplinary
+            research. The major concentration areas include Artificial
+            Intelligence, FinTech, Communication, and Sensing.
           </p>
           <p className="mt-4 text-base leading-relaxed text-primary-700">
-            Through publications, open innovation, and strategic partnerships,
-            QuDAIS Lab contributes to the next generation of scientific and
-            industrial quantum capabilities.
+            Our vision is to create a hub for innovation in quantum computing
+            and related technologies, while educating and training
+            professionals to upskill the wider community in this emerging
+            field.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-primary-700">
+            Our mission is to pioneer research at the confluence of quantum
+            computing with AI, FinTech, Communication, and Sensing, and to
+            explore practical solutions through strong academic and industry
+            collaboration.
           </p>
         </article>
 

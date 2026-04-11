@@ -6,37 +6,37 @@ import Button from "../components/ui/Button";
 
 const opportunities = [
   {
-    title: "Doctoral Positions",
+    title: "Student Research Participation",
     detail:
-      "Funded PhD opportunities in quantum algorithms, error correction, and quantum systems engineering.",
+      "Research pathways for BTech, MTech, iMTech, and PhD students in quantum computing and related technologies.",
   },
   {
-    title: "Research Internships",
+    title: "Workshops and Training Programs",
     detail:
-      "Semester and summer internship tracks for graduate and advanced undergraduate students.",
+      "Structured courses and workshops to demystify quantum computing, AI integration, and applied domains.",
   },
   {
-    title: "Research Associate Roles",
+    title: "Socially Relevant Project Initiatives",
     detail:
-      "Early-career roles for researchers contributing across theory, hardware, and software programs.",
+      "Collaborative projects focused on high-quality publications, technology deliverables, and societal impact.",
   },
 ];
 
 const contacts = [
   {
     label: "General Enquiries",
-    email: "quantumlab@institute.edu",
-    phone: "+91 98765 43210",
+    email: "asha@iiitkottayam.ac.in",
+    phone: "+91 94953 93573",
   },
   {
     label: "Research Collaborations",
-    email: "collaborations@institute.edu",
-    phone: "+91 98765 43211",
+    email: "johnpaul@iiitkottayam.ac.in",
+    phone: "+91 0482 2202202",
   },
   {
     label: "Admissions & Opportunities",
-    email: "join@institute.edu",
-    phone: "+91 98765 43212",
+    email: "riyasudheen@iiitkottayam.ac.in",
+    phone: "+91 0482 2202256",
   },
 ];
 
@@ -45,15 +45,17 @@ export default function JoinContact() {
     <>
       <PageHero
         title="Join / Contact"
-        description="Explore open opportunities and connect with our team for admissions, collaborations, or general institute enquiries."
-        accent="Opportunities"
+        description="Connect with QuDAIS for student participation, collaborative research, workshops, and interdisciplinary initiatives."
+        accent="Opportunities and Outreach"
+        ctaText="See Opportunities"
+        ctaTo="/join"
       />
 
       <SectionWrapper>
         <SectionHeader
           eyebrow="Open Positions"
           title="Current opportunities"
-          description="We seek motivated researchers and scholars committed to rigorous quantum science."
+          description="QuDAIS welcomes motivated students and collaborators committed to rigorous and meaningful research."
         />
         <div className="grid md:grid-cols-3 gap-8">
           {opportunities.map((item) => (
@@ -68,8 +70,8 @@ export default function JoinContact() {
       <SectionWrapper className="soft-section border-y border-sky-100/80">
         <SectionHeader
           eyebrow="Contact Information"
-          title="Connect with the institute"
-          description="Direct channels for enquiries related to programs, partnerships, and communication."
+          title="Connect with QuDAIS"
+          description="Direct channels for programs, partnerships, and research communication."
         />
         <div className="grid md:grid-cols-3 gap-8 mb-10">
           {contacts.map((item) => (
@@ -84,24 +86,26 @@ export default function JoinContact() {
         <form className="glass-surface max-w-3xl rounded-3xl p-8 space-y-6">
           <div>
             <label htmlFor="name" className="mb-2 block text-sm font-medium text-slate-700">Full Name</label>
-            <input id="name" type="text" className="w-full rounded-xl border border-sky-100 bg-white/80 px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-pink-300" placeholder="Your name" />
+            <input id="name" type="text" className="w-full rounded-xl border border-sky-100 bg-white/80 px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-pink-300" placeholder="e.g., Ananya Nair" />
           </div>
           <div>
             <label htmlFor="email" className="mb-2 block text-sm font-medium text-slate-700">Email</label>
-            <input id="email" type="email" className="w-full rounded-xl border border-sky-100 bg-white/80 px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-pink-300" placeholder="your.email@domain.com" />
+            <input id="email" type="email" className="w-full rounded-xl border border-sky-100 bg-white/80 px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-pink-300" placeholder="e.g., learner@example.com" />
           </div>
           <div>
             <label htmlFor="interest" className="mb-2 block text-sm font-medium text-slate-700">Interest Area</label>
             <select id="interest" className="w-full rounded-xl border border-sky-100 bg-white/80 px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-pink-300">
               <option>PhD Admissions</option>
-              <option>Internship</option>
+              <option>BTech / MTech Project Participation</option>
+              <option>Workshop or Training Program</option>
               <option>Research Collaboration</option>
+              <option>Outreach Activity</option>
               <option>General Inquiry</option>
             </select>
           </div>
           <div>
             <label htmlFor="message" className="mb-2 block text-sm font-medium text-slate-700">Message</label>
-            <textarea id="message" rows="5" className="w-full rounded-xl border border-sky-100 bg-white/80 px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-pink-300" placeholder="Write your message" />
+            <textarea id="message" rows="5" className="w-full rounded-xl border border-sky-100 bg-white/80 px-4 py-3 text-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-200 focus:border-pink-300" placeholder="Share your research interest, background, and how you would like to engage with QuDAIS." />
           </div>
           <Button type="submit">Send Inquiry</Button>
         </form>

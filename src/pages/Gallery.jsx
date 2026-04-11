@@ -8,38 +8,32 @@ const galleryItems = [
   {
     title: "Quantum Workshop Series",
     subtitle: "Hands-on sessions on algorithms, systems, and reproducibility.",
-    image:
-      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
+    image: "/photos/asha.jpeg",
   },
   {
     title: "Lab Research Activity",
     subtitle: "Cross-functional teams working across theory and hardware tracks.",
-    image:
-      "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=80",
+    image: "/photos/Santhos.JPG",
   },
   {
     title: "Industry-Academia Symposium",
     subtitle: "Collaborative dialogue with technology and policy stakeholders.",
-    image:
-      "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=1200&q=80",
+    image: "/photos/jp-photo%20-%20Dr.John%20Paul%20-IIITK.jpeg",
   },
   {
     title: "Graduate Research Showcase",
     subtitle: "Student-led presentations of emerging quantum research themes.",
-    image:
-      "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80",
+    image: "/photos/Prajeesh%20-%20Bhadra%20A%20V.png",
   },
   {
     title: "Visiting Scholars Program",
     subtitle: "International research exchange and seminar participation.",
-    image:
-      "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80",
+    image: "/photos/IITM%20-%20Mirothali%20Chand.jpeg",
   },
   {
     title: "Annual Quantum Colloquium",
     subtitle: "Institute-wide event featuring keynote researchers and panels.",
-    image:
-      "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1200&q=80",
+    image: "/photos/xtina-pic%20-%20Dr.%20Christina%20-IIITK.jpg",
   },
 ];
 
@@ -50,6 +44,8 @@ export default function Gallery() {
         title="Gallery"
         description="A visual archive of institute events, research activity, workshops, and collaborative initiatives."
         accent="Institute Highlights"
+        ctaText="Join Upcoming Events"
+        ctaTo="/join"
       />
 
       <SectionWrapper>

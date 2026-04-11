@@ -8,11 +8,15 @@ export default function Footer() {
       <Container>
         <div className="relative grid gap-12 md:grid-cols-4 px-4 sm:px-6 z-10">
           <div>
-            <h3 className="text-lg font-bold text-white mb-4">QuDAIS Research Lab</h3>
+            <img
+              src="/brand/qudais-lockup.svg"
+              alt="QuDAIS Lab"
+              className="mb-4 h-auto w-full max-w-[230px] rounded-xl border border-primary-700/60 bg-white p-2"
+            />
             <p className="text-sm leading-relaxed text-primary-300">
               Quantum Technology Developments in Artificial Intelligence Systems
               <br />
-              Department of Computer Science and Engineering
+              Indian Institute of Information Technology Kottayam
             </p>
           </div>
 
@@ -31,16 +35,16 @@ export default function Footer() {
             <p className="text-sm leading-relaxed text-primary-300">
               University and industry partnerships
               <br />
-              <a href="mailto:collaborations@institute.edu" className="text-primary-100 hover:text-secondary-300 mt-1 inline-block transition-colors font-medium">collaborations@institute.edu</a>
+              <a href="mailto:johnpaul@iiitkottayam.ac.in" className="text-primary-100 hover:text-secondary-300 mt-1 inline-block transition-colors font-medium">johnpaul@iiitkottayam.ac.in</a>
             </p>
           </div>
 
           <div>
             <h3 className="text-lg font-bold text-white mb-4">Contact</h3>
             <p className="text-sm leading-relaxed text-primary-300">
-              <a href="mailto:quantumlab@institute.edu" className="text-primary-100 hover:text-secondary-300 mb-1 inline-block transition-colors font-medium">quantumlab@institute.edu</a>
+              <a href="mailto:asha@iiitkottayam.ac.in" className="text-primary-100 hover:text-secondary-300 mb-1 inline-block transition-colors font-medium">asha@iiitkottayam.ac.in</a>
               <br />
-              +91 98765 43210
+              +91 0482 2202202
             </p>
           </div>
         </div>

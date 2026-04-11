@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Container from "./Container";
+import Button from "./Button";
 
 export default function PageHero({
   title,
@@ -8,6 +9,9 @@ export default function PageHero({
   image,
   brandLogo,
   brandName,
+  ctaText,
+  ctaTo,
+  ctaVariant = "secondary",
 }) {
   return (
     <section className="relative overflow-hidden bg-primary-900 border-b border-primary-800">
@@ -52,6 +56,14 @@ export default function PageHero({
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-primary-200">
             {description}
           </p>
+
+          {ctaText && ctaTo ? (
+            <div className="mt-8">
+              <Button to={ctaTo} variant={ctaVariant}>
+                {ctaText}
+              </Button>
+            </div>
+          ) : null}
         </motion.div>
       </Container>
     </section>

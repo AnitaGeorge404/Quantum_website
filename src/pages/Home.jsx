@@ -9,64 +9,64 @@ import AboutLabBrandSection from "../components/home/AboutLabBrandSection";
 
 const labOverview = [
   {
-    title: "Foundational Science",
+    title: "About QuDAIS Lab",
     summary:
-      "We investigate quantum information, complexity, and computation to establish durable scientific foundations.",
+      "QuDAIS Lab at IIIT Kottayam advances Quantum Technology Developments in Artificial Intelligence Systems through interdisciplinary research and innovation.",
     tag: "Lab Overview",
   },
   {
-    title: "Systems Engineering",
+    title: "Vision",
     summary:
-      "Our researchers co-design hardware and software layers for scalable, high-fidelity quantum workflows.",
+      "To build a hub for quantum computing and associated technologies that drives innovation across AI, FinTech, Communication, and Sensing while upskilling the community.",
     tag: "Lab Overview",
   },
   {
-    title: "Global Impact",
+    title: "Mission",
     summary:
-      "The institute advances research translation through strategic partnerships, publications, and talent development.",
+      "To pioneer research at the confluence of quantum computing with AI, FinTech, Communication, and Sensing through collaborative, application-oriented programs.",
     tag: "Lab Overview",
   },
 ];
 
 const researchHighlights = [
   {
-    title: "Quantum Algorithms",
+    title: "Quantum AI and Machine Learning",
     summary:
-      "Near-term and fault-tolerant algorithm design for optimization, simulation, and scientific discovery.",
+      "Hybrid deep learning with quantum layers, quantum transformers, quantum NLP, and edge-ready quantum AI systems.",
     tag: "Research Highlights",
   },
   {
-    title: "Quantum Hardware",
+    title: "Quantum FinTech and Security",
     summary:
-      "Experimental platforms in superconducting and photonic systems with advanced control pipelines.",
+      "Quantum financial systems, quantum cryptography, and post-quantum cryptography for secure and resilient digital ecosystems.",
     tag: "Research Highlights",
   },
   {
-    title: "Quantum Machine Learning",
+    title: "Quantum Communication and Sensing",
     summary:
-      "Hybrid quantum-classical models for chemistry, materials, and data-intensive analysis.",
+      "Quantum photonic sensors, spectroscopy systems, and interdisciplinary sensing applications for healthcare and environment.",
     tag: "Research Highlights",
   },
 ];
 
 const latestNews = [
   {
-    title: "Institute secures national grant for scalable error correction",
+    title: "QuDAIS expands interdisciplinary research initiatives at IIIT Kottayam",
+    date: "April 2026",
+    summary:
+      "The lab announced expanded focus tracks spanning Quantum AI, FinTech, Communication, and Sensing with faculty-led programs.",
+  },
+  {
+    title: "Faculty onboarding completed for QuDAIS research clusters",
+    date: "April 2026",
+    summary:
+      "Faculty from Computer Science, Mathematics, AI, and Systems now lead dedicated research themes and student mentoring pathways.",
+  },
+  {
+    title: "Training and outreach roadmap released",
     date: "March 2026",
     summary:
-      "A multi-year program supports benchmark development for robust logical qubit architectures.",
-  },
-  {
-    title: "International workshop on quantum networking hosted at the lab",
-    date: "February 2026",
-    summary:
-      "Researchers from academia and industry convened on secure protocol deployment and standards.",
-  },
-  {
-    title: "Two research papers accepted at top quantum venues",
-    date: "January 2026",
-    summary:
-      "The team reported advances in variational optimization and compiler performance engineering.",
+      "Upcoming workshops and public-facing sessions aim to demystify quantum technologies and improve technology awareness.",
   },
 ];
 
@@ -75,15 +75,13 @@ const facilitiesPreview = [
     title: "Cryogenic Hardware Suite",
     subtitle:
       "Ultra-low temperature systems for superconducting qubit experimentation",
-    image:
-      "https://images.unsplash.com/photo-1581093588401-16ec0d2f0f4a?auto=format&fit=crop&w=1200&q=80",
+    image: "/photos/2.%20Della%20Photo%2054%20kb_11zon%20-%20Dr.%20Della%20Thomas%20-IIITK.jpg",
   },
   {
     title: "Quantum Simulation Cluster",
     subtitle:
       "High-performance compute resources for large-scale algorithm evaluation",
-    image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+    image: "/photos/IITM%20-%20Mirothali%20Chand.jpeg",
   },
 ];
 
@@ -92,8 +90,12 @@ export default function Home() {
     <>
       <PageHero
         title="QuDAIS Lab"
-        description="A world-class academic institute advancing foundational and applied quantum science through rigorous research, global collaborations, and high-impact scholarship."
-        accent="Institute Overview"
+        description="Quantum Technology Developments in Artificial Intelligence Systems Research Lab at IIIT Kottayam, focused on accelerating interdisciplinary quantum innovation."
+        accent="IIIT Kottayam"
+        brandLogo="/brand/qudais-lockup.svg"
+        brandName="Quantum Technology Developments in Artificial Intelligence Systems Research Lab"
+        ctaText="Explore Research"
+        ctaTo="/research"
       />
 
       <AboutLabBrandSection />
@@ -101,8 +103,8 @@ export default function Home() {
       <SectionWrapper>
         <SectionHeader
           eyebrow="Lab Overview"
-          title="Integrated research across theory, systems, and applications"
-          description="Our institute bridges fundamental quantum science with engineered platforms to accelerate practical breakthroughs."
+          title="Purpose-driven research across quantum and intelligent systems"
+          description="QuDAIS aligns foundational science with application-focused outcomes for national and global impact."
         />
         <div className="grid md:grid-cols-3 gap-8">
           {labOverview.map((item) => (
@@ -119,8 +121,8 @@ export default function Home() {
       <SectionWrapper className="soft-section border-y border-sky-100/80">
         <SectionHeader
           eyebrow="Research Highlights"
-          title="Core scientific focus areas"
-          description="A balanced portfolio spanning algorithms, infrastructure, and interdisciplinary innovation."
+          title="Major interdisciplinary focus areas"
+          description="Selected domains where QuDAIS is building long-term capability, talent, and translational outcomes."
         />
         <div className="grid md:grid-cols-3 gap-8">
           {researchHighlights.map((item) => (
@@ -137,8 +139,8 @@ export default function Home() {
       <SectionWrapper>
         <SectionHeader
           eyebrow="Latest News"
-          title="Recent institute milestones"
-          description="Highlights from grants, publications, events, and strategic initiatives."
+          title="Recent QuDAIS milestones"
+          description="Highlights from faculty engagement, program development, and outreach initiatives."
         />
         <div className="grid md:grid-cols-3 gap-8">
           {latestNews.map((item) => (
@@ -155,8 +157,8 @@ export default function Home() {
       <SectionWrapper className="soft-section border-y border-sky-100/80">
         <SectionHeader
           eyebrow="Facilities Preview"
-          title="Advanced institute infrastructure"
-          description="Purpose-built physical and computational environments for frontier experimentation."
+          title="Ecosystem for research and innovation"
+          description="A coordinated environment for experimentation, publication, outreach, and collaborative development."
         />
         <div className="grid md:grid-cols-2 gap-8">
           {facilitiesPreview.map((item) => (
@@ -180,8 +182,8 @@ export default function Home() {
           <div className="glass-surface rounded-2xl p-8">
             <h3 className="text-xl font-semibold text-gray-900">People</h3>
             <p className="mt-3 text-gray-600">
-              Explore faculty leadership, research staff, student scholars, and
-              alumni impact.
+              Meet faculty members and researchers driving QuDAIS programs
+              across quantum computing, AI, FinTech, communication, and sensing.
             </p>
             <Button to="/people" variant="secondary" className="mt-6">
               Explore People
@@ -192,8 +194,8 @@ export default function Home() {
               Collaborations Preview
             </h3>
             <p className="mt-3 text-gray-600">
-              View strategic partnerships with universities, industry, and
-              funding agencies.
+              Explore institutional, academic, and industry collaborations that
+              support high-impact and socially relevant quantum initiatives.
             </p>
             <Button to="/collaborations" variant="secondary" className="mt-6">
               View Collaborations
@@ -208,14 +210,14 @@ export default function Home() {
             Join The Lab
           </p>
           <h2 className="text-3xl font-semibold text-slate-900 md:text-4xl">
-            Build the future of quantum technology with us
+            Join QuDAIS programs and build quantum-ready expertise
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
-            We welcome doctoral candidates, interns, and collaborators committed
-            to rigorous, high-impact scientific research.
+            We welcome BTech, MTech, iMTech, and PhD students, along with
+            collaborators committed to rigorous and socially relevant research.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button to="/join">Open Positions</Button>
+            <Button to="/join">Apply or Contact</Button>
             <Button to="/research" variant="secondary">
               Explore Research
             </Button>

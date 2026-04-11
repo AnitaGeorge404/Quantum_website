@@ -14,8 +14,8 @@ const TABS = ["Publications", "Projects"];
 const researchMetrics = [
   { label: "Peer-Reviewed Papers", value: `${publications.length}+` },
   { label: "Active Projects", value: `${projects.length}` },
-  { label: "Research Tracks", value: "4" },
-  { label: "Industry Collaborations", value: "15+" },
+  { label: "Research Tracks", value: "AI, FinTech, Comm., Sensing" },
+  { label: "Faculty Contributors", value: "15" },
 ];
 
 const pageVariants = {
@@ -36,8 +36,10 @@ export default function Research() {
     <>
       <PageHero
         title="Research"
-        description="Explore our active projects and latest peer-reviewed publications across quantum algorithms, systems, and fault-tolerant architectures."
-        accent="Scientific Programs"
+        description="Explore QuDAIS publications and projects across quantum computing, quantum AI, FinTech, communication, sensing, and allied technologies."
+        accent="QuDAIS Research Programs"
+        ctaText="Initiate Collaboration"
+        ctaTo="/collaborations"
       />
 
       <SectionWrapper>
@@ -60,7 +62,7 @@ export default function Research() {
         <SectionHeader
           eyebrow="Research Portfolio"
           title="Programs and publications"
-          description="Switch between research outputs and project programs to explore our institute's ongoing work."
+          description="Switch between publications and projects to review QuDAIS research outputs and active initiatives."
         />
 
         <div className="inline-flex flex-wrap items-center gap-2 rounded-lg border border-gray-200 bg-white p-2">
@@ -125,11 +127,11 @@ export default function Research() {
             Collaborate
           </p>
           <h2 className="text-3xl font-semibold text-slate-900 md:text-4xl">
-            Build the next generation of quantum systems
+            Collaborate on high-impact interdisciplinary quantum research
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
-            We welcome cross-disciplinary collaborations from academia, industry,
-            and mission-focused research organizations.
+            We welcome collaborations from academia, industry, and mission-
+            focused organizations aligned with QuDAIS research themes.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button to="/collaborations">Explore Collaborations</Button>

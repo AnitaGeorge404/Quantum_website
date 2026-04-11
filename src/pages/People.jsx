@@ -5,78 +5,164 @@ import PersonCard from "../components/ui/PersonCard";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 
+const fallbackPhoto = "/brand/qudais-mark.svg";
+const facultyPhotos = {
+  asha: "/photos/asha.jpeg",
+  della: "/photos/2.%20Della%20Photo%2054%20kb_11zon%20-%20Dr.%20Della%20Thomas%20-IIITK.jpg",
+  christina: "/photos/xtina-pic%20-%20Dr.%20Christina%20-IIITK.jpg",
+  suriyapriya: "/photos/suriyapriya.jpg",
+  johnPaul: "/photos/jp-photo%20-%20Dr.John%20Paul%20-IIITK.jpeg",
+  riyasudheen: "/photos/riyasudheen.jpg",
+  binu: "/photos/binum.JPG",
+  prajeesh: "/photos/Prajeesh%20-%20Bhadra%20A%20V.png",
+  mirothali: "/photos/IITM%20-%20Mirothali%20Chand.jpeg",
+  santhos: "/photos/Santhos.JPG",
+  bala: "/photos/bala.JPG",
+  sairaj: "/photos/sairaj.jpg",
+};
+
 const peopleMetrics = [
-  { label: "Faculty", value: "12" },
-  { label: "Researchers", value: "24" },
-  { label: "Doctoral Scholars", value: "35" },
-  { label: "Alumni Network", value: "180+" },
+  { label: "Faculty Members", value: "15" },
+  { label: "Doctoral Students Listed", value: "2" },
+  { label: "Core Research Domains", value: "4" },
+  { label: "Interdisciplinary Focus Areas", value: "20+" },
 ];
 
 const faculty = [
   {
-    name: "Dr. Sarah Chen",
-    role: "Principal Investigator",
-    focus: "Fault-tolerant quantum computation and complexity theory.",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80",
+    name: "Dr. Rubell Marion Lincy G.",
+    role: "Faculty Member",
+    focus: "Interdisciplinary quantum technology research and AI systems development.",
+    image: fallbackPhoto,
   },
   {
-    name: "Dr. Rajesh Iyer",
-    role: "Associate Professor",
-    focus: "Quantum error correction and robust architecture design.",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
+    name: "Dr. Asha Sebastian",
+    role: "Faculty Member",
+    focus: "Quantum computing, mathematics for quantum computing, and post-quantum cryptography.",
+    image: facultyPhotos.asha,
+  },
+  {
+    name: "Dr. Panchami V",
+    role: "Faculty Member",
+    focus: "Quantum technology applications in interdisciplinary computing domains.",
+    image: fallbackPhoto,
+  },
+  {
+    name: "Dr. Della Thomas",
+    role: "Faculty Member",
+    focus: "Quantum photonic sensors, quantum spectrometer systems, and light spectroscopy.",
+    image: facultyPhotos.della,
+  },
+  {
+    name: "Dr. Christina Terese Joseph",
+    role: "Faculty Member",
+    focus: "Quantum AI, edge-ready quantum learning, cloud and distributed systems, and DevOps.",
+    image: facultyPhotos.christina,
+  },
+  {
+    name: "Dr. Suriyapriya K",
+    role: "Faculty Member",
+    focus: "Fuzzy rule-based explainable AI, type-2 fuzzy systems, and uncertainty modeling.",
+    image: facultyPhotos.suriyapriya,
+  },
+  {
+    name: "Dr. John Paul Martin",
+    role: "Faculty Member",
+    focus: "Quantum computing, edge intelligence, distributed systems, and reinforcement learning.",
+    image: facultyPhotos.johnPaul,
+  },
+  {
+    name: "Dr. Riyasudheen T K",
+    role: "Faculty Member",
+    focus: "Quantum computing, mathematics for quantum computing, quantum PDE, and quantum finance.",
+    image: facultyPhotos.riyasudheen,
+  },
+  {
+    name: "Dr. Binu M",
+    role: "Faculty Member",
+    focus: "Mathematics for quantum computing, graph neural networks, and graph foundational models.",
+    image: facultyPhotos.binu,
+  },
+  {
+    name: "Dr. A V Prajeesh",
+    role: "Faculty Member",
+    focus: "Computer vision, time series forecasting, deep learning, and graph learning models.",
+    image: facultyPhotos.prajeesh,
+  },
+  {
+    name: "Dr. Mirothali Chand C",
+    role: "Faculty Member",
+    focus: "Time series forecasting, sustainability ML, multimodal data fusion, and optimization.",
+    image: facultyPhotos.mirothali,
+  },
+  {
+    name: "Dr. Santhos Kumar A.",
+    role: "Faculty Member",
+    focus: "Quantum AI, quantum machine learning, quantum NLP, computer vision, and deep learning.",
+    image: facultyPhotos.santhos,
+  },
+  {
+    name: "Dr. Balasubramanian P",
+    role: "Faculty Member",
+    focus: "Quantum machine learning and quantum natural language processing.",
+    image: facultyPhotos.bala,
+  },
+  {
+    name: "Dr. R. Tharaniya Sairaj",
+    role: "Faculty Member",
+    focus: "Quantum transformers, quantum NLP, quantum agentic AI, and fuzzy decision systems.",
+    image: facultyPhotos.sairaj,
+  },
+  {
+    name: "Dr. Selvi C",
+    role: "Faculty Member",
+    focus: "Applied AI and interdisciplinary computing contributions to quantum research themes.",
+    image: fallbackPhoto,
   },
 ];
 
 const researchers = [
   {
-    name: "Dr. Emily Nakamura",
-    role: "Research Scientist",
-    focus: "Hybrid quantum-classical machine learning systems.",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=900&q=80",
+    name: "Arunima B Krishnan",
+    role: "PhD Scholar (2024PHD13001)",
+    focus: "Doctoral researcher associated with quantum computing initiatives under QuDAIS guidance.",
+    image: fallbackPhoto,
   },
   {
-    name: "David Kim",
-    role: "Research Associate",
-    focus: "Photonic quantum control and instrumentation.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80",
+    name: "Ms. Janaki M",
+    role: "Student Research Contributor",
+    focus: "Student contributor in graph and quantum-related computational research activities.",
+    image: fallbackPhoto,
   },
 ];
 
 const students = [
   {
-    name: "Anika Patel",
-    role: "PhD Scholar",
-    focus: "Optimization algorithms for near-term quantum hardware.",
-    image:
-      "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=80",
+    name: "BTech and iMTech Cohort",
+    role: "Student Innovation Track",
+    focus: "Project-based learning in quantum computing foundations, AI systems, and applied research.",
+    image: fallbackPhoto,
   },
   {
-    name: "James Liu",
-    role: "PhD Scholar",
-    focus: "Calibration strategies for superconducting qubits.",
-    image:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=900&q=80",
+    name: "MTech and PhD Cohort",
+    role: "Advanced Research Track",
+    focus: "Focused contributions in quantum AI, cryptography, sensing, communication, and FinTech applications.",
+    image: fallbackPhoto,
   },
 ];
 
 const alumni = [
   {
-    name: "Dr. Fatima Al-Rashid",
-    role: "Alumni · Quantum Systems Engineer",
-    focus: "Leading scalable architecture teams in industry research laboratories.",
-    image:
-      "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=900&q=80",
+    name: "Academic Alumni Network",
+    role: "Emerging",
+    focus: "The QuDAIS alumni network is being developed as current student cohorts progress to advanced roles.",
+    image: fallbackPhoto,
   },
   {
-    name: "Carlos Rivera",
-    role: "Alumni · Research Engineer",
-    focus: "Contributing to quantum compiler development and deployment.",
-    image:
-      "https://images.unsplash.com/photo-1564564295391-7f24f26f568b?auto=format&fit=crop&w=900&q=80",
+    name: "Industry Pathways",
+    role: "In Development",
+    focus: "QuDAIS programs are designed to build pathways into research labs, startups, and innovation teams.",
+    image: fallbackPhoto,
   },
 ];
 
@@ -104,8 +190,10 @@ export default function People() {
     <>
       <PageHero
         title="People"
-        description="Our institute brings together faculty, researchers, students, and alumni shaping the future of quantum science."
-        accent="Research Community"
+        description="QuDAIS brings together faculty and students at IIIT Kottayam to advance quantum technologies across AI, FinTech, communication, and sensing."
+        accent="QuDAIS Community"
+        ctaText="View Opportunities"
+        ctaTo="/join"
       />
 
       <SectionWrapper>
@@ -123,22 +211,23 @@ export default function People() {
         <SectionHeader
           eyebrow="Leadership"
           title="Faculty leadership spotlight"
-          description="Institute leadership provides scientific vision, mentorship culture, and long-term research direction."
+          description="QuDAIS faculty collectively shape the scientific vision, mentoring ecosystem, and interdisciplinary roadmap."
         />
         <div className="grid lg:grid-cols-3 gap-8 items-stretch">
           <Card className="lg:col-span-2 p-8 flex flex-col justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-900 mb-3">
-                Director’s Note
+                QuDAIS Note
               </p>
               <h3 className="text-2xl font-semibold text-gray-900">
-                “Rigorous science, open collaboration, and long-horizon vision
-                define our institute.”
+                "Grounded research, collaborative execution, and societal
+                relevance define QuDAIS programs."
               </h3>
               <p className="mt-5 text-gray-600 leading-relaxed">
-                Our people-first model combines deep theoretical research,
-                advanced infrastructure, and mentoring pathways that help young
-                researchers become future leaders in quantum technology.
+                Faculty members contribute expertise across quantum computing,
+                quantum AI, cryptography, sensing, fuzzy systems, graph
+                learning, and systems engineering to support student and
+                researcher growth.
               </p>
             </div>
             <div className="mt-8">
@@ -159,30 +248,30 @@ export default function People() {
 
       <PeopleSection
         eyebrow="Faculty"
-        title="Academic leadership"
-        description="Faculty members guide long-term scientific strategy and institute direction."
+        title="Faculty members"
+        description="The core QuDAIS faculty team and selected expertise areas."
         entries={faculty}
       />
 
       <PeopleSection
         eyebrow="Researchers"
-        title="Core research staff"
-        description="Postdoctoral and research scientists driving active programs."
+        title="Listed student researchers"
+        description="Current student contributors explicitly nominated for QuDAIS participation."
         entries={researchers}
         striped
       />
 
       <PeopleSection
         eyebrow="Students"
-        title="Doctoral and graduate scholars"
-        description="Emerging researchers contributing across algorithm, systems, and hardware tracks."
+        title="Student pathways"
+        description="Structured tracks for undergraduate and graduate student involvement in QuDAIS activities."
         entries={students}
       />
 
       <PeopleSection
         eyebrow="Alumni"
-        title="Global alumni network"
-        description="Our alumni continue to lead in academia, industry, and innovation ecosystems."
+        title="Alumni and transition pathways"
+        description="Career and research transition pathways connected to QuDAIS training and mentorship."
         entries={alumni}
         striped
       />
@@ -193,11 +282,11 @@ export default function People() {
             Join The Community
           </p>
           <h2 className="text-3xl font-semibold text-slate-900 md:text-4xl">
-            Build your research career with us
+            Build your quantum research journey with QuDAIS
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
-            Explore open roles, doctoral admissions, and visiting researcher
-            opportunities across our institute.
+            Explore student admissions, collaborative projects, and opportunities
+            to contribute to high-impact interdisciplinary programs.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button to="/join">View Opportunities</Button>

@@ -1,10 +1,10 @@
 ﻿import { Link } from "react-router-dom";
 
 const people = [
-  { name: "Dr. Sarah Chen", role: "Principal Investigator" },
-  { name: "Prof. James Okafor", role: "Co-PI, Quantum Hardware" },
-  { name: "Dr. Priya Sharma", role: "Senior Researcher" },
-  { name: "Dr. Marcus Weber", role: "Postdoctoral Fellow" },
+  { name: "Dr. Asha Sebastian", role: "Quantum Computing and PQC" },
+  { name: "Dr. Christina Terese Joseph", role: "Quantum AI and Edge Systems" },
+  { name: "Dr. Della Thomas", role: "Quantum Photonic Sensing" },
+  { name: "Dr. Riyasudheen T K", role: "Quantum PDE and Finance" },
 ];
 
 export default function PeoplePreview() {
@@ -15,8 +15,8 @@ export default function PeoplePreview() {
           <div>
             <p className="text-sm font-semibold text-blue-700 uppercase tracking-widest mb-3">People</p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">Our Research Team</h2>
-            <p className="mt-4 text-gray-600 leading-relaxed">Our lab brings together faculty, postdoctoral researchers, doctoral students, and alumni from diverse backgrounds in physics, computer science, and electrical engineering.</p>
-            <p className="mt-3 text-gray-600 leading-relaxed">Each member contributes a unique perspective, fostering a collaborative environment where rigorous science and creative thinking go hand in hand.</p>
+            <p className="mt-4 text-gray-600 leading-relaxed">QuDAIS brings together faculty and student researchers working at the intersection of quantum computing, AI, FinTech, communication, and sensing.</p>
+            <p className="mt-3 text-gray-600 leading-relaxed">Each member contributes domain expertise that strengthens collaborative, interdisciplinary, and application-focused research outcomes.</p>
             <Link to="/people" className="inline-block mt-8 px-6 py-3 bg-blue-700 text-white text-sm font-semibold rounded-md hover:bg-blue-800 transition-colors">Meet the Team</Link>
           </div>
           <div className="grid grid-cols-2 gap-4">
