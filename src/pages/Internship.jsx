@@ -5,7 +5,6 @@ import SectionWrapper from "../components/ui/SectionWrapper";
 import SectionHeader from "../components/ui/SectionHeader";
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
-import PosterPopup from "../components/ui/PosterPopup";
 
 const internshipDetails = {
   title: "Summer Internship 2026",
@@ -244,7 +243,34 @@ export default function Internship() {
         </div>
       </SectionWrapper>
 
-      <PosterPopup />
+      {/* Poster Display Section */}
+      <SectionWrapper className="bg-slate-50 border-t border-sky-100/50 py-16">
+        <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-slate-200 bg-white">
+          <div className="bg-white px-6 py-4 border-b border-gray-100 flex items-center justify-between">
+            <h2 className="text-xl font-semibold text-slate-800">
+              Summer Internship 2026 Poster
+            </h2>
+            <a
+              href="https://qudais.iiitkottayam.ac.in"
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm font-medium text-sky-600 hover:text-sky-700"
+            >
+              Click Here To Register &rarr;
+            </a>
+          </div>
+          <div className="p-4 bg-gray-50 flex justify-center">
+            <img
+              src="/brand/poster.jpeg"
+              alt="QuDAIS Summer Internship 2026 Poster"
+              className="max-w-full h-auto object-contain rounded-md"
+              onError={(e) => {
+                e.target.src = "/brand/poster.jpg";
+              }}
+            />
+          </div>
+        </div>
+      </SectionWrapper>
       </>
     </AnimatePresence>
   );
