@@ -1,12 +1,14 @@
 ﻿import PageHero from "../components/ui/PageHero";
 import SectionWrapper from "../components/ui/SectionWrapper";
 import SectionHeader from "../components/ui/SectionHeader";
+import FacultyCard from "../components/ui/FacultyCard";
 import PersonCard from "../components/ui/PersonCard";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
 
 const fallbackPhoto = "/brand/qudais-mark.svg";
 const facultyPhotos = {
+  lincy: "/photos/lincy.jpeg",
   asha: "/photos/asha.jpeg",
   della: "/photos/2.%20Della%20Photo%2054%20kb_11zon%20-%20Dr.%20Della%20Thomas%20-IIITK.jpg",
   christina: "/photos/xtina-pic%20-%20Dr.%20Christina%20-IIITK.jpg",
@@ -19,105 +21,138 @@ const facultyPhotos = {
   santhos: "/photos/Santhos.JPG",
   bala: "/photos/bala.JPG",
   sairaj: "/photos/sairaj.jpg",
+  panchami: "/photos/panchami.jpeg",
+  selvi: "/photos/selvi.jpeg",
 };
 
 const peopleMetrics = [
   { label: "Faculty Members", value: "15" },
-  { label: "Doctoral Students Listed", value: "2" },
+  { label: "Doctoral Students", value: "1" },
   { label: "Core Research Domains", value: "4" },
-  { label: "Interdisciplinary Focus Areas", value: "20+" },
+  { label: "Interdisciplinary Focus Areas", value: "35+" },
 ];
 
+// Faculty data from form submissions with exact information provided
 const faculty = [
   {
-    name: "Dr. Rubell Marion Lincy G.",
-    role: "Faculty Member",
-    focus: "Interdisciplinary quantum technology research and AI systems development.",
-    image: fallbackPhoto,
+    name: "Dr. Rubell Marion Lincy G",
+    phone: "0482-2202152",
+    email: "rubell@iiitkottayam.ac.in",
+    linkedin: "https://www.linkedin.com/in/rubell-marion-lincy-g/",
+    researchAreas: [],
+    image: facultyPhotos.lincy,
   },
   {
-    name: "Dr. Asha Sebastian",
-    role: "Faculty Member",
-    focus: "Quantum computing, mathematics for quantum computing, and post-quantum cryptography.",
+    name: "Asha Sebastian",
+    phone: "+91 (0) 482-2202248",
+    email: "asha@iiitkottayam.ac.in",
+    linkedin: "https://www.linkedin.com/in/asha-sebastian-4948aba8?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    researchAreas: ["Quantum Computing", "Mathematics for Quantum Computing", "Post-Quantum Cryptography"],
     image: facultyPhotos.asha,
   },
   {
     name: "Dr. Panchami V",
-    role: "Faculty Member",
-    focus: "Quantum technology applications in interdisciplinary computing domains.",
-    image: fallbackPhoto,
+    phone: "+91 (0) 482-2202151",
+    email: "panchami@iiitkottayam.ac.in",
+    linkedin: "",
+    researchAreas: ["Quantum Cryptography", "Post-Quantum Cryptography"],
+    image: facultyPhotos.panchami,
   },
   {
-    name: "Dr. Della Thomas",
-    role: "Faculty Member",
-    focus: "Quantum photonic sensors, quantum spectrometer systems, and light spectroscopy.",
-    image: facultyPhotos.della,
+    name: "Dr. R. Tharaniya Sairaj",
+    phone: "2202227",
+    email: "sairaj@iiitkottayam.ac.in",
+    linkedin: "https://www.linkedin.com/in/dr-r-tharaniya-sairaj-2a515b111/",
+    researchAreas: ["Mathematics for Quantum Computing", "Quantum Machine Learning", "Quantum Agentic AI", "Quantum Transformers", "Quantum NLP", "Deep Learning", "Fuzzy Multi-Criteria Decision Making"],
+    image: facultyPhotos.sairaj,
   },
   {
-    name: "Dr. Christina Terese Joseph",
-    role: "Faculty Member",
-    focus: "Quantum AI, edge-ready quantum learning, cloud and distributed systems, and DevOps.",
-    image: facultyPhotos.christina,
+    name: "Dr. Balasubramanian P",
+    phone: "0482-2202258",
+    email: "pbala@iiitkottayam.ac.in",
+    linkedin: "https://www.linkedin.com/in/balasubramanian-p-3bb380148?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+    researchAreas: ["Quantum Machine Learning", "Quantum NLP"],
+    image: facultyPhotos.bala,
   },
   {
     name: "Dr. Suriyapriya K",
-    role: "Faculty Member",
-    focus: "Fuzzy rule-based explainable AI, type-2 fuzzy systems, and uncertainty modeling.",
+    phone: "91 04822202254",
+    email: "suriyapriya@iiitkottayam.ac.in",
+    linkedin: "https://www.linkedin.com/in/suriyapriya-k-7452a2299?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+    researchAreas: ["Fuzzy Rule-Based Systems for Explainable AI", "Fuzzy Multi-Criteria Decision Making", "Type-2 Fuzzy Systems in Machine Learning", "Fuzzy Uncertainty Modeling in Data Science", "Fuzzy Risk Assessment Models"],
     image: facultyPhotos.suriyapriya,
   },
   {
-    name: "Dr. John Paul Martin",
-    role: "Faculty Member",
-    focus: "Quantum computing, edge intelligence, distributed systems, and reinforcement learning.",
-    image: facultyPhotos.johnPaul,
+    name: "Dr. Santhos Kumar A.",
+    phone: "+91 (0) 482-2202177",
+    email: "santhos@iiitkottayam.ac.in",
+    linkedin: "https://www.linkedin.com/in/dr-santhos-kumar-a-",
+    researchAreas: ["Quantum AI", "Quantum Machine Learning", "Quantum Agentic AI", "Quantum Transformers", "Quantum NLP", "Computer Vision", "Deep Learning"],
+    image: facultyPhotos.santhos,
   },
   {
-    name: "Dr. Riyasudheen T K",
-    role: "Faculty Member",
-    focus: "Quantum computing, mathematics for quantum computing, quantum PDE, and quantum finance.",
+    name: "Dr. Riyasudheen TK",
+    phone: "04822202256",
+    email: "riyasudheen@iiitkottayam.ac.in",
+    linkedin: "https://www.linkedin.com/in/riaztk",
+    researchAreas: ["Quantum Computing", "Mathematics for Quantum Computing", "Quantum PDE", "Quantum Finance"],
     image: facultyPhotos.riyasudheen,
   },
   {
+    name: "Dr. Mirothali Chand C",
+    phone: "+91 (0) 482-2202369",
+    email: "mirothalichand@iiitkottayam.ac.in",
+    linkedin: "https://www.linkedin.com/in/mirothalichand/",
+    researchAreas: ["Time Series Forecasting", "Reinforcement Learning", "Machine Learning for Geohazards & Climate Change", "Machine Learning for Sustainability", "Multimodal Machine Learning & Data Fusion", "Combinatorial Optimization"],
+    image: facultyPhotos.mirothali,
+  },
+  {
     name: "Dr. Binu M",
-    role: "Faculty Member",
-    focus: "Mathematics for quantum computing, graph neural networks, and graph foundational models.",
+    phone: "4822202276",
+    email: "binum@iiitkottayam.ac.in",
+    linkedin: "https://www.linkedin.com/in/binu-m-8779a6193",
+    researchAreas: ["Mathematics for Quantum Computing", "Graph Neural Networks", "Graph Foundational Models"],
     image: facultyPhotos.binu,
   },
   {
     name: "Dr. A V Prajeesh",
-    role: "Faculty Member",
-    focus: "Computer vision, time series forecasting, deep learning, and graph learning models.",
+    phone: "914822202371",
+    email: "prajeesh@iiitkottayam.ac.in",
+    linkedin: "https://www.linkedin.com/in/dr-a-v-prajeesh-9b6b0262/",
+    researchAreas: ["Computer Vision", "Time Series Forecasting", "Graph Neural Networks", "Graph Foundational Models", "Deep Learning"],
     image: facultyPhotos.prajeesh,
   },
   {
-    name: "Dr. Mirothali Chand C",
-    role: "Faculty Member",
-    focus: "Time series forecasting, sustainability ML, multimodal data fusion, and optimization.",
-    image: facultyPhotos.mirothali,
+    name: "Dr. Christina Terese Joseph",
+    phone: "04822202173",
+    email: "christina@iiitkottayam.ac.in",
+    linkedin: "https://www.linkedin.com/in/christina-joseph-74b5213b/",
+    researchAreas: ["Quantum AI", "Quantum Machine Learning", "Quantum Agentic AI", "Edge-ready Quantum AI for Smart Medical Devices", "Hybrid Quantum Learning for Edge Intelligence Systems", "Edge Computing", "Distributed Computing", "Cloud Computing", "Containers", "DevOps", "Graph Foundational Models", "Deep Learning", "Reinforcement Learning", "Quantum Reinforcement Learning"],
+    image: facultyPhotos.christina,
   },
   {
-    name: "Dr. Santhos Kumar A.",
-    role: "Faculty Member",
-    focus: "Quantum AI, quantum machine learning, quantum NLP, computer vision, and deep learning.",
-    image: facultyPhotos.santhos,
+    name: "Dr. Della Thomas",
+    phone: "04822202183",
+    email: "della@iiitkottayam.ac.in",
+    linkedin: "https://www.linkedin.com/in/della-thomas-2a9a9566/",
+    researchAreas: ["Quantum Photonic Sensors for Biological Applications", "Environmental Monitoring & Materials Characterization", "Quantum Spectrometer (Light Property Measurement)", "Quantum Light Spectroscopy"],
+    image: facultyPhotos.della,
   },
   {
-    name: "Dr. Balasubramanian P",
-    role: "Faculty Member",
-    focus: "Quantum machine learning and quantum natural language processing.",
-    image: facultyPhotos.bala,
-  },
-  {
-    name: "Dr. R. Tharaniya Sairaj",
-    role: "Faculty Member",
-    focus: "Quantum transformers, quantum NLP, quantum agentic AI, and fuzzy decision systems.",
-    image: facultyPhotos.sairaj,
+    name: "Dr. John Paul Martin",
+    phone: "04822202202",
+    email: "johnpaul@iiitkottayam.ac.in",
+    linkedin: "https://in.linkedin.com/in/john-martin-6658ab28",
+    researchAreas: ["Quantum Computing", "Edge-ready Quantum AI for Smart Medical Devices", "Hybrid Quantum Learning for Edge Intelligence Systems", "Edge Computing", "Distributed Computing", "Cloud Computing", "Containers", "DevOps", "Time Series Forecasting", "Reinforcement Learning", "Quantum Reinforcement Learning"],
+    image: facultyPhotos.johnPaul,
   },
   {
     name: "Dr. Selvi C",
-    role: "Faculty Member",
-    focus: "Applied AI and interdisciplinary computing contributions to quantum research themes.",
-    image: fallbackPhoto,
+    phone: "+91 (0) 482-2202212",
+    email: "selvi@iiitkottayam.ac.in",
+    linkedin: "",
+    researchAreas: ["Computer Vision", "Quantum Neural Networks"],
+    image: facultyPhotos.selvi,
   },
 ];
 
@@ -125,13 +160,13 @@ const researchers = [
   {
     name: "Arunima B Krishnan",
     role: "PhD Scholar (2024PHD13001)",
-    focus: "Doctoral researcher associated with quantum computing initiatives under QuDAIS guidance.",
+    focus: "Doctoral researcher in quantum computing initiatives under QuDAIS mentorship.",
     image: fallbackPhoto,
   },
   {
     name: "Ms. Janaki M",
     role: "Student Research Contributor",
-    focus: "Student contributor in graph and quantum-related computational research activities.",
+    focus: "Student contributor in graph and quantum-related computational research.",
     image: fallbackPhoto,
   },
 ];
@@ -210,48 +245,60 @@ export default function People() {
       <SectionWrapper className="soft-section border-y border-sky-100/80">
         <SectionHeader
           eyebrow="Leadership"
-          title="Faculty leadership spotlight"
-          description="QuDAIS faculty collectively shape the scientific vision, mentoring ecosystem, and interdisciplinary roadmap."
+          title="Faculty leadership"
+          description="QuDAIS faculty members collectively shape the scientific vision, mentoring ecosystem, and interdisciplinary roadmap across quantum computing, AI, FinTech, communication, and sensing."
         />
         <div className="grid lg:grid-cols-3 gap-8 items-stretch">
           <Card className="lg:col-span-2 p-8 flex flex-col justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-900 mb-3">
-                QuDAIS Note
+                QuDAIS Faculty
               </p>
               <h3 className="text-2xl font-semibold text-gray-900">
-                "Grounded research, collaborative execution, and societal
-                relevance define QuDAIS programs."
+                Grounded research, collaborative execution, and societal relevance.
               </h3>
               <p className="mt-5 text-gray-600 leading-relaxed">
-                Faculty members contribute expertise across quantum computing,
-                quantum AI, cryptography, sensing, fuzzy systems, graph
-                learning, and systems engineering to support student and
-                researcher growth.
+                Faculty members contribute specialized expertise across quantum computing, quantum AI, post-quantum cryptography, sensing systems, fuzzy logic, graph learning, and systems engineering to support student and researcher development.
               </p>
             </div>
             <div className="mt-8">
               <Button to="/research" variant="secondary">
-                Explore Research Programs
+                Explore Research
               </Button>
             </div>
           </Card>
 
-          <PersonCard
+          <FacultyCard
             name={faculty[0].name}
-            role={faculty[0].role}
-            focus={faculty[0].focus}
+            phone={faculty[0].phone}
+            email={faculty[0].email}
+            linkedin={faculty[0].linkedin}
+            researchAreas={faculty[0].researchAreas}
             image={faculty[0].image}
           />
         </div>
       </SectionWrapper>
 
-      <PeopleSection
-        eyebrow="Faculty"
-        title="Faculty members"
-        description="The core QuDAIS faculty team and selected expertise areas."
-        entries={faculty}
-      />
+      <SectionWrapper>
+        <SectionHeader
+          eyebrow="Faculty"
+          title="Faculty members"
+          description="QuDAIS faculty with expertise across quantum technologies, artificial intelligence, communication, and sensing with contact information and research specializations."
+        />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {faculty.map((member) => (
+            <FacultyCard
+              key={member.name}
+              name={member.name}
+              phone={member.phone}
+              email={member.email}
+              linkedin={member.linkedin}
+              researchAreas={member.researchAreas}
+              image={member.image}
+            />
+          ))}
+        </div>
+      </SectionWrapper>
 
       <PeopleSection
         eyebrow="Researchers"
@@ -261,20 +308,21 @@ export default function People() {
         striped
       />
 
-      <PeopleSection
-        eyebrow="Students"
-        title="Student pathways"
-        description="Structured tracks for undergraduate and graduate student involvement in QuDAIS activities."
-        entries={students}
-      />
+      <SectionWrapper>
+        <SectionHeader
+          eyebrow="Student Pathways"
+          title="Student pathways"
+          description="Structured student pathways and cohort programs are currently being developed. Detailed information will be updated soon."
+        />
+      </SectionWrapper>
 
-      <PeopleSection
-        eyebrow="Alumni"
-        title="Alumni and transition pathways"
-        description="Career and research transition pathways connected to QuDAIS training and mentorship."
-        entries={alumni}
-        striped
-      />
+      <SectionWrapper className="soft-section border-y border-sky-100/80">
+        <SectionHeader
+          eyebrow="Alumni"
+          title="Alumni and transition pathways"
+          description="Alumni network and transition pathways are currently under development. Updates will be available soon."
+        />
+      </SectionWrapper>
 
       <SectionWrapper>
         <div className="glass-surface rounded-3xl p-10 text-center md:p-14">
@@ -285,8 +333,7 @@ export default function People() {
             Build your quantum research journey with QuDAIS
           </h2>
           <p className="mx-auto mt-4 max-w-3xl text-lg text-slate-600">
-            Explore student admissions, collaborative projects, and opportunities
-            to contribute to high-impact interdisciplinary programs.
+            Explore student admissions, collaborative research programs, and opportunities to contribute to high-impact interdisciplinary initiatives.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Button to="/join">View Opportunities</Button>

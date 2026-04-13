@@ -1,5 +1,6 @@
 const fallbackPhoto = "/brand/qudais-mark.svg";
 const facultyPhotos = {
+  lincy: "/photos/lincy.jpeg",
   asha: "/photos/asha.jpeg",
   della: "/photos/2.%20Della%20Photo%2054%20kb_11zon%20-%20Dr.%20Della%20Thomas%20-IIITK.jpg",
   christina: "/photos/xtina-pic%20-%20Dr.%20Christina%20-IIITK.jpg",
@@ -11,6 +12,8 @@ const facultyPhotos = {
   suriyapriya: "/photos/suriyapriya.jpg",
   sairaj: "/photos/sairaj.jpg",
   bala: "/photos/bala.JPG",
+  panchami: "/photos/panchami.jpeg",
+  selvi: "/photos/selvi.jpeg",
 };
 
 export const people = [
@@ -21,7 +24,9 @@ export const people = [
     role: "Faculty Member",
     researchArea: "Interdisciplinary quantum technology and intelligent systems research",
     email: "rubell@iiitkottayam.ac.in",
-    image: fallbackPhoto,
+    phone: "0482-2202152",
+    linkedin: "https://www.linkedin.com/in/rubell-marion-lincy-g/",
+    image: facultyPhotos.lincy,
   },
   {
     id: 2,
@@ -30,6 +35,7 @@ export const people = [
     role: "Faculty Member",
     researchArea: "Quantum computing, mathematics for quantum computing, post-quantum cryptography",
     email: "asha@iiitkottayam.ac.in",
+    phone: "+91 (0) 482-2202248",
     image: facultyPhotos.asha,
   },
   {
@@ -124,6 +130,26 @@ export const people = [
   },
   {
     id: 13,
+    category: "faculty",
+    name: "Dr. Panchami V",
+    role: "Faculty Member",
+    researchArea: "Quantum cryptography and post-quantum cryptography",
+    email: "panchami@iiitkottayam.ac.in",
+    phone: "+91 (0) 482-2202151",
+    image: facultyPhotos.panchami,
+  },
+  {
+    id: 14,
+    category: "faculty",
+    name: "Dr. Selvi C",
+    role: "Faculty Member",
+    researchArea: "Computer vision and quantum neural networks",
+    email: "selvi@iiitkottayam.ac.in",
+    phone: "+91 (0) 482-2202212",
+    image: facultyPhotos.selvi,
+  },
+  {
+    id: 15,
     category: "student",
     name: "Arunima B Krishnan",
     role: "PhD Scholar",
@@ -132,7 +158,7 @@ export const people = [
     image: fallbackPhoto,
   },
   {
-    id: 14,
+    id: 16,
     category: "student",
     name: "Ms. Janaki M",
     role: "Student Contributor",

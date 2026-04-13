@@ -1,21 +1,66 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { publications, projects } from "../data/researchData";
-import PublicationCard from "../components/research/PublicationCard";
-import ProjectCard from "../components/research/ProjectCard";
+import { motion } from "framer-motion";
 import PageHero from "../components/ui/PageHero";
 import SectionWrapper from "../components/ui/SectionWrapper";
 import SectionHeader from "../components/ui/SectionHeader";
 import Card from "../components/ui/Card";
 import Button from "../components/ui/Button";
 
-const TABS = ["Publications", "Projects"];
-
 const researchMetrics = [
-  { label: "Peer-Reviewed Papers", value: `${publications.length}+` },
-  { label: "Active Projects", value: `${projects.length}` },
-  { label: "Research Tracks", value: "AI, FinTech, Comm., Sensing" },
   { label: "Faculty Contributors", value: "15" },
+  { label: "Research Thrust Areas", value: "15+" },
+  { label: "Core Domains", value: "Quantum, AI, FinTech" },
+  { label: "Interdisciplinary Focus", value: "35+" },
+];
+
+const thrustAreas = [
+  {
+    title: "Quantum Computing & Mathematics",
+    faculty: ["Dr. Asha Sebastian", "Dr. Riyasudheen TK", "Dr. Binu M", "Dr. John Paul Martin"],
+  },
+  {
+    title: "Quantum AI & Machine Learning",
+    faculty: ["Dr. Santhos Kumar A.", "Dr. Christina Terese Joseph", "Dr. R. Tharaniya Sairaj", "Dr. Balasubramanian P"],
+  },
+  {
+    title: "Quantum PDE & Financial Systems",
+    faculty: ["Dr. Riyasudheen TK"],
+  },
+  {
+    title: "Post-Quantum Cryptography",
+    faculty: ["Dr. Asha Sebastian"],
+  },
+  {
+    title: "Quantum Photonic Sensors & Spectroscopy",
+    faculty: ["Dr. Della Thomas"],
+  },
+  {
+    title: "Computer Vision & Deep Learning",
+    faculty: ["Dr. Santhos Kumar A.", "Dr. A V Prajeesh", "Dr. Christina Terese Joseph"],
+  },
+  {
+    title: "Time Series Forecasting & ML",
+    faculty: ["Dr. Mirothali Chand C", "Dr. A V Prajeesh", "Dr. John Paul Martin"],
+  },
+  {
+    title: "Graph Neural Networks & Foundational Models",
+    faculty: ["Dr. Binu M", "Dr. A V Prajeesh", "Dr. Christina Terese Joseph"],
+  },
+  {
+    title: "Fuzzy Systems & Explainable AI",
+    faculty: ["Dr. Suriyapriya K", "Dr. R. Tharaniya Sairaj"],
+  },
+  {
+    title: "Quantum NLP & Transformers",
+    faculty: ["Dr. Santhos Kumar A.", "Dr. R. Tharaniya Sairaj", "Dr. Balasubramanian P"],
+  },
+  {
+    title: "Edge Computing & Distributed Systems",
+    faculty: ["Dr. Christina Terese Joseph", "Dr. John Paul Martin"],
+  },
+  {
+    title: "Reinforcement Learning",
+    faculty: ["Dr. Christina Terese Joseph", "Dr. John Paul Martin"],
+  },
 ];
 
 const pageVariants = {
@@ -23,23 +68,15 @@ const pageVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.45, ease: "easeOut" } },
 };
 
-const tabContentVariants = {
-  hidden:  { opacity: 0, y: 12 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut" } },
-  exit:    { opacity: 0, y: -8, transition: { duration: 0.18, ease: "easeIn" } },
-};
-
 export default function Research() {
-  const [activeTab, setActiveTab] = useState("Publications");
-
   return (
     <>
       <PageHero
         title="Research"
-        description="Explore QuDAIS publications and projects across quantum computing, quantum AI, FinTech, communication, sensing, and allied technologies."
+        description="Explore QuDAIS research thrust areas and faculty expertise across quantum computing, quantum AI, cryptography, sensing, and related technologies."
         accent="QuDAIS Research Programs"
-        ctaText="Initiate Collaboration"
-        ctaTo="/collaborations"
+        ctaText="Explore People"
+        ctaTo="/people"
       />
 
       <SectionWrapper>
@@ -51,7 +88,7 @@ export default function Research() {
         >
           {researchMetrics.map((item) => (
             <Card key={item.label} className="p-6">
-              <p className="text-3xl font-semibold text-gray-900">{item.value}</p>
+              <p className="text-lg font-semibold text-gray-900 line-clamp-2">{item.value}</p>
               <p className="mt-2 text-sm text-gray-600">{item.label}</p>
             </Card>
           ))}
@@ -60,64 +97,25 @@ export default function Research() {
 
       <SectionWrapper className="soft-section border-y border-sky-100/80">
         <SectionHeader
-          eyebrow="Research Portfolio"
-          title="Programs and publications"
-          description="Switch between publications and projects to review QuDAIS research outputs and active initiatives."
+          eyebrow="Research Thrust Areas"
+          title="Research focus and faculty expertise"
+          description="Core research domains of QuDAIS Lab with associated faculty expertise and specializations."
         />
 
-        <div className="inline-flex flex-wrap items-center gap-2 rounded-lg border border-gray-200 bg-white p-2">
-          {TABS.map((tab) => {
-            const isActive = activeTab === tab;
-
-            return (
-              <button
-                key={tab}
-                className={`relative rounded-md px-5 py-2 text-sm font-medium transition-colors duration-200 ${
-                  isActive
-                    ? "bg-blue-900 text-white"
-                    : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-                }`}
-                onClick={() => setActiveTab(tab)}
-                type="button"
-              >
-                {tab}
-              </button>
-            );
-          })}
-        </div>
-
-        <div className="mt-10">
-          <AnimatePresence mode="wait">
-            {activeTab === "Publications" && (
-              <motion.div
-                key="publications"
-                className="grid md:grid-cols-2 gap-6"
-                variants={tabContentVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-              >
-                {publications.map((publication, i) => (
-                  <PublicationCard key={publication.id} publication={publication} index={i} />
-                ))}
-              </motion.div>
-            )}
-
-            {activeTab === "Projects" && (
-              <motion.div
-                key="projects"
-                className="grid md:grid-cols-2 gap-6"
-                variants={tabContentVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-              >
-                {projects.map((project, i) => (
-                  <ProjectCard key={project.id} project={project} index={i} />
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
+        <div className="grid md:grid-cols-2 gap-6">
+          {thrustAreas.map((area) => (
+            <Card key={area.title} className="p-6">
+              <h3 className="text-lg font-semibold text-slate-900 mb-4">{area.title}</h3>
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-widest text-slate-600 mb-3">Faculty</p>
+                <ul className="space-y-2">
+                  {area.faculty.map((faculty) => (
+                    <li key={faculty} className="text-sm text-slate-700">{faculty}</li>
+                  ))}
+                </ul>
+              </div>
+            </Card>
+          ))}
         </div>
       </SectionWrapper>
 

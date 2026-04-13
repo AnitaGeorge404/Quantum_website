@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
 import Home from '../pages/Home';
 import Research from '../pages/Research';
-import Facilities from '../pages/Facilities';
+import Internship from '../pages/Internship';
 import People from '../pages/People';
 import Gallery from '../pages/Gallery';
 import Collaborations from '../pages/Collaborations';
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: 'research', element: <Research /> },
-      { path: 'facilities', element: <Facilities /> },
+      { path: 'internship', element: <Internship /> },
       { path: 'people', element: <People /> },
       { path: 'gallery', element: <Gallery /> },
       { path: 'collaborations', element: <Collaborations /> },

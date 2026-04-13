@@ -1,29 +1,32 @@
+import { useState } from "react";
+import { AnimatePresence } from "framer-motion";
 import PageHero from "../components/ui/PageHero";
 import SectionWrapper from "../components/ui/SectionWrapper";
 import SectionHeader from "../components/ui/SectionHeader";
 import ResearchCard from "../components/ui/ResearchCard";
 import NewsCard from "../components/ui/NewsCard";
-import GalleryCard from "../components/ui/GalleryCard";
 import Button from "../components/ui/Button";
+import Card from "../components/ui/Card";
+import PosterPopup from "../components/ui/PosterPopup";
 import AboutLabBrandSection from "../components/home/AboutLabBrandSection";
 
 const labOverview = [
   {
     title: "About QuDAIS Lab",
     summary:
-      "QuDAIS Lab at IIIT Kottayam advances Quantum Technology Developments in Artificial Intelligence Systems through interdisciplinary research and innovation.",
+      "QuDAIS Lab is a Quantum Technology developments research lab at the Indian Institute of Information Technology Kottayam that focuses on spearheading the developments in quantum computing and technologies that aid in interdisciplinary research. The major fields that QuDAIS Lab concentrates on are the intersection of Quantum Technology developments in Artificial Intelligence, FinTech, Communication and Sensing.",
     tag: "Lab Overview",
   },
   {
     title: "Vision",
     summary:
-      "To build a hub for quantum computing and associated technologies that drives innovation across AI, FinTech, Communication, and Sensing while upskilling the community.",
+      "To create a hub for developments in Quantum Computing and associated technologies that leads to innovation in the interdisciplinary fields of Artificial Intelligence, FinTech, Communication and Sensing, etc. To educate and train professionals in this emerging field in the mission to upskill the community.",
     tag: "Lab Overview",
   },
   {
     title: "Mission",
     summary:
-      "To pioneer research at the confluence of quantum computing with AI, FinTech, Communication, and Sensing through collaborative, application-oriented programs.",
+      "QuDAIS Lab is dedicated to pioneering ground breaking research at the confluence of Quantum Computing with FinTech, Artificial Intelligence, Communication and Sensing. Our mission is to explore innovative solutions that leverage the synergies between the said fields, aiming to address complex challenges and extend our insights to various application areas. Through a collaborative approach that combines academic rigor and industry expertise, we strive to push the boundaries of these fields, fostering transformative developments that redefine the financial landscape and beyond.",
     tag: "Lab Overview",
   },
 ];
@@ -49,50 +52,36 @@ const researchHighlights = [
   },
 ];
 
-const latestNews = [
+const latestUpdates = [
   {
-    title: "QuDAIS expands interdisciplinary research initiatives at IIIT Kottayam",
+    title: "Summer Internship 2026 Announced",
     date: "April 2026",
     summary:
-      "The lab announced expanded focus tracks spanning Quantum AI, FinTech, Communication, and Sensing with faculty-led programs.",
+      "Duration: 8–12 weeks with 2 weeks offline component at IIIT Kottayam. Application Deadline: 25 April 2026. Start Date: 01 May 2026.",
   },
   {
-    title: "Faculty onboarding completed for QuDAIS research clusters",
+    title: "Internship Eligibility",
     date: "April 2026",
     summary:
-      "Faculty from Computer Science, Mathematics, AI, and Systems now lead dedicated research themes and student mentoring pathways.",
+      "Open to B.Tech / B.E / M.Tech / M.E / MCA / MSc / BS-MS students. Benefits include E-certificate and Patent & Publication opportunities.",
   },
   {
-    title: "Training and outreach roadmap released",
-    date: "March 2026",
+    title: "Research Thrust Areas",
+    date: "April 2026",
     summary:
-      "Upcoming workshops and public-facing sessions aim to demystify quantum technologies and improve technology awareness.",
-  },
-];
-
-const facilitiesPreview = [
-  {
-    title: "Cryogenic Hardware Suite",
-    subtitle:
-      "Ultra-low temperature systems for superconducting qubit experimentation",
-    image: "/photos/2.%20Della%20Photo%2054%20kb_11zon%20-%20Dr.%20Della%20Thomas%20-IIITK.jpg",
-  },
-  {
-    title: "Quantum Simulation Cluster",
-    subtitle:
-      "High-performance compute resources for large-scale algorithm evaluation",
-    image: "/photos/IITM%20-%20Mirothali%20Chand.jpeg",
+      "Internship focuses on quantum computing, quantum AI, quantum machine learning, quantum cryptography, sensing, fuzzy systems, and graph learning.",
   },
 ];
 
 export default function Home() {
   return (
-    <>
+    <AnimatePresence>
+      <>
       <PageHero
         title="QuDAIS Lab"
         description="Quantum Technology Developments in Artificial Intelligence Systems Research Lab at IIIT Kottayam, focused on accelerating interdisciplinary quantum innovation."
         accent="IIIT Kottayam"
-        brandLogo="/brand/qudais-lockup.svg"
+        brandLogo="/brand/qudais_logo.jpeg"
         brandName="Quantum Technology Developments in Artificial Intelligence Systems Research Lab"
         ctaText="Explore Research"
         ctaTo="/research"
@@ -118,32 +107,14 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper className="soft-section border-y border-sky-100/80">
-        <SectionHeader
-          eyebrow="Research Highlights"
-          title="Major interdisciplinary focus areas"
-          description="Selected domains where QuDAIS is building long-term capability, talent, and translational outcomes."
-        />
-        <div className="grid md:grid-cols-3 gap-8">
-          {researchHighlights.map((item) => (
-            <ResearchCard
-              key={item.title}
-              title={item.title}
-              summary={item.summary}
-              tag={item.tag}
-            />
-          ))}
-        </div>
-      </SectionWrapper>
-
       <SectionWrapper>
         <SectionHeader
-          eyebrow="Latest News"
-          title="Recent QuDAIS milestones"
-          description="Highlights from faculty engagement, program development, and outreach initiatives."
+          eyebrow="Latest Updates"
+          title="Summer Internship 2026"
+          description="Join QuDAIS for focused research training in quantum technologies and interdisciplinary applications."
         />
         <div className="grid md:grid-cols-3 gap-8">
-          {latestNews.map((item) => (
+          {latestUpdates.map((item) => (
             <NewsCard
               key={item.title}
               title={item.title}
@@ -156,19 +127,19 @@ export default function Home() {
 
       <SectionWrapper className="soft-section border-y border-sky-100/80">
         <SectionHeader
-          eyebrow="Facilities Preview"
-          title="Ecosystem for research and innovation"
-          description="A coordinated environment for experimentation, publication, outreach, and collaborative development."
+          eyebrow="Research Highlights"
+          title="Major interdisciplinary focus areas"
+          description="Selected domains where QuDAIS is building long-term capability, talent, and translational outcomes."
         />
-        <div className="grid md:grid-cols-2 gap-8">
-          {facilitiesPreview.map((item) => (
-            <GalleryCard
-              key={item.title}
-              title={item.title}
-              subtitle={item.subtitle}
-              image={item.image}
-            />
-          ))}
+        <div className="max-w-2xl mx-auto">
+          <Card className="p-8 text-center bg-gradient-to-br from-sky-50/80 via-white to-pink-50/70 border border-sky-100/80">
+            <p className="text-lg text-slate-600 mb-6">
+              Explore our comprehensive research portfolio across 15+ thrust areas spanning quantum computing, AI, cryptography, sensing, and related technologies.
+            </p>
+            <Button to="/research" variant="secondary">
+              View All Research Areas
+            </Button>
+          </Card>
         </div>
       </SectionWrapper>
 
@@ -224,6 +195,9 @@ export default function Home() {
           </div>
         </div>
       </SectionWrapper>
-    </>
+
+      <PosterPopup />
+      </>
+    </AnimatePresence>
   );
 }
