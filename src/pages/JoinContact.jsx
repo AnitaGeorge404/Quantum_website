@@ -18,7 +18,7 @@ const internshipDetails = {
   links: {
     apply: "https://qudais.iiitkottayam.ac.in",
     payment: "https://onlinesbi.sbi.bank.in/sbicollect/",
-    registration: "https://forms.gle/B1RaONAlXWpDgG9S8",
+    registration: "https://forms.gle/mDuyToam7PYmBMii9",
     moreInfo: "https://qudais.iiitkottayam.ac.in",
   },
 };

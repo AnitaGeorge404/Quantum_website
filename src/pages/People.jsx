@@ -27,7 +27,7 @@ const facultyPhotos = {
 
 const peopleMetrics = [
   { label: "Faculty Members", value: "15" },
-  { label: "Doctoral Students", value: "1" },
+  { label: "Doctoral Students", value: "6" },
   { label: "Core Research Domains", value: "4" },
   { label: "Interdisciplinary Focus Areas", value: "35+" },
 ];
@@ -37,9 +37,9 @@ const faculty = [
   {
     name: "Dr. Rubell Marion Lincy G",
     phone: "0482-2202152",
-    email: "rubell@iiitkottayam.ac.in",
+    email: "lincy@iiitkottayam.ac.in",
     linkedin: "https://www.linkedin.com/in/rubell-marion-lincy-g/",
-    researchAreas: [],
+    researchAreas: ["Quantum Computing", "Mathematics for Quantum Computing", "Quantum AI", "Quantum Machine Learning", "Quantum Financial Systems", "AI", "ML", "Deep Learning"],
     image: facultyPhotos.lincy,
   },
   {
@@ -53,7 +53,7 @@ const faculty = [
   {
     name: "Dr. Panchami V",
     phone: "+91 (0) 482-2202151",
-    email: "panchami@iiitkottayam.ac.in",
+    email: "panchamam036@iiitkottayam.ac.in",
     linkedin: "",
     researchAreas: ["Quantum Cryptography", "Post-Quantum Cryptography"],
     image: facultyPhotos.panchami,
@@ -158,15 +158,39 @@ const faculty = [
 
 const researchers = [
   {
-    name: "Arunima B Krishnan",
-    role: "PhD Scholar (2024PHD13001)",
+    name: "Ms. Sheba Elizabth Thomas",
+    role: "PhD Scholar",
+    focus: "Doctoral researcher in quantum computing initiatives under QuDAIS mentorship.",
+    image: fallbackPhoto,
+  },
+  {
+    name: "Ms. Parvathy Gopakumar",
+    role: "PhD Scholar",
+    focus: "Doctoral researcher in quantum computing initiatives under QuDAIS mentorship.",
+    image: fallbackPhoto,
+  },
+  {
+    name: "Ms. Fathima Nihla Latheef",
+    role: "PhD Scholar",
+    focus: "Doctoral researcher in quantum computing initiatives under QuDAIS mentorship.",
+    image: fallbackPhoto,
+  },
+  {
+    name: "Ms. Gopikrishna P B",
+    role: "PhD Scholar",
     focus: "Doctoral researcher in quantum computing initiatives under QuDAIS mentorship.",
     image: fallbackPhoto,
   },
   {
     name: "Ms. Janaki M",
-    role: "Student Research Contributor",
+    role: "PhD Scholar",
     focus: "Student contributor in graph and quantum-related computational research.",
+    image: fallbackPhoto,
+  },
+  {
+    name: "Arunima B Krishnan",
+    role: "PhD Scholar (2024PHD13001)",
+    focus: "Doctoral researcher in quantum computing initiatives under QuDAIS mentorship.",
     image: fallbackPhoto,
   },
 ];
@@ -231,12 +255,12 @@ export default function People() {
         ctaTo="/join"
       />
 
-      <SectionWrapper>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <SectionWrapper className="bg-slate-50/50 py-16 border-b border-slate-100">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {peopleMetrics.map((item) => (
-            <Card key={item.label} className="p-6">
-              <p className="text-3xl font-semibold text-gray-900">{item.value}</p>
-              <p className="mt-2 text-sm text-gray-600">{item.label}</p>
+            <Card key={item.label} className="p-6 md:p-8 flex flex-col items-start bg-white shadow-sm border border-slate-100/60">
+              <p className="text-4xl font-bold text-slate-900">{item.value}</p>
+              <p className="mt-2 text-sm md:text-base text-slate-600">{item.label}</p>
             </Card>
           ))}
         </div>
