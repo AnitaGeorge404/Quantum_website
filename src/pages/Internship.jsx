@@ -16,7 +16,6 @@ const internshipDetails = {
     "Opportunity to extend research (with mentor approval) up to 6 months"
   ],
   links: {
-    apply: "https://qudais.iiitkottayam.ac.in",
     payment: "https://onlinesbi.sbi.bank.in/sbicollect/",
     registration: "https://forms.gle/mDuyToam7PYmBMii9",
     consentForm: "/Internship_Consent_form.pdf",
@@ -138,12 +137,6 @@ export default function Internship() {
                     <h4 className="text-lg font-bold text-[#0c2340] font-serif mb-3">Important Links</h4>
                     <div className="space-y-4">
                       <div>
-                        <p className="text-slate-600 text-sm mb-1">Apply:</p>
-                        <a href={internshipDetails.links.apply} className="text-[#3b82f6] hover:text-blue-800 hover:underline">
-                          {internshipDetails.links.apply}
-                        </a>
-                      </div>
-                      <div>
                         <p className="text-slate-600 text-sm mb-1">Payment:</p>
                         <a href={internshipDetails.links.payment} className="text-[#3b82f6] hover:text-blue-800 hover:underline break-all">
                           {internshipDetails.links.payment}
@@ -179,17 +172,18 @@ export default function Internship() {
 
         {/* How to Apply Section */}
         <div id="how-to-apply" className="max-w-4xl mx-auto scroll-mt-24 mb-20 p-6 md:p-10">
-          <h2 className="text-3xl font-bold text-[#0c2340] font-serif mb-2">How to Apply</h2>
-          <p className="text-slate-500 mb-10 text-sm border-b border-slate-200 pb-4">
+          <h2 className="text-3xl font-bold text-[#0c2340] font-serif mb-2 text-center md:text-left">How to Apply</h2>
+          <p className="text-slate-500 mb-10 text-sm border-b border-slate-200 pb-4 text-center md:text-left">
             Steps to take the Internship @ QuDAIS Lab, IIIT Kottayam
           </p>
             
+          <Card className="p-6 md:p-8 bg-white shadow-[0_4px_30px_rgba(0,0,0,0.03)] border-none rounded-[1.5rem]">
             <div className="space-y-0">
               
               {/* Step 1 */}
               <div className="flex flex-col md:flex-row items-start justify-between py-6 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition duration-150 rounded-lg md:px-4 -mx-4 md:mx-0">
                 <div className="flex items-start gap-4 px-4 md:px-0">
-                  <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-[#1d4ed8] text-white font-bold flex items-center justify-center rounded-sm">1</div>
+                  <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-sky-100 text-sky-800 border border-sky-200 font-bold font-serif flex items-center justify-center rounded-sm">1</div>
                   <div>
                     <h4 className="text-xl font-bold text-[#0c2340] mb-1.5">Get Consent from a Mentor</h4>
                     <p className="text-[#475569] text-sm md:text-base max-w-2xl leading-relaxed">
@@ -202,7 +196,7 @@ export default function Internship() {
               {/* Step 2 */}
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between py-6 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition duration-150 rounded-lg md:px-4 -mx-4 md:mx-0 gap-4">
                 <div className="flex items-start md:items-center gap-4 px-4 md:px-0">
-                  <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-[#1d4ed8] text-white font-bold flex items-center justify-center rounded-sm">2</div>
+                  <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-sky-100 text-sky-800 border border-sky-200 font-bold font-serif flex items-center justify-center rounded-sm">2</div>
                   <div>
                     <h4 className="text-xl font-bold text-[#0c2340] mb-1.5">Download Consent Form</h4>
                     <p className="text-[#475569] text-sm md:text-base max-w-2xl leading-relaxed">
@@ -211,7 +205,7 @@ export default function Internship() {
                   </div>
                 </div>
                 <div className="ml-16 md:ml-0 md:flex-shrink-0">
-                  <a href={internshipDetails.links.consentForm} download className="inline-flex items-center px-4 py-2.5 bg-[#1d4ed8] text-white text-[13px] font-bold rounded shadow-sm hover:bg-[#1e40af] transition-colors">
+                  <a href={internshipDetails.links.consentForm} download className="inline-flex items-center px-4 py-2.5 bg-sky-100 text-sky-800 border border-sky-200 text-sky-800 text-[13px] font-bold rounded shadow-sm hover:bg-sky-200 transition-colors">
                     Consent Form <ExternalLinkIcon />
                   </a>
                 </div>
@@ -220,7 +214,7 @@ export default function Internship() {
               {/* Step 3 */}
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between py-6 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition duration-150 rounded-lg md:px-4 -mx-4 md:mx-0 gap-4">
                 <div className="flex items-start gap-4 px-4 md:px-0">
-                  <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-[#1d4ed8] text-white font-bold flex items-center justify-center rounded-sm mt-0.5">3</div>
+                  <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-sky-100 text-sky-800 border border-sky-200 font-bold font-serif flex items-center justify-center rounded-sm mt-0.5">3</div>
                   <div>
                     <h4 className="text-xl font-bold text-[#0c2340] mb-1.5">Internship Fee Payment</h4>
                     <div className="text-[#475569] text-[15px] max-w-2xl leading-relaxed space-y-1">
@@ -234,7 +228,7 @@ export default function Internship() {
                   </div>
                 </div>
                 <div className="ml-16 md:ml-0 md:flex-shrink-0 md:self-center">
-                  <a href={internshipDetails.links.payment} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2.5 bg-[#1d4ed8] text-white text-[13px] font-bold rounded shadow-sm hover:bg-[#1e40af] transition-colors">
+                  <a href={internshipDetails.links.payment} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2.5 bg-sky-100 text-sky-800 border border-sky-200 text-sky-800 text-[13px] font-bold rounded shadow-sm hover:bg-sky-200 transition-colors">
                     SBI Collect <ExternalLinkIcon />
                   </a>
                 </div>
@@ -243,7 +237,7 @@ export default function Internship() {
               {/* Step 4 */}
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between py-6 border-b border-slate-100 last:border-0 hover:bg-slate-50/50 transition duration-150 rounded-lg md:px-4 -mx-4 md:mx-0 gap-4">
                 <div className="flex items-start md:items-center gap-4 px-4 md:px-0">
-                  <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-[#1d4ed8] text-white font-bold flex items-center justify-center rounded-sm">4</div>
+                  <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-sky-100 text-sky-800 border border-sky-200 font-bold font-serif flex items-center justify-center rounded-sm">4</div>
                   <div>
                     <h4 className="text-xl font-bold text-[#0c2340] mb-1.5">Bonafide Certificate</h4>
                     <p className="text-[#475569] text-[15px] max-w-2xl leading-relaxed">
@@ -252,7 +246,7 @@ export default function Internship() {
                   </div>
                 </div>
                 <div className="ml-16 md:ml-0 md:flex-shrink-0">
-                  <a href={internshipDetails.links.bonafideFormat} download className="inline-flex items-center px-4 py-2.5 bg-[#1d4ed8] text-white text-[13px] font-bold rounded shadow-sm hover:bg-[#1e40af] transition-colors">
+                  <a href={internshipDetails.links.bonafideFormat} download className="inline-flex items-center px-4 py-2.5 bg-sky-100 text-sky-800 border border-sky-200 text-sky-800 text-[13px] font-bold rounded shadow-sm hover:bg-sky-200 transition-colors">
                     Bonafide Format <ExternalLinkIcon />
                   </a>
                 </div>
@@ -261,7 +255,7 @@ export default function Internship() {
               {/* Step 5 */}
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between pt-6 pb-2 hover:bg-slate-50/50 transition duration-150 rounded-lg md:px-4 -mx-4 md:mx-0 gap-4">
                 <div className="flex items-start gap-4 px-4 md:px-0 w-full mb-3">
-                  <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-[#1d4ed8] text-white font-bold flex items-center justify-center rounded-sm mt-0.5">5</div>
+                  <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 bg-sky-100 text-sky-800 border border-sky-200 font-bold font-serif flex items-center justify-center rounded-sm mt-0.5">5</div>
                   <div className="flex-grow">
                     <h4 className="text-xl font-bold text-[#0c2340] mb-1.5">Register Online</h4>
                     <p className="text-[#475569] text-[15px] mt-1 mb-5 leading-relaxed max-w-2xl">
@@ -270,14 +264,15 @@ export default function Internship() {
                   </div>
                 </div>
                 <div className="ml-16 md:ml-0 md:flex-shrink-0 md:self-start md:mt-2">
-                  <a href={internshipDetails.links.registration} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2.5 bg-[#1d4ed8] text-white text-[13px] font-bold rounded shadow-sm hover:bg-[#1e40af] transition-colors">
+                  <a href={internshipDetails.links.registration} target="_blank" rel="noopener noreferrer" className="inline-flex items-center px-4 py-2.5 bg-sky-100 text-sky-800 border border-sky-200 text-sky-800 text-[13px] font-bold rounded shadow-sm hover:bg-sky-200 transition-colors">
                     Register Now <ExternalLinkIcon />
                   </a>
                 </div>
               </div>
 
             </div>
-          </div>
+          </Card>
+        </div>
 
           <div className="max-w-4xl mx-auto rounded-[1rem] overflow-hidden shadow-sm border border-slate-200 bg-white mt-12 mb-10">
             <div className="px-6 py-4 flex items-center justify-between">
