@@ -1,15 +1,10 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const openings = [
   {
     role: "PhD Positions",
     description:
       "Fully funded doctoral positions in quantum algorithms, error correction, and quantum machine learning. Open to candidates with a strong background in physics, CS, or mathematics.",
-  },
-  {
-    role: "Research Internships",
-    description:
-      "Summer and semester-long internships for undergraduate and master's students. Work alongside faculty and postdocs on cutting-edge research projects.",
   },
   {
     role: "Research Associates",

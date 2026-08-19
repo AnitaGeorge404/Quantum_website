@@ -15,51 +15,6 @@ export default function JoinContact() {
         ctaTo="#registration"
       />
 
-      <SectionWrapper id="opportunities" className="pt-12 pb-4">
-        <SectionHeader
-          eyebrow="CURRENT OPPORTUNITIES"
-          title="Current opportunities"
-          description="QuDAIS invites applications for its Summer Internship Programme."
-        />
-        <div className="max-w-3xl mx-auto mt-10">
-          <Card className="bg-white rounded-[1.5rem] p-8 md:p-12 shadow-[0_4px_30px_rgba(0,0,0,0.03)] border border-sky-100">
-            <h3 className="text-2xl font-semibold text-slate-900 mb-6">Summer Internship 2026</h3>
-            <div className="space-y-4 text-slate-700">
-              <div>
-                <p className="font-bold text-[#0c2340]">Duration:</p>
-                <p>8 to 12 weeks</p>
-              </div>
-              <div>
-                <p className="font-bold text-[#0c2340]">Offline Component:</p>
-                <p>2 weeks at IIIT Kottayam</p>
-              </div>
-              <div>
-                <p className="font-bold text-[#0c2340]">Benefits:</p>
-                <ul className="list-disc pl-5 space-y-1 mt-2">
-                  <li>E-certificate</li>
-                  <li>Patent & Publication opportunities</li>
-                  <li>Extension up to 6 months (with mentor approval)</li>
-                </ul>
-              </div>
-              <div>
-                <p className="font-bold text-[#0c2340]">Eligibility:</p>
-                <p>B.Tech / B.E / M.Tech / M.E / MCA / MSc / BS-MS</p>
-              </div>
-              <div>
-                <p className="font-bold text-[#0c2340]">Deadline:</p>
-                <p>25 April 2026</p>
-              </div>
-              <div>
-                <p className="font-bold text-[#0c2340]">Start Date:</p>
-                <p>01 May 2026</p>
-              </div>
-            </div>
-            <div className="mt-8 pt-6 border-t border-sky-100">
-              <Button to="/internship" variant="secondary" className="px-6 py-2 border border-sky-200 text-sky-700 hover:bg-sky-50 rounded-full">Learn More</Button>
-            </div>
-          </Card>
-        </div>
-      </SectionWrapper>
 
       <SectionWrapper id="registration" className="pt-12">
         <SectionHeader

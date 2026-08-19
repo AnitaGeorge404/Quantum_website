@@ -7,7 +7,6 @@ import ResearchCard from "../components/ui/ResearchCard";
 import NewsCard from "../components/ui/NewsCard";
 import Button from "../components/ui/Button";
 import Card from "../components/ui/Card";
-import PosterPopup from "../components/ui/PosterPopup";
 import AboutLabBrandSection from "../components/home/AboutLabBrandSection";
 
 const labOverview = [
@@ -52,26 +51,6 @@ const researchHighlights = [
   },
 ];
 
-const latestUpdates = [
-  {
-    title: "Summer Internship 2026 Announced",
-    date: "April 2026",
-    summary:
-      "Duration: 8–12 weeks with 2 weeks offline component at IIIT Kottayam. Application Deadline: 25 April 2026. Start Date: 01 May 2026.",
-  },
-  {
-    title: "Internship Eligibility",
-    date: "April 2026",
-    summary:
-      "Open to B.Tech / B.E / M.Tech / M.E / MCA / MSc / BS-MS students. Benefits include E-certificate and Patent & Publication opportunities.",
-  },
-  {
-    title: "Research Thrust Areas",
-    date: "April 2026",
-    summary:
-      "Internship focuses on quantum computing, quantum AI, quantum machine learning, quantum cryptography, sensing, fuzzy systems, and graph learning.",
-  },
-];
 
 export default function Home() {
   return (
@@ -107,23 +86,7 @@ export default function Home() {
         </div>
       </SectionWrapper>
 
-      <SectionWrapper>
-        <SectionHeader
-          eyebrow="Latest Updates"
-          title="Summer Internship 2026"
-          description="Join QuDAIS for focused research training in quantum technologies and interdisciplinary applications."
-        />
-        <div className="grid md:grid-cols-3 gap-8">
-          {latestUpdates.map((item) => (
-            <NewsCard
-              key={item.title}
-              title={item.title}
-              date={item.date}
-              summary={item.summary}
-            />
-          ))}
-        </div>
-      </SectionWrapper>
+
 
       <SectionWrapper className="soft-section border-y border-sky-100/80">
         <SectionHeader
@@ -195,8 +158,6 @@ export default function Home() {
           </div>
         </div>
       </SectionWrapper>
-
-      <PosterPopup />
       </>
     </AnimatePresence>
   );

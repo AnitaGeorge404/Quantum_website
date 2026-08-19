@@ -1,9 +1,8 @@
-﻿import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const opportunities = [
   { title: "PhD Positions", description: "Fully funded doctoral programmes in quantum computing and information science. Open to candidates with strong backgrounds in physics, CS, or mathematics." },
   { title: "Postdoctoral Fellowships", description: "Research fellowships for postdoctoral scholars with expertise in quantum systems, algorithms, or hardware design." },
-  { title: "Summer Internships", description: "Hands-on research experience for undergraduate and master's students. Applications open annually in February." },
 ];
 
 export default function JoinUsPreview() {

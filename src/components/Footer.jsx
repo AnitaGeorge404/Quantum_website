@@ -24,7 +24,6 @@ export default function Footer() {
             <h3 className="text-lg font-bold text-white mb-4">Quick Links</h3>
             <div className="flex flex-col gap-3 text-sm text-primary-300">
               <Link to="/research" className="transition-colors hover:text-secondary-300">Research Focus</Link>
-              <Link to="/internship" className="transition-colors hover:text-secondary-300">Internship</Link>
               <Link to="/people" className="transition-colors hover:text-secondary-300">Our Team</Link>
               <Link to="/gallery" className="transition-colors hover:text-secondary-300">Media & Gallery</Link>
             </div>
