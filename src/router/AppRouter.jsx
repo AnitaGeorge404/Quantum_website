@@ -24,7 +24,7 @@ const router = createBrowserRouter([
   },
   {
     // Qiskit Fall Fest has its own footer, so we skip the QuDAIS one
-    path: '/qiskit-fall-fest',
+    path: '/qiskit-fall-fest-26',
     element: <MainLayoutNoFooter />,
     children: [
       { index: true, element: <QiskitFallFest /> },
