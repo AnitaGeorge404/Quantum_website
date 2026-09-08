@@ -1,0 +1,98 @@
+/* ────────────────────────────────────────────────────────────────────────── */
+/* Font import — must be first                                               */
+/* ────────────────────────────────────────────────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+
+/*
+ * Qiskit Fall Fest — Scoped styles
+ *
+ * All variables are scoped to .qiskit-page so they don't bleed into
+ * the rest of the Quantum website. Components inside this page
+ * reference these via var(--...) which resolves to these scoped values.
+ *
+ * NOTE: Tailwind utilities are already available from the host app.
+ * We only define the custom CSS variables + any non-Tailwind styles here.
+ */
+
+
+/* ────────────────────────────────────────────────────────────────────────── */
+/* 1. Theme variables — light mode (default)                                 */
+/* ────────────────────────────────────────────────────────────────────────── */
+.qiskit-page {
+  /* Core palette */
+  --background:        oklch(0.9816 0.0017 247.8390);
+  --foreground:        oklch(0.1649 0.0352 281.8285);
+  --card:              oklch(1.0000 0 0);
+  --card-foreground:   oklch(0.1649 0.0352 281.8285);
+  --popover:           oklch(1.0000 0 0);
+  --popover-foreground: oklch(0.1649 0.0352 281.8285);
+  --primary:           oklch(0.6726 0.2904 341.4084);
+  --primary-foreground: oklch(1.0000 0 0);
+  --secondary:         oklch(0.9595 0.0200 286.0164);
+  --secondary-foreground: oklch(0.1649 0.0352 281.8285);
+  --muted:             oklch(0.9595 0.0200 286.0164);
+  --muted-foreground:  oklch(0.1649 0.0352 281.8285);
+  --accent:            #5B45F2;
+  --accent-foreground: oklch(0.1649 0.0352 281.8285);
+  --destructive:       oklch(0.6535 0.2348 34.0370);
+  --border:            oklch(0.9205 0.0086 225.0878);
+  --input:             oklch(0.9205 0.0086 225.0878);
+  --ring:              oklch(0.6726 0.2904 341.4084);
+
+  /* Semantic aliases used by Qiskit components */
+  --bg-primary:    var(--background);
+  --text-primary:  var(--foreground);
+  --accent-pink:   var(--primary);
+  --accent-blue:   var(--accent);
+  --panel-bg:      var(--card);
+  --border-color:  var(--border);
+
+  /* Layout */
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* ────────────────────────────────────────────────────────────────────────── */
+/* 2. Dark-mode override (uses host app's .dark class on <html>)             */
+/* ────────────────────────────────────────────────────────────────────────── */
+.dark .qiskit-page {
+  --background:        oklch(0.1416 0.0017 247.8390);
+  --foreground:        oklch(0.9849 0.0352 281.8285);
+  --card:              oklch(0.1600 0 0);
+  --card-foreground:   oklch(0.9849 0.0352 281.8285);
+  --popover:           oklch(0.1600 0 0);
+  --popover-foreground: oklch(0.9849 0.0352 281.8285);
+  --primary:           oklch(0.6726 0.2904 341.4084);
+  --primary-foreground: oklch(0.9849 0.0352 281.8285);
+  --secondary:         oklch(0.2595 0.0200 286.0164);
+  --secondary-foreground: oklch(0.9849 0.0352 281.8285);
+  --muted:             oklch(0.2595 0.0200 286.0164);
+  --muted-foreground:  oklch(0.7649 0.0352 281.8285);
+  --accent:            #5B45F2;
+  --accent-foreground: oklch(0.9849 0.0352 281.8285);
+  --destructive:       oklch(0.6535 0.2348 34.0370);
+  --border:            oklch(0.2205 0.0086 225.0878);
+  --input:             oklch(0.2205 0.0086 225.0878);
+  --ring:              oklch(0.6726 0.2904 341.4084);
+}
+
+/* ────────────────────────────────────────────────────────────────────────── */
+/* 3. Utility classes used by Qiskit components                              */
+/*    (These mirror the @layer utilities from the original site,             */
+/*     scoped here since they reference the scoped vars above.)              */
+/* ────────────────────────────────────────────────────────────────────────── */
+.qiskit-page .text-pink-accent  { color: var(--accent-pink); }
+.qiskit-page .text-blue-accent  { color: var(--accent-blue); }
+.qiskit-page .bg-pink-accent    { background-color: var(--accent-pink); }
+.qiskit-page .bg-blue-accent    { background-color: var(--accent-blue); }
+.qiskit-page .bg-panel {
+  background-color: var(--panel-bg);
+  backdrop-filter: blur(12px);
+}
+.qiskit-page .border-panel { border-color: var(--border-color); }
+
+
+

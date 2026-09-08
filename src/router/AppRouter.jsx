@@ -6,6 +6,7 @@ import People from '../pages/People';
 import Gallery from '../pages/Gallery';
 import Collaborations from '../pages/Collaborations';
 import JoinContact from '../pages/JoinContact';
+import QiskitFallFest from '../pages/QiskitFallFest';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
       { path: 'gallery', element: <Gallery /> },
       { path: 'collaborations', element: <Collaborations /> },
       { path: 'join', element: <JoinContact /> },
+      { path: 'qiskit-fall-fest', element: <QiskitFallFest /> },
     ],
   },
 ]);

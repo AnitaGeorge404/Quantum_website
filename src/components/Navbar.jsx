@@ -10,7 +10,9 @@ const links = [
   { to: "/gallery", label: "Gallery" },
   { to: "/collaborations", label: "Collaborations" },
   { to: "/join", label: "Join" },
+  { to: "/qiskit-fall-fest", label: "Qiskit Fall Fest" },
 ];
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,22 +33,38 @@ export default function Navbar() {
 
               {/* Desktop Nav */}
               <nav className="hidden md:flex items-center gap-1">
-                {links.map((link) => (
-                  <NavLink
-                    key={link.to}
-                    to={link.to}
-                    end={link.end}
-                    className={({ isActive }) =>
-                      `rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                        isActive
-                          ? "bg-sky-50 text-[#0c2340] font-semibold"
-                          : "text-slate-500 hover:text-sky-900 hover:bg-slate-50"
-                      }`
-                    }
-                  >
-                    {link.label}
-                  </NavLink>
-                ))}
+                {links.map((link) =>
+                  link.to === '/qiskit-fall-fest' ? (
+                    <NavLink
+                      key={link.to}
+                      to={link.to}
+                      className={({ isActive }) =>
+                        `rounded-full px-4 py-2 text-sm font-semibold transition-all duration-300 ${
+                          isActive
+                            ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-md'
+                            : 'bg-gradient-to-r from-purple-100 to-pink-100 text-purple-700 hover:from-purple-600 hover:to-pink-500 hover:text-white hover:shadow-md'
+                        }`
+                      }
+                    >
+                      {link.label}
+                    </NavLink>
+                  ) : (
+                    <NavLink
+                      key={link.to}
+                      to={link.to}
+                      end={link.end}
+                      className={({ isActive }) =>
+                        `rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                          isActive
+                            ? 'bg-sky-50 text-[#0c2340] font-semibold'
+                            : 'text-slate-500 hover:text-sky-900 hover:bg-slate-50'
+                        }`
+                      }
+                    >
+                      {link.label}
+                    </NavLink>
+                  )
+                )}
               </nav>
 
               {/* Mobile Toggle */}
