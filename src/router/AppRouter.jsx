@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainLayout from '../layouts/MainLayout';
+import MainLayoutNoFooter from '../layouts/MainLayoutNoFooter';
 import Home from '../pages/Home';
 import Research from '../pages/Research';
 import People from '../pages/People';
@@ -19,7 +20,14 @@ const router = createBrowserRouter([
       { path: 'gallery', element: <Gallery /> },
       { path: 'collaborations', element: <Collaborations /> },
       { path: 'join', element: <JoinContact /> },
-      { path: 'qiskit-fall-fest', element: <QiskitFallFest /> },
+    ],
+  },
+  {
+    // Qiskit Fall Fest has its own footer, so we skip the QuDAIS one
+    path: '/qiskit-fall-fest',
+    element: <MainLayoutNoFooter />,
+    children: [
+      { index: true, element: <QiskitFallFest /> },
     ],
   },
 ]);
