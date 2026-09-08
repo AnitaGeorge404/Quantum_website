@@ -10,7 +10,7 @@ const links = [
   { to: "/gallery", label: "Gallery" },
   { to: "/collaborations", label: "Collaborations" },
   { to: "/join", label: "Join" },
-  { to: "/qiskit-fall-fest", label: "Qiskit Fall Fest" },
+  { to: "/qiskit-fall-fest-26", label: "Qiskit Fall Fest" },
 ];
 
 
@@ -34,7 +34,7 @@ export default function Navbar() {
               {/* Desktop Nav */}
               <nav className="hidden md:flex items-center gap-1">
                 {links.map((link) =>
-                  link.to === '/qiskit-fall-fest' ? (
+                  link.to === '/qiskit-fall-fest-26' ? (
                     <NavLink
                       key={link.to}
                       to={link.to}
