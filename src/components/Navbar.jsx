@@ -14,14 +14,14 @@ const links = [
 ];
 
 
-export default function Navbar() {
+export default function Navbar({ className = "", fixed = false }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 transition-all px-4 sm:px-6 pt-4">
-      <Container>
-        <div className="mx-auto max-w-5xl">
-          <div className="bg-white/80 backdrop-blur-xl border border-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-2xl md:rounded-full px-6 py-3 flex flex-col transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
+    <header className={`${fixed ? "fixed left-0 right-0" : "sticky"} top-0 z-50 transition-all px-4 sm:px-6 pt-4 pointer-events-none ${className}`}>
+      <Container className="pointer-events-none">
+        <div className="mx-auto max-w-5xl pointer-events-none">
+          <div className="pointer-events-auto bg-white/80 backdrop-blur-xl border border-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.04)] rounded-2xl md:rounded-full px-6 py-3 flex flex-col transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)]">
             <div className="flex items-center justify-between w-full">
               <Link to="/" onClick={() => setIsOpen(false)} className="inline-flex items-center gap-3 group">
                 <img

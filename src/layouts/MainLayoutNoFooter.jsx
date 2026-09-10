@@ -5,9 +5,9 @@ import Navbar from '../components/Navbar';
  *  Used for pages (like Qiskit Fall Fest) that ship their own footer. */
 export default function MainLayoutNoFooter() {
   return (
-    <div className="relative flex min-h-screen flex-col overflow-x-clip bg-transparent">
-      <Navbar />
-      <main className="flex-grow pt-2">
+    <div className="relative min-h-screen overflow-x-clip">
+      <Navbar fixed />
+      <main className="min-h-screen">
         <Outlet />
       </main>
     </div>
