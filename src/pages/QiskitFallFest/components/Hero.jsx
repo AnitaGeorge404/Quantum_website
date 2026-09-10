@@ -11,7 +11,7 @@ import heroBg from '../assets/svg/Hero 1 without title.svg';
 export default function Hero() {
   return (
     <section id="home" className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 flex flex-col items-center justify-center text-center min-h-screen overflow-hidden">
-      <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover -z-10 pointer-events-none opacity-20" />
+      <img src={heroBg} alt="" className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none opacity-20" />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

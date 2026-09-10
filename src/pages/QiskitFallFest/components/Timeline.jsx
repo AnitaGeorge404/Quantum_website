@@ -21,20 +21,20 @@ export default function Timeline() {
 
   return (
     <section id="timeline" ref={containerRef} className="pt-32 pb-24 relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-16">
+      <div className="text-center mb-16 flex flex-col items-center">
         <SplitText
           text="About the Event"
           tag="h2"
-          className="text-4xl md:text-5xl font-black mb-6 text-[var(--text-primary)]"
-          delay={10}
-          duration={0.2}
+          className="text-4xl md:text-5xl font-bold mb-6 text-[var(--text-primary)]"
+          delay={15}
+          duration={0.4}
         />
         <SplitText
           text="From Quantum Fundamentals to Real-World Quantum Applications. A five-day online event designed to introduce students to quantum computing, provide hands-on experience with Qiskit, connect participants with experts from academia and industry, and foster collaborative learning through a virtual hackathon."
           tag="p"
-          className="text-lg text-[var(--muted-foreground)] max-w-3xl mx-auto"
-          delay={5}
-          duration={0.15}
+          className="text-base md:text-lg text-[var(--text-primary)] opacity-80 max-w-3xl mx-auto leading-relaxed text-center"
+          delay={8}
+          duration={0.3}
           splitType="words"
         />
       </div>
