@@ -7,6 +7,7 @@ import sticker02 from '../assets/svg/Sticker 02.svg';
 import sticker03 from '../assets/svg/Sticker 03.svg';
 import sticker04 from '../assets/svg/Sticker 04.svg';
 import sticker05 from '../assets/svg/Sticker 05.svg';
+import cloudImg from '../assets/svg/cloud1.svg';
 
 const eventStickers = [sticker01, sticker02, sticker03, sticker04, sticker05];
 
@@ -20,23 +21,28 @@ export default function Timeline() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="timeline" ref={containerRef} className="pt-32 pb-24 relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-16 flex flex-col items-center">
-        <SplitText
-          text="About the Event"
-          tag="h2"
-          className="text-4xl md:text-5xl font-bold mb-6 text-[var(--text-primary)]"
-          delay={15}
-          duration={0.4}
-        />
-        <SplitText
-          text="From Quantum Fundamentals to Real-World Quantum Applications. A five-day online event designed to introduce students to quantum computing, provide hands-on experience with Qiskit, connect participants with experts from academia and industry, and foster collaborative learning through a virtual hackathon."
-          tag="p"
-          className="text-base md:text-lg text-[var(--text-primary)] opacity-80 max-w-3xl mx-auto leading-relaxed text-center"
-          delay={8}
-          duration={0.3}
-          splitType="words"
-        />
+    <section id="timeline" ref={containerRef} className="pt-16 pb-12 relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div 
+        className="text-center mb-10 flex flex-col items-center justify-center relative bg-no-repeat bg-center bg-[length:100%_100%] py-16 px-6 sm:px-12 md:py-20 md:px-24 mx-auto w-full max-w-5xl"
+        style={{ backgroundImage: `url('${cloudImg}')` }}
+      >
+        <div className="relative z-10 max-w-3xl">
+          <SplitText
+            text="About the Event"
+            tag="h2"
+            className="text-4xl md:text-5xl font-bold mb-6 text-[var(--text-primary)]"
+            delay={15}
+            duration={0.4}
+          />
+          <SplitText
+            text="From Quantum Fundamentals to Real-World Quantum Applications. A five-day online event designed to introduce students to quantum computing, provide hands-on experience with Qiskit, connect participants with experts from academia and industry, and foster collaborative learning through a virtual hackathon."
+            tag="p"
+            className="text-base md:text-lg text-[var(--text-primary)] opacity-80 leading-relaxed text-center"
+            delay={8}
+            duration={0.3}
+            splitType="words"
+          />
+        </div>
       </div>
 
       <div className="relative min-h-[800px] py-10 overflow-hidden lg:overflow-visible">

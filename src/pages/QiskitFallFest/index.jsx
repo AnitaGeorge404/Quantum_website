@@ -6,6 +6,7 @@ import Timeline from './components/Timeline';
 import TeamGrid from './components/TeamGrid';
 import Organizers from './components/Organizers';
 import Experience from './components/Experience';
+import QiskitFooter from './components/Footer';
 import './styles.css';
 
 /**
@@ -47,6 +48,9 @@ export default function QiskitFallFest() {
           <Organizers />
           <Experience />
         </main>
+        
+        {/* Simple colored footer */}
+        <QiskitFooter />
       </div>
     </div>
   );

@@ -101,7 +101,7 @@ export default function Experience() {
         <div className="w-full lg:w-1/2 bg-white/40 border border-[var(--border-color)] backdrop-blur-md rounded-2xl p-8 md:p-12 text-[var(--text-primary)] flex flex-col justify-center shadow-2xl relative overflow-hidden">
 
           <div
-            className="absolute inset-0 z-0 opacity-30 pointer-events-none bg-no-repeat bg-center bg-cover"
+            className="absolute inset-0 z-0 opacity-30 pointer-events-none bg-no-repeat bg-center bg-cover scale-125 origin-center"
             style={{ backgroundImage: `url('${stickerImg}')` }}
           />
 
