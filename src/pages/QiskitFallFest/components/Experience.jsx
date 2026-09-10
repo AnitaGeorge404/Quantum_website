@@ -4,9 +4,11 @@ import { OrbitControls, Environment, ContactShadows, useGLTF, Html, Center } fro
 import * as THREE from 'three';
 import TextType from './TextType';
 import SplitText from './SplitText';
+import stickerImg from '../assets/svg/Sticker 09.svg';
+
 function QuantumModel(props) {
   const { scene } = useGLTF('/models/quantum-computer.glb');
-  
+
   React.useLayoutEffect(() => {
     scene.traverse((child) => {
       if (child.isMesh && child.material) {
@@ -18,7 +20,7 @@ function QuantumModel(props) {
 
         const newMaterial = new THREE.MeshStandardMaterial({
           metalness: 0.8,
-          roughness: 0.25 
+          roughness: 0.25
         });
 
         const detRandom = (child.name.length + child.uuid.length) % 3;
@@ -73,7 +75,7 @@ export default function Experience() {
               <directionalLight position={[10, -10, -10]} intensity={0.5} color="#ffffff" />
               <directionalLight position={[-10, -10, 10]} intensity={0.5} color="#ffffff" />
               <directionalLight position={[0, 0, 15]} intensity={1.0} color="#ffffff" />
-              
+
               <Suspense fallback={<Html center><div className="text-[var(--text-primary)] font-mono text-sm whitespace-nowrap bg-white/80 border border-[var(--border-color)] px-4 py-2 rounded-md backdrop-blur-md shadow-sm">Loading 3D Model...</div></Html>}>
                 <Center>
                   <QuantumModel scale={5} />
@@ -81,12 +83,12 @@ export default function Experience() {
                 <Environment files="/potsdamer_platz_1k.hdr" />
                 <ContactShadows position={[0, -5, 0]} opacity={0.4} scale={20} blur={2} far={10} />
               </Suspense>
-              
-              <OrbitControls 
-                enablePan={false} 
-                enableZoom={false} 
+
+              <OrbitControls
+                enablePan={false}
+                enableZoom={false}
                 rotateSpeed={2}
-                minDistance={4} 
+                minDistance={4}
                 maxDistance={20}
                 autoRotate
                 autoRotateSpeed={1.0}
@@ -96,34 +98,42 @@ export default function Experience() {
         </div>
 
         {/* Right Column - Core Objectives Box */}
-        <div className="w-full lg:w-1/2 bg-white/40 border border-[var(--border-color)] backdrop-blur-md rounded-2xl p-8 md:p-12 text-[var(--text-primary)] flex flex-col justify-center shadow-2xl">
-          <h2 className="text-4xl md:text-5xl font-black mb-10 text-[var(--text-primary)]">
-            <TextType text="What you will earn" loop={false} startOnVisible={true} />
-          </h2>
-          
-          <div className="space-y-8 mb-10 flex-grow">
-            <div className="flex gap-6 border-b border-[var(--border-color)] pb-6">
-              <div>
-                <h3 className="text-xl font-bold mb-2">Learn from the flock</h3>
-                <p className="text-[var(--muted-foreground)] text-base leading-relaxed">Connect with industry experts and learn quantum fundamentals from scratch.</p>
-              </div>
-            </div>
-            <div className="flex gap-6 border-b border-[var(--border-color)] pb-6">
-              <div>
-                <h3 className="text-xl font-bold mb-2">Build in the cloud</h3>
-                <p className="text-[var(--muted-foreground)] text-base leading-relaxed">Run real quantum circuits directly on IBM Quantum hardware during the hackathon.</p>
-              </div>
-            </div>
-            <div className="flex gap-6 pb-2">
-              <div>
-                <h3 className="text-xl font-bold mb-2">Share the sky</h3>
-                <p className="text-[var(--muted-foreground)] text-base leading-relaxed">Collaborate with peers globally and present your innovative projects to the community.</p>
-              </div>
-            </div>
-          </div>
+        <div className="w-full lg:w-1/2 bg-white/40 border border-[var(--border-color)] backdrop-blur-md rounded-2xl p-8 md:p-12 text-[var(--text-primary)] flex flex-col justify-center shadow-2xl relative overflow-hidden">
 
-          <div className="mt-auto bg-[var(--muted)]/50 p-5 rounded-lg text-sm leading-relaxed border-l-4 border-[var(--accent-pink)] text-[var(--muted-foreground)]">
-            Open to the public. Registration is required. This is a fully virtual event. Attendees must consent to event recording/photography during registration.
+          <div
+            className="absolute inset-0 z-0 opacity-30 pointer-events-none bg-no-repeat bg-center bg-cover"
+            style={{ backgroundImage: `url('${stickerImg}')` }}
+          />
+
+          <div className="relative z-10 flex flex-col h-full">
+            <h2 className="text-4xl md:text-5xl font-black mb-10 text-[var(--text-primary)]">
+              <TextType text="What you will earn" loop={false} startOnVisible={true} />
+            </h2>
+
+            <div className="space-y-8 mb-10 flex-grow">
+              <div className="flex gap-6 border-b border-[var(--border-color)] pb-6">
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Learn from the flock</h3>
+                  <p className="text-[var(--muted-foreground)] text-base leading-relaxed">Connect with industry experts and learn quantum fundamentals from scratch.</p>
+                </div>
+              </div>
+              <div className="flex gap-6 border-b border-[var(--border-color)] pb-6">
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Build in the cloud</h3>
+                  <p className="text-[var(--muted-foreground)] text-base leading-relaxed">Run real quantum circuits directly on IBM Quantum hardware during the hackathon.</p>
+                </div>
+              </div>
+              <div className="flex gap-6 pb-2">
+                <div>
+                  <h3 className="text-xl font-bold mb-2">Share the sky</h3>
+                  <p className="text-[var(--muted-foreground)] text-base leading-relaxed">Collaborate with peers globally and present your innovative projects to the community.</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-auto bg-[var(--muted)]/50 p-5 rounded-lg text-sm leading-relaxed border-l-4 border-[var(--accent-pink)] text-[var(--muted-foreground)]">
+              Open to the public. Registration is required. This is a fully virtual event. Attendees must consent to event recording/photography during registration.
+            </div>
           </div>
         </div>
       </div>

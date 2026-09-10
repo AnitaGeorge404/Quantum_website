@@ -2,7 +2,7 @@ export const team = [
   {
     name: "Dr. Rubell Marion Lincy G",
     role: "Founder, QuDAIS Lab",
-    image: "/photos/Rubell.jpeg",
+    image: "/qiskit-photos/Rubell.jpeg",
     idNumber: "001",
     department: "Computer Science",
     linkedin: "#",
@@ -12,7 +12,7 @@ export const team = [
   {
     name: "Dr. Asha Sebastian",
     role: "Member, QuDAIS Lab",
-    image: "/photos/asha.jpeg",
+    image: "/qiskit-photos/asha.jpeg",
     idNumber: "002",
     department: "Computer Science",
     linkedin: "#",

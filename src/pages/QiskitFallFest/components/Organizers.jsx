@@ -21,7 +21,7 @@ export default function Organizers() {
             <div className="relative w-full max-w-[420px] bg-[var(--background)] border border-[var(--border-color)] rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-md transition-shadow duration-300">
               <div className="relative w-full max-w-[320px]">
                 <img 
-                  src="/photos/qudais_logo.jpeg" 
+                  src="/qiskit-photos/qudais_logo.jpeg" 
                   alt="QuDAIS Lab Logo" 
                   className="w-full h-auto object-contain rounded-xl drop-shadow-sm bg-white p-2"
                 />
