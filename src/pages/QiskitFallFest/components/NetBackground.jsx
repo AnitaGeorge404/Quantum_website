@@ -14,11 +14,11 @@ function createCircleTexture() {
 }
 
 export default function NetBackground({
-  particleCount = 90,
-  particleColor = 0x555555, // Darker grey for particles
-  lineColor = 0xaaaaaa, // Lighter grey for lines
-  backgroundColor = 0xffffff, // White background
-  maxDistance = 120, // Distance threshold for connecting lines
+  particleCount = 50,
+  particleColor = 0x5B45F2, // IBM Quantum purple
+  lineColor = 0x7c3aed, // Vibrant violet line
+  backgroundColor = 0xffffff,
+  maxDistance = 145,
   interactive = true,
   className = "fixed inset-0 w-full h-full -z-10 pointer-events-none overflow-hidden",
   style,
@@ -30,25 +30,24 @@ export default function NetBackground({
     if (!container) return;
 
     const isMobile = window.innerWidth < 768 || ('ontouchstart' in window);
-    const effectiveParticles = isMobile ? Math.min(particleCount, 35) : Math.min(particleCount, 85);
+    const effectiveParticles = isMobile ? 26 : Math.min(particleCount, 48);
     const effectiveMaxDist = isMobile ? maxDistance * 0.9 : maxDistance;
 
     // 1. Scene, Camera, Renderer Setup
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(backgroundColor, 0.001);
 
     const camera = new THREE.PerspectiveCamera(
-      75,
+      70,
       window.innerWidth / window.innerHeight,
       0.1,
-      2000
+      1500
     );
-    camera.position.z = 400;
+    camera.position.z = 350;
 
     const renderer = new THREE.WebGLRenderer({ antialias: !isMobile, alpha: true, powerPreference: 'low-power' });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 1.5));
-    renderer.setClearColor(backgroundColor, 1);
+    renderer.setClearColor(0x000000, 0); // Transparent so background shows through
     container.appendChild(renderer.domElement);
 
     // 2. Create Particles
@@ -56,12 +55,15 @@ export default function NetBackground({
     const particlesGeometry = new THREE.BufferGeometry();
     const particlePositions = new Float32Array(effectiveParticles * 3);
 
-    const range = 800; // Spread of particles
+    // Confine depth (Z) so particles stay in front of camera and connect into visible webs
+    const rangeX = 900;
+    const rangeY = 650;
+    const rangeZ = 160;
 
     for (let i = 0; i < effectiveParticles; i++) {
-      const x = (Math.random() - 0.5) * range;
-      const y = (Math.random() - 0.5) * range;
-      const z = (Math.random() - 0.5) * range;
+      const x = (Math.random() - 0.5) * rangeX;
+      const y = (Math.random() - 0.5) * rangeY;
+      const z = (Math.random() - 0.5) * rangeZ;
 
       particlePositions[i * 3] = x;
       particlePositions[i * 3 + 1] = y;
@@ -69,9 +71,9 @@ export default function NetBackground({
 
       particlesData.push({
         velocity: new THREE.Vector3(
-          (Math.random() - 0.5) * 0.8,
-          (Math.random() - 0.5) * 0.8,
-          (Math.random() - 0.5) * 0.8
+          (Math.random() - 0.5) * 0.7,
+          (Math.random() - 0.5) * 0.7,
+          (Math.random() - 0.5) * 0.4
         ),
       });
     }
@@ -83,18 +85,17 @@ export default function NetBackground({
 
     const particleMaterial = new THREE.PointsMaterial({
       color: particleColor,
-      size: 5,
+      size: isMobile ? 4.5 : 6,
       transparent: true,
-      opacity: 0.8,
+      opacity: 0.85,
       map: createCircleTexture(),
-      alphaTest: 0.1,
+      alphaTest: 0.05,
     });
 
     const particlesMesh = new THREE.Points(particlesGeometry, particleMaterial);
     scene.add(particlesMesh);
 
     // 3. Create Lines
-    // Allocate buffer for maximum possible lines
     const maxConnections = (effectiveParticles * (effectiveParticles - 1)) / 2;
     const linePositions = new Float32Array(maxConnections * 6);
 
@@ -104,7 +105,7 @@ export default function NetBackground({
     const linesMaterial = new THREE.LineBasicMaterial({
       color: lineColor,
       transparent: true,
-      opacity: 0.25,
+      opacity: 0.38,
     });
 
     const linesMesh = new THREE.LineSegments(linesGeometry, linesMaterial);
@@ -156,12 +157,14 @@ export default function NetBackground({
         positions[i * 3 + 2] += particleData.velocity.z;
 
         // Bounce off bounds
-        if (positions[i * 3 + 1] < -range / 2 || positions[i * 3 + 1] > range / 2) particleData.velocity.y = -particleData.velocity.y;
-        if (positions[i * 3] < -range / 2 || positions[i * 3] > range / 2) particleData.velocity.x = -particleData.velocity.x;
-        if (positions[i * 3 + 2] < -range / 2 || positions[i * 3 + 2] > range / 2) particleData.velocity.z = -particleData.velocity.z;
+        if (positions[i * 3 + 1] < -rangeY / 2 || positions[i * 3 + 1] > rangeY / 2) particleData.velocity.y = -particleData.velocity.y;
+        if (positions[i * 3] < -rangeX / 2 || positions[i * 3] > rangeX / 2) particleData.velocity.x = -particleData.velocity.x;
+        if (positions[i * 3 + 2] < -rangeZ / 2 || positions[i * 3 + 2] > rangeZ / 2) particleData.velocity.z = -particleData.velocity.z;
 
-        // Check connections
+        // Check connections - cap at 3 connections per node for clean constellation geometry
+        let connections = 0;
         for (let j = i + 1; j < effectiveParticles; j++) {
+          if (connections >= 3) break;
           const dx = positions[i * 3] - positions[j * 3];
           const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
           const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
@@ -175,6 +178,7 @@ export default function NetBackground({
             linePositions[vertexpos++] = positions[j * 3];
             linePositions[vertexpos++] = positions[j * 3 + 1];
             linePositions[vertexpos++] = positions[j * 3 + 2];
+            connections++;
           }
         }
       }

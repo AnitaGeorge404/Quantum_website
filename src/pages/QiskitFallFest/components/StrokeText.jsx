@@ -32,12 +32,25 @@ const StrokeText = ({
   const strokeTextRef = useRef(null);
   const wipeRectRef = useRef(null);
 
-  const [box, setBox] = useState(null);
-
   const rawId = useId();
   const wipeId = `stroke-text-wipe-${rawId.replace(/[^a-zA-Z0-9_-]/g, '')}`;
 
   const characters = useMemo(() => Array.from(String(text ?? '')), [text]);
+
+  const pad = Math.max(Number(strokeWidth) || 1, fontSize * 0.1);
+  const initialBox = useMemo(() => {
+    // For monospace font, character width is ~0.6 * fontSize + letterSpacing
+    const charWidth = fontSize * 0.6 + letterSpacing;
+    const estWidth = Math.max(characters.length * charWidth, 120);
+    return {
+      x: -pad,
+      y: -fontSize * 0.95 - pad,
+      width: estWidth + pad * 2,
+      height: fontSize * 1.25 + pad * 2
+    };
+  }, [characters.length, fontSize, letterSpacing, pad]);
+
+  const [box, setBox] = useState(initialBox);
 
   const dash = Math.max(fontSize * 7, 200);
 

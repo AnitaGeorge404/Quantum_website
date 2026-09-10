@@ -7,8 +7,8 @@ import DynamicBackground from './DynamicBackground';
 
 export default function Hero() {
   return (
-    <section id="home" className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 flex flex-col items-center justify-center text-center min-h-screen overflow-hidden">
-      <DynamicBackground className="absolute inset-0 w-full h-full -z-10 pointer-events-none" />
+    <section id="home" className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 flex flex-col items-center justify-center text-center min-h-screen overflow-hidden isolate">
+      <DynamicBackground className="absolute inset-0 w-full h-full z-0 pointer-events-none" />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -22,10 +22,10 @@ export default function Hero() {
               strokeColor="currentColor"
               fillColor="currentColor"
               fontSize={160}
-              strokeWidth={2}
-              drawDuration={1.2}
-              fillDelay={0.5}
-              stagger={0.03}
+              strokeWidth={2.2}
+              drawDuration={0.8}
+              fillDelay={0.12}
+              stagger={0.02}
             />
           </h1>
           <h2 className="text-3xl md:text-5xl font-light font-mono tracking-wide text-[var(--muted-foreground)]">

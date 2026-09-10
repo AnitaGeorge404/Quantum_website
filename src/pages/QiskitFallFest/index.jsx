@@ -18,6 +18,7 @@ import './styles.css';
  */
 export default function QiskitFallFest() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isDeferredReady, setIsDeferredReady] = useState(false);
 
   // Fallback timeout in case animation doesn't complete
   useEffect(() => {
@@ -26,6 +27,16 @@ export default function QiskitFallFest() {
     }, 7000);
     return () => clearTimeout(timer);
   }, []);
+
+  // When loading finishes, mount Hero first with 100% CPU, then mount lower sections after 150ms
+  useEffect(() => {
+    if (!isLoading) {
+      const timer = setTimeout(() => {
+        setIsDeferredReady(true);
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoading]);
 
   return (
     // Scoping wrapper — applies the Qiskit theme variables to everything inside
@@ -46,15 +57,19 @@ export default function QiskitFallFest() {
             <>
               <Hero />
               <Timeline />
-              <TeamGrid />
-              <Organizers />
-              <Experience />
+              {isDeferredReady && (
+                <>
+                  <TeamGrid />
+                  <Organizers />
+                  <Experience />
+                </>
+              )}
             </>
           )}
         </main>
 
         {/* Qiskit-specific footer (contact details, links) */}
-        {!isLoading && <QiskitFooter />}
+        {!isLoading && isDeferredReady && <QiskitFooter />}
       </div>
     </div>
   );
