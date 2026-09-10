@@ -1,7 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { schedule } from '../data/schedule';
 import SplitText from './SplitText';
+import sticker01 from '../assets/svg/Sticker 01.svg';
+import sticker02 from '../assets/svg/Sticker 02.svg';
+import sticker03 from '../assets/svg/Sticker 03.svg';
+import sticker04 from '../assets/svg/Sticker 04.svg';
+import sticker05 from '../assets/svg/Sticker 05.svg';
+
+const eventStickers = [sticker01, sticker02, sticker03, sticker04, sticker05];
 
 export default function Timeline() {
   const containerRef = useRef(null);
@@ -64,6 +71,9 @@ export default function Timeline() {
 }
 
 function Node({ item, isLeft, progress, index, total }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const stickerSrc = eventStickers[index % eventStickers.length];
+
   const nodeTriggerPoint = (index + 0.5) / total;
   
   const opacity = useTransform(
@@ -87,9 +97,36 @@ function Node({ item, isLeft, progress, index, total }) {
   return (
     <div className={`relative flex items-center z-20 w-full min-h-[140px] py-6 ${isLeft ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
       
-      {/* Spacer for one half on desktop */}
-      <div className="hidden lg:block lg:w-1/2"></div>
-      
+      {/* Opposite Side Sticker Illustration on Desktop */}
+      <div className={`hidden lg:flex lg:w-1/2 items-center ${isLeft ? 'justify-start pl-16' : 'justify-end pr-16'}`}>
+        <motion.div
+          style={{ opacity, y }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          className="w-full max-w-[450px] flex items-center justify-center py-4"
+        >
+          <div className="relative cursor-pointer transition-transform duration-500 hover:scale-105">
+            {/* Ambient glow on hover */}
+            <div
+              className={`absolute inset-0 rounded-full blur-2xl transition-opacity duration-500 pointer-events-none ${
+                isHovered
+                  ? 'opacity-70 bg-gradient-to-tr from-[var(--accent-pink)]/25 to-[var(--accent-blue)]/30 scale-110'
+                  : 'opacity-0'
+              }`}
+            />
+            <img
+              src={stickerSrc}
+              alt={`Event ${index + 1} sticker`}
+              className={`w-52 h-52 xl:w-60 xl:h-60 object-contain select-none transition-all duration-500 ease-out transform ${
+                isHovered
+                  ? 'grayscale-0 opacity-100 scale-105 drop-shadow-[0_12px_24px_rgba(91,69,242,0.25)]'
+                  : 'grayscale opacity-25 scale-95'
+              }`}
+            />
+          </div>
+        </motion.div>
+      </div>
+
       {/* Center dot */}
       <div className="flex items-center justify-center shrink-0 absolute left-8 lg:left-1/2 -translate-x-1/2 w-8 h-8 z-30">
          <motion.div 
@@ -102,20 +139,45 @@ function Node({ item, isLeft, progress, index, total }) {
       <div className={`w-full pl-20 lg:pl-0 lg:w-1/2 flex ${isLeft ? 'lg:justify-end lg:pr-16' : 'lg:justify-start lg:pl-16'}`}>
          
          <motion.div 
-           className={`relative w-full max-w-[450px] p-6 lg:p-8 group text-left`}
+           className={`relative w-full max-w-[450px] p-6 lg:p-8 group text-left transition-all duration-500 ${
+             isHovered ? 'shadow-xl' : 'shadow-sm'
+           }`}
            style={{ opacity, y }}
+           onMouseEnter={() => setIsHovered(true)}
+           onMouseLeave={() => setIsHovered(false)}
          >
-           {/* Card Background */}
-           <div className="absolute inset-0 bg-[var(--panel-bg)]/80 backdrop-blur-xl border border-[var(--border-color)] group-hover:border-[var(--accent-blue)] transition-colors duration-500 rounded-lg"></div>
+           {/* Mobile Background Sticker (behind tile on responsive screens < lg) */}
+           <div className="lg:hidden absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden rounded-lg z-0">
+             <img
+               src={stickerSrc}
+               alt=""
+               className={`w-48 h-48 sm:w-56 sm:h-56 object-contain select-none transition-all duration-500 ease-out ${
+                 isHovered
+                   ? 'grayscale-0 opacity-75 scale-105'
+                   : 'grayscale opacity-30 scale-95'
+               }`}
+             />
+           </div>
+
+           {/* Card Background - transparent / frosted glass so mobile background sticker shines through */}
+           <div className={`absolute inset-0 bg-[var(--panel-bg)]/60 lg:bg-[var(--panel-bg)]/80 backdrop-blur-md border ${
+             isHovered ? 'border-[var(--accent-blue)]' : 'border-[var(--border-color)]'
+           } transition-colors duration-500 rounded-lg z-10`}></div>
 
            {/* Corner accents */}
-           <div className="absolute top-0 left-0 w-8 h-8 border-t-[2px] border-l-[2px] border-transparent group-hover:border-[var(--accent-blue)] transition-all duration-500 rounded-tl-lg"></div>
-           <div className="absolute bottom-0 right-0 w-8 h-8 border-b-[2px] border-r-[2px] border-transparent group-hover:border-[var(--accent-blue)] transition-all duration-500 rounded-br-lg"></div>
+           <div className={`absolute top-0 left-0 w-8 h-8 border-t-[2px] border-l-[2px] ${
+             isHovered ? 'border-[var(--accent-blue)]' : 'border-transparent'
+           } transition-all duration-500 rounded-tl-lg z-20`}></div>
+           <div className={`absolute bottom-0 right-0 w-8 h-8 border-b-[2px] border-r-[2px] ${
+             isHovered ? 'border-[var(--accent-blue)]' : 'border-transparent'
+           } transition-all duration-500 rounded-br-lg z-20`}></div>
 
            <div className={`relative z-20 flex flex-col gap-2 items-start`}>
              {/* Background Number */}
              <div className="absolute -top-6 -right-2 text-7xl lg:text-8xl font-bold font-sans pointer-events-none transition-colors duration-500 select-none">
-               <span className="text-[var(--border-color)] opacity-40 group-hover:text-[var(--accent-blue)] group-hover:opacity-10 transition-colors duration-500">
+               <span className={`transition-colors duration-500 ${
+                 isHovered ? 'text-[var(--accent-blue)] opacity-20' : 'text-[var(--border-color)] opacity-40'
+               }`}>
                  0{index + 1}
                </span>
              </div>
@@ -126,10 +188,14 @@ function Node({ item, isLeft, progress, index, total }) {
              </h3>
 
              {/* Divider */}
-             <div className="h-[2px] bg-[var(--accent-blue)] my-2 transition-all duration-700 ease-out w-0 group-hover:w-full relative z-10"></div>
+             <div className={`h-[2px] bg-[var(--accent-blue)] my-2 transition-all duration-700 ease-out ${
+               isHovered ? 'w-full' : 'w-0'
+             } relative z-10`}></div>
 
              {/* Title */}
-             <h4 className="text-lg font-semibold transition-colors duration-500 text-[var(--muted-foreground)] group-hover:text-[var(--text-primary)] relative z-10">
+             <h4 className={`text-lg font-semibold transition-colors duration-500 relative z-10 ${
+               isHovered ? 'text-[var(--text-primary)]' : 'text-[var(--muted-foreground)]'
+             }`}>
                {item.title}
              </h4>
 
