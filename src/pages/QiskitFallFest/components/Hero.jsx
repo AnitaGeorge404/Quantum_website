@@ -22,8 +22,8 @@ export default function Hero() {
           <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-bold font-mono tracking-tighter text-[var(--text-primary)] w-full">
             <StrokeText
               text="QISKIT"
-              strokeColor="currentColor"
-              fillColor="currentColor"
+              strokeColor="#31135E"
+              fillColor="#31135E"
               fontSize={160}
               strokeWidth={2}
               drawDuration={1.2}

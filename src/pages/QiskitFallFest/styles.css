@@ -20,7 +20,7 @@
 /* ────────────────────────────────────────────────────────────────────────── */
 .qiskit-page {
   /* Core palette */
-  --background:        oklch(0.9816 0.0017 247.8390);
+  --background:        #F2F4F8;
   --foreground:        oklch(0.1649 0.0352 281.8285);
   --card:              oklch(1.0000 0 0);
   --card-foreground:   oklch(0.1649 0.0352 281.8285);
@@ -94,5 +94,22 @@
 }
 .qiskit-page .border-panel { border-color: var(--border-color); }
 
-
-
+/* ────────────────────────────────────────────────────────────────────────── */
+/* 4. Global Typography Overrides for Qiskit Fall Fest                       */
+/* ────────────────────────────────────────────────────────────────────────── */
+.qiskit-page h1,
+.qiskit-page h2,
+.qiskit-page h3,
+.qiskit-page h4,
+.qiskit-page h5,
+.qiskit-page h6,
+.qiskit-page .text-4xl,
+.qiskit-page .text-5xl,
+.qiskit-page .text-6xl,
+.qiskit-page .font-bold,
+.qiskit-page .font-black,
+.qiskit-page .font-extrabold,
+.qiskit-page b,
+.qiskit-page strong {
+  color: #31135E !important;
+}

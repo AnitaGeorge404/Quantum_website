@@ -20,9 +20,9 @@ export default function Organizers() {
           <div className="flex justify-center mb-12">
             <div className="relative w-full max-w-[420px] bg-[var(--background)] border border-[var(--border-color)] rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-xl hover:border-[var(--text-primary)]/30 transition-all duration-300 ease-out hover:-translate-y-1">
               <div className="relative w-full max-w-[320px]">
-                <img
-                  src="/photos/qudais_logo.jpeg"
-                  alt="QuDAIS Lab Logo"
+                <img 
+                  src="/qiskit-photos/qudais_logo.jpeg" 
+                  alt="QuDAIS Lab Logo" 
                   className="w-full h-auto object-contain rounded-xl drop-shadow-sm bg-white p-2"
                 />
               </div>
