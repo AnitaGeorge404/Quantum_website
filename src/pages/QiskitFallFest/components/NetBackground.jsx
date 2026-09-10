@@ -14,7 +14,7 @@ function createCircleTexture() {
 }
 
 export default function NetBackground({
-  particleCount = 250,
+  particleCount = 90,
   particleColor = 0x555555, // Darker grey for particles
   lineColor = 0xaaaaaa, // Lighter grey for lines
   backgroundColor = 0xffffff, // White background
@@ -29,6 +29,10 @@ export default function NetBackground({
     const container = containerRef.current;
     if (!container) return;
 
+    const isMobile = window.innerWidth < 768 || ('ontouchstart' in window);
+    const effectiveParticles = isMobile ? Math.min(particleCount, 35) : Math.min(particleCount, 85);
+    const effectiveMaxDist = isMobile ? maxDistance * 0.9 : maxDistance;
+
     // 1. Scene, Camera, Renderer Setup
     const scene = new THREE.Scene();
     scene.fog = new THREE.FogExp2(backgroundColor, 0.001);
@@ -41,20 +45,20 @@ export default function NetBackground({
     );
     camera.position.z = 400;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: !isMobile, alpha: true, powerPreference: 'low-power' });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 1.5));
     renderer.setClearColor(backgroundColor, 1);
     container.appendChild(renderer.domElement);
 
     // 2. Create Particles
     const particlesData = [];
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlePositions = new Float32Array(particleCount * 3);
+    const particlePositions = new Float32Array(effectiveParticles * 3);
 
     const range = 800; // Spread of particles
 
-    for (let i = 0; i < particleCount; i++) {
+    for (let i = 0; i < effectiveParticles; i++) {
       const x = (Math.random() - 0.5) * range;
       const y = (Math.random() - 0.5) * range;
       const z = (Math.random() - 0.5) * range;
@@ -91,7 +95,7 @@ export default function NetBackground({
 
     // 3. Create Lines
     // Allocate buffer for maximum possible lines
-    const maxConnections = (particleCount * (particleCount - 1)) / 2;
+    const maxConnections = (effectiveParticles * (effectiveParticles - 1)) / 2;
     const linePositions = new Float32Array(maxConnections * 6);
 
     const linesGeometry = new THREE.BufferGeometry();
@@ -120,24 +124,17 @@ export default function NetBackground({
       mouseY = (event.clientY - windowHalfY) * 0.1;
     };
 
-    if (interactive) {
-      window.addEventListener('mousemove', handleMouseMove);
+    if (interactive && !isMobile) {
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
     }
 
-    let isVisible = true;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        isVisible = entry.isIntersecting;
-      },
-      { threshold: 0 }
-    );
-    observer.observe(container);
+    // 5. Animation Loop with Visibility Culling
+    let animationFrameId = null;
+    let isRunning = false;
 
-    // 5. Animation Loop
-    let animationFrameId;
     const animate = () => {
+      if (!isRunning) return;
       animationFrameId = requestAnimationFrame(animate);
-      if (!isVisible) return;
 
       // Camera parallax
       targetX = mouseX * 1.5;
@@ -151,7 +148,7 @@ export default function NetBackground({
       // Update particle positions
       const positions = particlesMesh.geometry.attributes.position.array;
 
-      for (let i = 0; i < particleCount; i++) {
+      for (let i = 0; i < effectiveParticles; i++) {
         const particleData = particlesData[i];
         
         positions[i * 3] += particleData.velocity.x;
@@ -164,13 +161,13 @@ export default function NetBackground({
         if (positions[i * 3 + 2] < -range / 2 || positions[i * 3 + 2] > range / 2) particleData.velocity.z = -particleData.velocity.z;
 
         // Check connections
-        for (let j = i + 1; j < particleCount; j++) {
+        for (let j = i + 1; j < effectiveParticles; j++) {
           const dx = positions[i * 3] - positions[j * 3];
           const dy = positions[i * 3 + 1] - positions[j * 3 + 1];
           const dz = positions[i * 3 + 2] - positions[j * 3 + 2];
           const distSq = dx * dx + dy * dy + dz * dz;
 
-          if (distSq < maxDistance * maxDistance) {
+          if (distSq < effectiveMaxDist * effectiveMaxDist) {
             linePositions[vertexpos++] = positions[i * 3];
             linePositions[vertexpos++] = positions[i * 3 + 1];
             linePositions[vertexpos++] = positions[i * 3 + 2];
@@ -193,7 +190,35 @@ export default function NetBackground({
       renderer.render(scene, camera);
     };
 
-    animate();
+    const startAnimation = () => {
+      if (!isRunning) {
+        isRunning = true;
+        animate();
+      }
+    };
+
+    const stopAnimation = () => {
+      if (isRunning) {
+        isRunning = false;
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = null;
+        }
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          startAnimation();
+        } else {
+          stopAnimation();
+        }
+      },
+      { threshold: 0.01 }
+    );
+    observer.observe(container);
+    startAnimation();
 
     // 6. Handle Window Resizing
     const handleResize = () => {
@@ -205,9 +230,9 @@ export default function NetBackground({
     window.addEventListener('resize', handleResize);
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      stopAnimation();
       observer.disconnect();
-      if (interactive) {
+      if (interactive && !isMobile) {
         window.removeEventListener('mousemove', handleMouseMove);
       }
       window.removeEventListener('resize', handleResize);

@@ -36,11 +36,11 @@ export default function Hero() {
         <div className="flex flex-col items-center justify-center gap-3 mb-10 font-mono text-sm md:text-base">
           <div className="flex items-center gap-2 text-[var(--accent-pink)] font-semibold">
             <Calendar className="w-5 h-5" />
-            <FoldText text="7 October 2026 - 11 October 2026 (5-Day Online Event)" fontSize="inherit" fontWeight="inherit" color="inherit" duration={0.4} stagger={0.02} />
+            <FoldText text="7 October 2026 - 11 October 2026 (5-Day Online Event)" splitBy="word" fontSize="inherit" fontWeight="inherit" color="inherit" duration={0.4} stagger={0.02} />
           </div>
           <div className="flex items-center gap-2 text-[var(--text-primary)] opacity-80">
             <MapPin className="w-5 h-5 text-[var(--text-primary)]" />
-            <FoldText text="Indian Institute of Information Technology (IIIT) Kottayam, Kerala, India" fontSize="inherit" fontWeight="inherit" color="inherit" duration={0.4} stagger={0.02} />
+            <FoldText text="Indian Institute of Information Technology (IIIT) Kottayam, Kerala, India" splitBy="word" fontSize="inherit" fontWeight="inherit" color="inherit" duration={0.4} stagger={0.02} />
           </div>
         </div>
 

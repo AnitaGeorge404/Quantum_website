@@ -18,12 +18,12 @@ export default function Organizers() {
   return (
     <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       {/* Outer Event Organizers Card with Unified DotField Background */}
-      <div className="relative overflow-hidden bg-[var(--panel-bg)]/80 border border-[var(--border-color)] rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl backdrop-blur-md">
+      <div className="relative overflow-hidden bg-[var(--panel-bg)]/95 border border-[var(--border-color)] rounded-3xl p-6 sm:p-10 md:p-12 shadow-2xl">
         {/* Full-width DotField Background for the entire Event Organizers container */}
         <div className="absolute inset-0 pointer-events-auto">
           <DotField
-            dotRadius={4.5}
-            dotSpacing={6}
+            dotRadius={4}
+            dotSpacing={12}
             cursorRadius={380}
             cursorForce={0.12}
             bulgeStrength={80}
@@ -43,7 +43,7 @@ export default function Organizers() {
             <motion.div
               whileHover={{ y: -4, scale: 1.01 }}
               transition={{ duration: 0.3 }}
-              className="relative w-full max-w-[420px] bg-[var(--panel-bg)]/85 backdrop-blur-xl border border-[var(--border-color)] rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center text-center shadow-2xl overflow-hidden group"
+              className="relative w-full max-w-[420px] bg-[var(--panel-bg)]/90 border border-[var(--border-color)] rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center text-center shadow-2xl overflow-hidden group"
               style={{
                 boxShadow: '0 20px 40px -15px rgba(0, 0, 0, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.1)',
               }}

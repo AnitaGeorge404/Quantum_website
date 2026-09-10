@@ -55,18 +55,42 @@ function QuantumModel(props) {
 useGLTF.preload('/models/quantum-computer.glb');
 
 export default function Experience() {
+  const sectionRef = React.useRef(null);
+  const [isVisible, setIsVisible] = React.useState(false);
+  const isMobile = typeof window !== 'undefined' && (window.innerWidth < 768 || ('ontouchstart' in window));
+
+  React.useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold: 0.05 }
+    );
+    observer.observe(el);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="events" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="events" ref={sectionRef} className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div className="flex flex-col lg:flex-row gap-8 min-h-[600px]">
         {/* Left Column - 3D Quantum Computer Box */}
-        <div className="w-full lg:w-1/2 bg-white/40 border border-[var(--border-color)] backdrop-blur-md rounded-2xl overflow-hidden relative flex flex-col p-0 items-center justify-center min-h-[500px] lg:min-h-[600px] shadow-2xl">
+        <div className="w-full lg:w-1/2 bg-[var(--panel-bg)]/90 border border-[var(--border-color)] rounded-2xl overflow-hidden relative flex flex-col p-0 items-center justify-center min-h-[500px] lg:min-h-[600px] shadow-2xl">
           <div className="absolute top-4 left-4 z-20">
-            <div className="inline-block px-3 py-1 rounded-full bg-black/5 border border-[var(--border-color)] text-xs font-mono text-[var(--text-primary)] uppercase tracking-wider backdrop-blur-md">
+            <div className="inline-block px-3 py-1 rounded-full bg-black/5 border border-[var(--border-color)] text-xs font-mono text-[var(--text-primary)] uppercase tracking-wider backdrop-blur-sm">
               Interactive Hardware Model
             </div>
           </div>
           <div className="w-full h-full min-h-[500px] lg:min-h-[600px] cursor-grab active:cursor-grabbing">
-            <Canvas camera={{ position: [0, 0, 10], fov: 40 }}>
+            <Canvas 
+              frameloop={isVisible ? 'always' : 'never'}
+              dpr={isMobile ? 1 : [1, 1.5]}
+              gl={{ powerPreference: 'low-power', antialias: !isMobile }}
+              camera={{ position: [0, 0, 10], fov: 40 }}
+            >
               <ambientLight intensity={1.2} />
               <directionalLight position={[10, 10, 10]} intensity={1.0} color="#ffffff" />
               <directionalLight position={[-10, 10, -10]} intensity={0.5} color="#ffffff" />
@@ -74,29 +98,29 @@ export default function Experience() {
               <directionalLight position={[-10, -10, 10]} intensity={0.5} color="#ffffff" />
               <directionalLight position={[0, 0, 15]} intensity={1.0} color="#ffffff" />
               
-              <Suspense fallback={<Html center><div className="text-[var(--text-primary)] font-mono text-sm whitespace-nowrap bg-white/80 border border-[var(--border-color)] px-4 py-2 rounded-md backdrop-blur-md shadow-sm">Loading 3D Model...</div></Html>}>
+              <Suspense fallback={<Html center><div className="text-[var(--text-primary)] font-mono text-sm whitespace-nowrap bg-white/90 border border-[var(--border-color)] px-4 py-2 rounded-md shadow-sm">Loading 3D Model...</div></Html>}>
                 <Center>
                   <QuantumModel scale={5} />
                 </Center>
                 <Environment files="/potsdamer_platz_1k.hdr" />
-                <ContactShadows position={[0, -5, 0]} opacity={0.4} scale={20} blur={2} far={10} />
+                <ContactShadows position={[0, -5, 0]} opacity={0.35} scale={16} blur={1.5} far={8} resolution={256} frames={1} />
               </Suspense>
               
               <OrbitControls 
                 enablePan={false} 
                 enableZoom={false} 
-                rotateSpeed={2}
+                rotateSpeed={1.5}
                 minDistance={4} 
                 maxDistance={20}
-                autoRotate
-                autoRotateSpeed={1.0}
+                autoRotate={isVisible}
+                autoRotateSpeed={0.8}
               />
             </Canvas>
           </div>
         </div>
 
         {/* Right Column - Core Objectives Box */}
-        <div className="w-full lg:w-1/2 bg-white/40 border border-[var(--border-color)] backdrop-blur-md rounded-2xl p-8 md:p-12 text-[var(--text-primary)] flex flex-col justify-center shadow-2xl">
+        <div className="w-full lg:w-1/2 bg-[var(--panel-bg)]/90 border border-[var(--border-color)] rounded-2xl p-8 md:p-12 text-[var(--text-primary)] flex flex-col justify-center shadow-2xl">
           <h2 className="text-4xl md:text-5xl font-black mb-10 text-[var(--text-primary)]">
             <TextType text="What you will earn" loop={false} startOnVisible={true} />
           </h2>

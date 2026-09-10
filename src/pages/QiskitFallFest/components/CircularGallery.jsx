@@ -393,14 +393,31 @@ class App {
     this.onResize();
     this.createGeometry();
     this.createMedias(items, bend, textColor, borderRadius, font);
-    this.update();
+    this.isVisible = false;
+    this.setupVisibilityObserver();
     this.addEventListeners();
   }
+  setupVisibilityObserver() {
+    this.observer = new IntersectionObserver(([entry]) => {
+      const wasVisible = this.isVisible;
+      this.isVisible = entry.isIntersecting;
+      if (this.isVisible && !wasVisible) {
+        this.update();
+      } else if (!this.isVisible && this.raf) {
+        window.cancelAnimationFrame(this.raf);
+        this.raf = null;
+      }
+    }, { threshold: 0.01 });
+    if (this.container) {
+      this.observer.observe(this.container);
+    }
+  }
   createRenderer() {
+    const isMobile = typeof window !== 'undefined' && (window.innerWidth < 768 || ('ontouchstart' in window));
     this.renderer = new Renderer({
       alpha: true,
-      antialias: true,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      antialias: !isMobile,
+      dpr: isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 1.5)
     });
     this.gl = this.renderer.gl;
     this.gl.clearColor(0, 0, 0, 0);
@@ -415,9 +432,10 @@ class App {
     this.scene = new Transform();
   }
   createGeometry() {
+    const isMobile = typeof window !== 'undefined' && (window.innerWidth < 768 || ('ontouchstart' in window));
     this.planeGeometry = new Plane(this.gl, {
-      heightSegments: 50,
-      widthSegments: 100
+      heightSegments: isMobile ? 8 : 16,
+      widthSegments: isMobile ? 16 : 32
     });
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
@@ -520,6 +538,7 @@ class App {
     }
   }
   update() {
+    if (!this.isVisible) return;
     if (!this.isDown) {
       this.scroll.target -= this.scrollSpeed * 0.05;
     }
@@ -542,15 +561,18 @@ class App {
 
     window.addEventListener('resize', this.boundOnResize);
     this.container?.addEventListener('mousedown', this.boundOnTouchDown);
-    window.addEventListener('mousemove', this.boundOnTouchMove);
+    window.addEventListener('mousemove', this.boundOnTouchMove, { passive: true });
     window.addEventListener('mouseup', this.boundOnTouchUp);
     this.container?.addEventListener('touchstart', this.boundOnTouchDown);
-    window.addEventListener('touchmove', this.boundOnTouchMove);
+    window.addEventListener('touchmove', this.boundOnTouchMove, { passive: true });
     window.addEventListener('touchend', this.boundOnTouchUp);
 
     this.container?.addEventListener('keydown', this.boundOnKeyDown);
   }
   destroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
     window.cancelAnimationFrame(this.raf);
     window.removeEventListener('resize', this.boundOnResize);
     this.container?.removeEventListener('mousedown', this.boundOnTouchDown);

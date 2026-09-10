@@ -37,7 +37,8 @@ const DotField = memo(({
     const glowEl = glowRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d', { alpha: true });
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const isMobile = window.innerWidth < 768;
+    const dpr = isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
     let resizeTimer;
 
     function resize() {
@@ -46,6 +47,7 @@ const DotField = memo(({
     }
 
     function doResize() {
+      if (!canvas || !canvas.parentElement) return;
       const rect = canvas.parentElement.getBoundingClientRect();
       const w = rect.width;
       const h = rect.height;
@@ -68,7 +70,9 @@ const DotField = memo(({
 
     function buildDots(w, h) {
       const p = propsRef.current;
-      const step = p.dotRadius + p.dotSpacing;
+      const rawStep = p.dotRadius + p.dotSpacing;
+      // On mobile or small screens, ensure minimum step of 16px to prevent thousands of canvas arc operations
+      const step = isMobile ? Math.max(rawStep, 16) : Math.max(rawStep, 10);
       const cols = Math.floor(w / step);
       const rows = Math.floor(h / step);
       const padX = (w % step) / 2;
@@ -93,22 +97,11 @@ const DotField = memo(({
       mouseRef.current.y = e.clientY - rect.top;
     }
 
-    function updateMouseSpeed() {
-      const m = mouseRef.current;
-      const dx = m.prevX - m.x;
-      const dy = m.prevY - m.y;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      m.speed += (dist - m.speed) * 0.5;
-      if (m.speed < 0.001) m.speed = 0;
-      m.prevX = m.x;
-      m.prevY = m.y;
-    }
-
-    const speedInterval = setInterval(updateMouseSpeed, 20);
-
     let frameCount = 0;
+    let isRunning = false;
 
     function tick() {
+      if (!isRunning) return;
       frameCount++;
       const dots = dotsRef.current;
       const m = mouseRef.current;
@@ -116,6 +109,15 @@ const DotField = memo(({
       const p = propsRef.current;
       const len = dots.length;
       const t = frameCount * 0.02;
+
+      // Update mouse speed in animation frame
+      const dx = m.prevX - m.x;
+      const dy = m.prevY - m.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      m.speed += (dist - m.speed) * 0.5;
+      if (m.speed < 0.001) m.speed = 0;
+      m.prevX = m.x;
+      m.prevY = m.y;
 
       const targetEngagement = Math.min(m.speed / 5, 1);
       engagement.current += (targetEngagement - engagement.current) * 0.06;
@@ -146,21 +148,21 @@ const DotField = memo(({
 
       for (let i = 0; i < len; i++) {
         const d = dots[i];
-        const dx = m.x - d.ax;
-        const dy = m.y - d.ay;
-        const distSq = dx * dx + dy * dy;
+        const dotDx = m.x - d.ax;
+        const dotDy = m.y - d.ay;
+        const distSq = dotDx * dotDx + dotDy * dotDy;
 
         if (distSq < crSq && eng > 0.01) {
-          const dist = Math.sqrt(distSq);
+          const distance = Math.sqrt(distSq);
           if (isBulge) {
-            const t = 1 - dist / cr;
-            const push = t * t * p.bulgeStrength * eng;
-            const angle = Math.atan2(dy, dx);
+            const factor = 1 - distance / cr;
+            const push = factor * factor * p.bulgeStrength * eng;
+            const angle = Math.atan2(dotDy, dotDx);
             d.sx += (d.ax - Math.cos(angle) * push - d.sx) * 0.15;
             d.sy += (d.ay - Math.sin(angle) * push - d.sy) * 0.15;
           } else {
-            const angle = Math.atan2(dy, dx);
-            const move = (500 / dist) * (m.speed * p.cursorForce);
+            const angle = Math.atan2(dotDy, dotDx);
+            const move = (500 / distance) * (m.speed * p.cursorForce);
             d.vx += Math.cos(angle) * -move;
             d.vy += Math.sin(angle) * -move;
           }
@@ -185,25 +187,31 @@ const DotField = memo(({
           drawX += Math.cos(d.ay * 0.03 + t * 0.7) * p.waveAmplitude * 0.5;
         }
 
-        if (p.sparkle) {
-          const hash = ((i * 2654435761) ^ (frameCount >> 3)) >>> 0;
-          if ((hash % 100) < 3) {
-            ctx.moveTo(drawX + rad * 1.8, drawY);
-            ctx.arc(drawX, drawY, rad * 1.8, 0, TWO_PI);
-          } else {
-            ctx.moveTo(drawX + rad, drawY);
-            ctx.arc(drawX, drawY, rad, 0, TWO_PI);
-          }
-        } else {
-          ctx.moveTo(drawX + rad, drawY);
-          ctx.arc(drawX, drawY, rad, 0, TWO_PI);
-        }
+        ctx.moveTo(drawX + rad, drawY);
+        ctx.arc(drawX, drawY, rad, 0, TWO_PI);
       }
 
       ctx.fill();
 
       rafRef.current = requestAnimationFrame(tick);
     }
+
+    const startTick = () => {
+      if (!isRunning) {
+        isRunning = true;
+        rafRef.current = requestAnimationFrame(tick);
+      }
+    };
+
+    const stopTick = () => {
+      if (isRunning) {
+        isRunning = false;
+        if (rafRef.current) {
+          cancelAnimationFrame(rafRef.current);
+          rafRef.current = null;
+        }
+      }
+    };
 
     doResize();
     
@@ -213,9 +221,26 @@ const DotField = memo(({
     if (canvas.parentElement) {
       resizeObserver.observe(canvas.parentElement);
     }
+
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          startTick();
+        } else {
+          stopTick();
+        }
+      },
+      { threshold: 0.01 }
+    );
+
+    if (canvas.parentElement) {
+      visibilityObserver.observe(canvas.parentElement);
+    }
     
-    window.addEventListener('mousemove', onMouseMove, { passive: true });
-    rafRef.current = requestAnimationFrame(tick);
+    if (!isMobile) {
+      window.addEventListener('mousemove', onMouseMove, { passive: true });
+    }
+    startTick();
 
     rebuildRef.current = () => {
       const { w, h } = sizeRef.current;
@@ -223,11 +248,13 @@ const DotField = memo(({
     };
 
     return () => {
-      cancelAnimationFrame(rafRef.current);
-      clearInterval(speedInterval);
+      stopTick();
       clearTimeout(resizeTimer);
       resizeObserver.disconnect();
-      window.removeEventListener('mousemove', onMouseMove);
+      visibilityObserver.disconnect();
+      if (!isMobile) {
+        window.removeEventListener('mousemove', onMouseMove);
+      }
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

@@ -42,15 +42,19 @@ export default function QiskitFallFest() {
         }`}
       >
         <main>
-          {!isLoading && <Hero />}
-          {!isLoading && <Timeline />}
-          <TeamGrid />
-          <Organizers />
-          <Experience />
+          {!isLoading && (
+            <>
+              <Hero />
+              <Timeline />
+              <TeamGrid />
+              <Organizers />
+              <Experience />
+            </>
+          )}
         </main>
 
         {/* Qiskit-specific footer (contact details, links) */}
-        <QiskitFooter />
+        {!isLoading && <QiskitFooter />}
       </div>
     </div>
   );
