@@ -1,7 +1,8 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment, ContactShadows, useGLTF, Html, Center } from '@react-three/drei';
 import * as THREE from 'three';
+import { useInView } from 'framer-motion';
 import TextType from './TextType';
 import SplitText from './SplitText';
 import stickerImg from '../assets/svg/Sticker 09.svg';
@@ -57,8 +58,11 @@ function QuantumModel(props) {
 useGLTF.preload('/models/quantum-computer.glb');
 
 export default function Experience() {
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { margin: "200px" });
+
   return (
-    <section id="events" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section id="events" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={containerRef}>
       <div className="flex flex-col lg:flex-row gap-8 min-h-[600px]">
         {/* Left Column - 3D Quantum Computer Box */}
         <div className="w-full lg:w-1/2 bg-white/40 border border-[var(--border-color)] backdrop-blur-md rounded-2xl overflow-hidden relative flex flex-col p-0 items-center justify-center min-h-[500px] lg:min-h-[600px] shadow-2xl">
@@ -68,7 +72,13 @@ export default function Experience() {
             </div>
           </div>
           <div className="w-full h-full min-h-[500px] lg:min-h-[600px] cursor-grab active:cursor-grabbing">
-            <Canvas camera={{ position: [0, 0, 10], fov: 40 }}>
+            <Canvas 
+              frameloop={isInView ? 'always' : 'never'}
+              camera={{ position: [0, 0, 10], fov: 40 }}
+              dpr={[1, 1.5]} 
+              performance={{ min: 0.5 }}
+              gl={{ antialias: false, powerPreference: "high-performance" }}
+            >
               <ambientLight intensity={1.2} />
               <directionalLight position={[10, 10, 10]} intensity={1.0} color="#ffffff" />
               <directionalLight position={[-10, 10, -10]} intensity={0.5} color="#ffffff" />

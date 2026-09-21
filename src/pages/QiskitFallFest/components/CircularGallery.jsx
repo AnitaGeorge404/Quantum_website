@@ -528,7 +528,11 @@ class App {
     if (this.medias) {
       this.medias.forEach(media => media.update(this.scroll, direction));
     }
-    this.renderer.render({ scene: this.scene, camera: this.camera });
+
+    if (this.isVisible) {
+      this.renderer.render({ scene: this.scene, camera: this.camera });
+    }
+    
     this.scroll.last = this.scroll.current;
     this.raf = window.requestAnimationFrame(this.update.bind(this));
   }
@@ -549,6 +553,15 @@ class App {
     window.addEventListener('touchend', this.boundOnTouchUp);
 
     this.container?.addEventListener('keydown', this.boundOnKeyDown);
+    
+    // Add intersection observer to pause rendering
+    this.isVisible = true;
+    if (this.container) {
+      this.observer = new IntersectionObserver(([entry]) => {
+        this.isVisible = entry.isIntersecting;
+      });
+      this.observer.observe(this.container);
+    }
   }
   destroy() {
     window.cancelAnimationFrame(this.raf);
@@ -565,6 +578,10 @@ class App {
 
     if (this.container) {
       this.container.removeEventListener('keydown', this.boundOnKeyDown);
+    }
+    
+    if (this.observer) {
+      this.observer.disconnect();
     }
   }
 }
