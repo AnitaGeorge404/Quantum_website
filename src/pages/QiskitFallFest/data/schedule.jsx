@@ -67,7 +67,7 @@ export const schedule = [
         <ul className="list-disc list-inside space-y-2">
           <li>
             (5:00 to 6:00pm)<br/>
-            Quantum Machine Learning by <span className="font-semibold text-[var(--ink)]">Satyaprakash P</span>, Co-founder & COO, Anuthantra Private Limited.
+            Quantum Machine Learning by <span className="font-semibold text-[var(--ink)]">Satyaprakash P</span>, Co-founder & CEO, Anuthantra Private Limited.
           </li>
           <li>
             (6:00 to 7:00pm)<br/>

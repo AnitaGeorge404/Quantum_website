@@ -5,10 +5,8 @@ import { stickers } from '../data/stickers';
 import Decor from './Decor';
 
 const studentOrganizers = [
-  { name: 'John Doe', role: 'Student Organizer' },
-  { name: 'Jane Smith', role: 'Student Organizer' },
-  { name: 'Alice Johnson', role: 'Student Organizer' },
-  { name: 'Bob Brown', role: 'Student Organizer' },
+  { name: 'Aishik Roy', role: 'Student Organizer' },
+  { name: 'Ashwin S', role: 'Student Organizer' },
 ];
 
 const studentVolunteers = [

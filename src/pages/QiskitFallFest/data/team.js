@@ -31,7 +31,7 @@ export const team = [
   },
   {
     name: "Satyaprakash P",
-    role: "Co-founder & COO, Anuthantra Private Limited",
+    role: "Co-founder & CEO, Anuthantra Private Limited",
     image: "/qiskit-photos/sathyaprakash.png",
     idNumber: "004",
     department: "Industry",

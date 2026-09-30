@@ -7,6 +7,7 @@ import { RSVP_URL } from '../data/event';
 import StrokeText from './StrokeText';
 import FoldText from './FoldText';
 import Decor from './Decor';
+import Countdown from './Countdown';
 
 const facts = [
   { label: 'Dates', value: '7 October 2026 – 11 October 2026' },
@@ -101,6 +102,15 @@ export default function Hero() {
             <a href="#timeline" className="qff-btn qff-btn-outline">
               View schedule <ArrowDown className="h-4 w-4" />
             </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.55, ease }}
+            className="mt-10"
+          >
+            <Countdown />
           </motion.div>
 
           {/* Key facts */}
