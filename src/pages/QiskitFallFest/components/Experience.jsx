@@ -3,9 +3,8 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Environment, ContactShadows, useGLTF, Html, Center } from '@react-three/drei';
 import * as THREE from 'three';
 import { useInView } from 'framer-motion';
-import TextType from './TextType';
-import SplitText from './SplitText';
-import stickerImg from '../assets/svg/Sticker 09.svg';
+import SectionHeader, { Reveal } from './SectionHeader';
+import { stickers } from '../data/stickers';
 
 function QuantumModel(props) {
   const { scene } = useGLTF('/models/quantum-computer.glb');
@@ -57,25 +56,27 @@ function QuantumModel(props) {
 }
 useGLTF.preload('/models/quantum-computer.glb');
 
+const outcomes = [
+  { title: 'Learn from the flock', body: 'Connect with industry experts and learn quantum fundamentals from scratch.', icon: stickers.kingfisher },
+  { title: 'Build in the cloud', body: 'Run real quantum circuits directly on IBM Quantum hardware during the hackathon.', icon: stickers.cloud },
+  { title: 'Share the sky', body: 'Collaborate with peers globally and present your innovative projects to the community.', icon: stickers.swallow },
+];
+
 export default function Experience() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { margin: "200px" });
 
   return (
-    <section id="events" className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={containerRef}>
-      <div className="flex flex-col lg:flex-row gap-8 min-h-[600px]">
-        {/* Left Column - 3D Quantum Computer Box */}
-        <div className="w-full lg:w-1/2 bg-white/40 border border-[var(--border-color)] backdrop-blur-md rounded-2xl overflow-hidden relative flex flex-col p-0 items-center justify-center min-h-[500px] lg:min-h-[600px] shadow-2xl">
-          <div className="absolute top-4 left-4 z-20">
-            <div className="inline-block px-3 py-1 rounded-full bg-black/5 border border-[var(--border-color)] text-xs font-mono text-[var(--text-primary)] uppercase tracking-wider backdrop-blur-md">
-              Interactive Hardware Model
-            </div>
-          </div>
-          <div className="w-full h-full min-h-[500px] lg:min-h-[600px] cursor-grab active:cursor-grabbing">
-            <Canvas 
+    <section id="events" className="qff-section" ref={containerRef}>
+      <div className="qff-container grid gap-12 lg:grid-cols-2 lg:gap-16">
+        {/* 3D quantum computer */}
+        <Reveal className="relative order-2 overflow-hidden rounded-sm border border-[var(--border)] bg-[var(--surface)] lg:order-1">
+          <div className="absolute left-4 top-4 z-10 qff-label">Interactive Hardware Model</div>
+          <div className="h-[380px] w-full cursor-grab active:cursor-grabbing sm:h-[460px] lg:h-full lg:min-h-[560px]">
+            <Canvas
               frameloop={isInView ? 'always' : 'never'}
               camera={{ position: [0, 0, 10], fov: 40 }}
-              dpr={[1, 1.5]} 
+              dpr={[1, 1.5]}
               performance={{ min: 0.5 }}
               gl={{ antialias: false, powerPreference: "high-performance" }}
             >
@@ -86,12 +87,12 @@ export default function Experience() {
               <directionalLight position={[-10, -10, 10]} intensity={0.5} color="#ffffff" />
               <directionalLight position={[0, 0, 15]} intensity={1.0} color="#ffffff" />
 
-              <Suspense fallback={<Html center><div className="text-[var(--text-primary)] font-mono text-sm whitespace-nowrap bg-white/80 border border-[var(--border-color)] px-4 py-2 rounded-md backdrop-blur-md shadow-sm">Loading 3D Model...</div></Html>}>
+              <Suspense fallback={<Html center><div className="qff-label whitespace-nowrap">Loading model…</div></Html>}>
                 <Center>
                   <QuantumModel scale={5} />
                 </Center>
                 <Environment files="/potsdamer_platz_1k.hdr" />
-                <ContactShadows position={[0, -5, 0]} opacity={0.4} scale={20} blur={2} far={10} />
+                <ContactShadows position={[0, -5, 0]} opacity={0.3} scale={20} blur={2} far={10} />
               </Suspense>
 
               <OrbitControls
@@ -105,46 +106,35 @@ export default function Experience() {
               />
             </Canvas>
           </div>
-        </div>
+        </Reveal>
 
-        {/* Right Column - Core Objectives Box */}
-        <div className="w-full lg:w-1/2 bg-white/40 border border-[var(--border-color)] backdrop-blur-md rounded-2xl p-8 md:p-12 text-[var(--text-primary)] flex flex-col justify-center shadow-2xl relative overflow-hidden">
+        {/* Outcomes */}
+        <div className="order-1 flex flex-col lg:order-2">
+          <SectionHeader index="05" label="Why join" title="What you will earn" className="!mb-8" />
 
-          <div
-            className="absolute inset-0 z-0 opacity-30 pointer-events-none bg-no-repeat bg-center bg-cover scale-125 origin-center"
-            style={{ backgroundImage: `url('${stickerImg}')` }}
-          />
-
-          <div className="relative z-10 flex flex-col h-full">
-            <h2 className="text-4xl md:text-5xl font-black mb-10 text-[var(--text-primary)]">
-              <TextType text="What you will earn" loop={false} startOnVisible={true} />
-            </h2>
-
-            <div className="space-y-8 mb-10 flex-grow">
-              <div className="flex gap-6 border-b border-[var(--border-color)] pb-6">
+          <ol className="border-t border-[var(--border-strong)]">
+            {outcomes.map((o, i) => (
+              <Reveal as="li" key={o.title} delay={i * 0.06} className="group grid grid-cols-[2.5rem_1fr_auto] items-start gap-x-4 border-b border-[var(--border)] py-6">
+                <span className="font-mono text-sm text-[var(--pink-strong)] pt-1">0{i + 1}</span>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Learn from the flock</h3>
-                  <p className="text-[var(--muted-foreground)] text-base leading-relaxed">Connect with industry experts and learn quantum fundamentals from scratch.</p>
+                  <h3 className="text-lg md:text-xl font-semibold">{o.title}</h3>
+                  <p className="mt-2 text-sm md:text-base leading-relaxed text-[var(--muted-foreground)]">{o.body}</p>
                 </div>
-              </div>
-              <div className="flex gap-6 border-b border-[var(--border-color)] pb-6">
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Build in the cloud</h3>
-                  <p className="text-[var(--muted-foreground)] text-base leading-relaxed">Run real quantum circuits directly on IBM Quantum hardware during the hackathon.</p>
-                </div>
-              </div>
-              <div className="flex gap-6 pb-2">
-                <div>
-                  <h3 className="text-xl font-bold mb-2">Share the sky</h3>
-                  <p className="text-[var(--muted-foreground)] text-base leading-relaxed">Collaborate with peers globally and present your innovative projects to the community.</p>
-                </div>
-              </div>
-            </div>
+                <img
+                  src={o.icon}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className="w-14 md:w-16 transition-transform duration-500 ease-out group-hover:-translate-y-1 group-hover:-rotate-3"
+                />
+              </Reveal>
+            ))}
+          </ol>
 
-            <div className="mt-auto bg-[var(--muted)]/50 p-5 rounded-lg text-sm leading-relaxed border-l-4 border-[var(--accent-pink)] text-[var(--muted-foreground)]">
-              Open to the public. Registration is required. This is a fully virtual event. Attendees must consent to event recording/photography during registration.
-            </div>
-          </div>
+          <Reveal delay={0.2} className="mt-8 border-l-2 border-[var(--pink)] pl-5 text-sm leading-relaxed text-[var(--muted-foreground)]">
+            Open to the public. Registration is required. This is a fully virtual event. Attendees
+            must consent to event recording/photography during registration.
+          </Reveal>
         </div>
       </div>
     </section>

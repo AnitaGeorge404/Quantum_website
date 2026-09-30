@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
-import LoadingScreen from './components/LoadingScreen';
+import React from 'react';
 import Hero from './components/Hero';
+import StickerRibbon from './components/StickerRibbon';
+import About from './components/About';
 import Timeline from './components/Timeline';
 import TeamGrid from './components/TeamGrid';
 import Organizers from './components/Organizers';
@@ -11,47 +11,22 @@ import './styles.css';
 
 /**
  * QiskitFallFest page
- * Embedded inside the Quantum website's router at /qiskit-fall-fest.
- * Uses its own scoped CSS variables and components.
- * The main Quantum Navbar/Footer still wraps this via MainLayout.
- * The Qiskit-specific footer (with contact/links) is rendered inside this page.
+ * Embedded inside the Quantum website's router at /qiskit-fall-fest-26.
+ * Uses its own scoped CSS variables (see styles.css) and components.
+ * The main Quantum Navbar still wraps this via MainLayoutNoFooter;
+ * the Qiskit-specific footer is rendered inside this page.
  */
 export default function QiskitFallFest() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Fallback timeout in case animation doesn't complete
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 7000);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    // Scoping wrapper — applies the Qiskit theme variables to everything inside
-    <div className="qiskit-page">
-      <AnimatePresence>
-        {isLoading && (
-          <LoadingScreen onComplete={() => setIsLoading(false)} />
-        )}
-      </AnimatePresence>
-
-      <div
-        className={`relative min-h-screen transition-opacity duration-1000 ${
-          isLoading ? 'opacity-0 h-screen overflow-hidden' : 'opacity-100'
-        }`}
-      >
-        <main>
-          {!isLoading && <Hero />}
-          {!isLoading && <Timeline />}
-          <TeamGrid />
-          <Organizers />
-          <Experience />
-        </main>
-        
-        {/* Simple colored footer */}
-        <QiskitFooter />
-      </div>
+    <div className="qiskit-page min-h-screen">
+      <Hero />
+      <StickerRibbon />
+      <About />
+      <Timeline />
+      <TeamGrid />
+      <Organizers />
+      <Experience />
+      <QiskitFooter />
     </div>
   );
 }

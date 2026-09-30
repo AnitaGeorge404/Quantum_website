@@ -1,38 +1,38 @@
 export const schedule = [
   { 
     time: "7 October 2026", 
-    title: "Introduction to Quantum Computing", 
+    title: "Introduction to QC & Qiskit + Game Launch", 
     speaker: { 
-      name: "TBA", 
-      image: "T", 
-      bio: "Online lectures, gamified activities, live quizzes" 
+      name: "Dr. Jayakumar V", 
+      image: "/qiskit-photos/jayakumar.jpeg", 
+      bio: "Game Launch (5:00 – 5:30 PM) followed by Introduction to Quantum Computing & Qiskit (5:30 – 7:00 PM). Dr. Jayakumar V, CEO of Anuthantra, IBM Qiskit Advocate." 
     } 
   },
   { 
     time: "8 October 2026", 
-    title: "Quantum Computing Fundamentals & Qiskit Workshop", 
+    title: "Introduction to Qiskit Programming", 
     speaker: { 
-      name: "Dr. Asha Sebastian", 
-      image: "AS", 
-      bio: "Assistant Professor, Member QuDAIS Lab, IIIT Kottayam" 
+      name: "Dr. Rubell Marion Lincy G", 
+      image: "/qiskit-photos/Rubell.jpeg", 
+      bio: "Hands-on Qiskit programming workshop (5:00 – 7:00 PM). Dr. Rubell Marion Lincy G, Founder QuDAIS Lab, IIIT Kottayam." 
     } 
   },
   { 
     time: "9 October 2026", 
-    title: "Expert Talk & Industry Session", 
+    title: "Quantum Algorithms", 
     speaker: { 
-      name: "Dr. Jayakumar V", 
-      image: "JV", 
-      bio: "CEO, Anuthantra, IBM Qiskit Advocate." 
+      name: "Dr. Asha Sebastian & Vishnu Ajith", 
+      image: "/qiskit-photos/asha.jpeg", 
+      bio: "RML & Asha Sebastian session (5:00 – 6:00 PM). Quantum Algorithms by Vishnu Ajith (6:00 – 7:00 PM)." 
     } 
   },
   { 
     time: "10 October 2026", 
-    title: "Advanced Topic (QML/QEC) + Hackathon Kickoff", 
+    title: "QML + QEC", 
     speaker: { 
-      name: "Industry Expert", 
-      image: "IE", 
-      bio: "IBM or other industry expert" 
+      name: "Satyaprakash & Dr. Raghavendra V", 
+      image: "/qiskit-photos/sathyaprakash.png", 
+      bio: "Quantum Machine Learning by Satyaprakash, Co-founder & COO, Anuthantra (5:00 – 6:00 PM). Quantum Error Correction by Dr. Raghavendra V, Asst. Professor, SRMIST (6:00 – 7:00 PM)." 
     } 
   },
   { 
@@ -40,8 +40,8 @@ export const schedule = [
     title: "Hackathon Presentations & Closing Ceremony", 
     speaker: { 
       name: "Dr. Rubell Marion Lincy G", 
-      image: "RM", 
-      bio: "Founder QuDAIS Lab, IIIT Kottayam" 
+      image: "/qiskit-photos/Rubell.jpeg", 
+      bio: "Hackathon presentations, judging, certificate distribution & closing ceremony. Results within 1 week." 
     } 
   }
 ];

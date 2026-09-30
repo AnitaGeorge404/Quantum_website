@@ -1,115 +1,193 @@
 /* ────────────────────────────────────────────────────────────────────────── */
 /* Font import — must be first                                               */
 /* ────────────────────────────────────────────────────────────────────────── */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap");
 
 /*
  * Qiskit Fall Fest — Scoped styles
  *
  * All variables are scoped to .qiskit-page so they don't bleed into
- * the rest of the Quantum website. Components inside this page
- * reference these via var(--...) which resolves to these scoped values.
- *
- * NOTE: Tailwind utilities are already available from the host app.
- * We only define the custom CSS variables + any non-Tailwind styles here.
+ * the rest of the Quantum website. Tailwind utilities come from the host app;
+ * only theme tokens and a handful of shared primitives live here.
  */
 
 
 /* ────────────────────────────────────────────────────────────────────────── */
-/* 1. Theme variables — light mode (default)                                 */
+/* 1. Theme tokens                                                           */
 /* ────────────────────────────────────────────────────────────────────────── */
 .qiskit-page {
-  /* Core palette */
-  --background:        #F2F4F8;
-  --foreground:        oklch(0.1649 0.0352 281.8285);
-  --card:              oklch(1.0000 0 0);
-  --card-foreground:   oklch(0.1649 0.0352 281.8285);
-  --popover:           oklch(1.0000 0 0);
-  --popover-foreground: oklch(0.1649 0.0352 281.8285);
-  --primary:           oklch(0.6726 0.2904 341.4084);
-  --primary-foreground: oklch(1.0000 0 0);
-  --secondary:         oklch(0.9595 0.0200 286.0164);
-  --secondary-foreground: oklch(0.1649 0.0352 281.8285);
-  --muted:             oklch(0.9595 0.0200 286.0164);
-  --muted-foreground:  oklch(0.1649 0.0352 281.8285);
-  --accent:            #5B45F2;
-  --accent-foreground: oklch(0.1649 0.0352 281.8285);
-  --destructive:       oklch(0.6535 0.2348 34.0370);
-  --border:            oklch(0.9205 0.0086 225.0878);
-  --input:             oklch(0.9205 0.0086 225.0878);
-  --ring:              oklch(0.6726 0.2904 341.4084);
+  /* Brand */
+  --ink:          #31135E;   /* Fall Fest deep purple — headings, dark surfaces */
+  --pink:         #FF7EB6;   /* Fall Fest sticker pink */
+  --pink-strong:  #D0277C;   /* Accessible pink for text on light backgrounds */
+  --violet:       #5B45F2;   /* Qiskit violet — links, focus */
 
-  /* Semantic aliases used by Qiskit components */
+  /* Surfaces & text */
+  --background:        #FDFDFF;
+  --surface:           #FFFFFF;
+  --foreground:        #1B1336;
+  --muted-foreground:  #5B5670;
+  --border:            #E4E5EE;
+  --border-strong:     #BFC0CE;
+
+  /* Aliases kept for existing components */
   --bg-primary:    var(--background);
   --text-primary:  var(--foreground);
-  --accent-pink:   var(--primary);
-  --accent-blue:   var(--accent);
-  --panel-bg:      var(--card);
+  --accent-pink:   var(--pink-strong);
+  --accent-blue:   var(--violet);
+  --panel-bg:      var(--surface);
   --border-color:  var(--border);
+  --muted:         #F1F2F7;
 
-  /* Layout */
   font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  overflow-x: hidden;
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
-/* ────────────────────────────────────────────────────────────────────────── */
-/* 2. Dark-mode override (uses host app's .dark class on <html>)             */
-/* ────────────────────────────────────────────────────────────────────────── */
-.dark .qiskit-page {
-  --background:        oklch(0.1416 0.0017 247.8390);
-  --foreground:        oklch(0.9849 0.0352 281.8285);
-  --card:              oklch(0.1600 0 0);
-  --card-foreground:   oklch(0.9849 0.0352 281.8285);
-  --popover:           oklch(0.1600 0 0);
-  --popover-foreground: oklch(0.9849 0.0352 281.8285);
-  --primary:           oklch(0.6726 0.2904 341.4084);
-  --primary-foreground: oklch(0.9849 0.0352 281.8285);
-  --secondary:         oklch(0.2595 0.0200 286.0164);
-  --secondary-foreground: oklch(0.9849 0.0352 281.8285);
-  --muted:             oklch(0.2595 0.0200 286.0164);
-  --muted-foreground:  oklch(0.7649 0.0352 281.8285);
-  --accent:            #5B45F2;
-  --accent-foreground: oklch(0.9849 0.0352 281.8285);
-  --destructive:       oklch(0.6535 0.2348 34.0370);
-  --border:            oklch(0.2205 0.0086 225.0878);
-  --input:             oklch(0.2205 0.0086 225.0878);
-  --ring:              oklch(0.6726 0.2904 341.4084);
+/* Headings default to brand ink + Plex Sans. One class of specificity beats the
+   host's global serif h1–h6 rule while still letting utilities override. */
+.qiskit-page :where(h1, h2, h3, h4, h5, h6) {
+  font-family: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  color: var(--ink);
+  letter-spacing: -0.015em;
 }
 
-/* ────────────────────────────────────────────────────────────────────────── */
-/* 3. Utility classes used by Qiskit components                              */
-/*    (These mirror the @layer utilities from the original site,             */
-/*     scoped here since they reference the scoped vars above.)              */
-/* ────────────────────────────────────────────────────────────────────────── */
-.qiskit-page .text-pink-accent  { color: var(--accent-pink); }
-.qiskit-page .text-blue-accent  { color: var(--accent-blue); }
-.qiskit-page .bg-pink-accent    { background-color: var(--accent-pink); }
-.qiskit-page .bg-blue-accent    { background-color: var(--accent-blue); }
-.qiskit-page .bg-panel {
-  background-color: var(--panel-bg);
-  backdrop-filter: blur(12px);
+/* Anchor targets clear the floating site navbar. */
+.qiskit-page section[id],
+.qiskit-page footer[id] {
+  scroll-margin-top: 6rem;
 }
-.qiskit-page .border-panel { border-color: var(--border-color); }
+
+.qiskit-page ::selection {
+  background: var(--pink);
+  color: var(--ink);
+}
+
 
 /* ────────────────────────────────────────────────────────────────────────── */
-/* 4. Global Typography Overrides for Qiskit Fall Fest                       */
+/* 2. Shared primitives                                                      */
 /* ────────────────────────────────────────────────────────────────────────── */
-.qiskit-page h1,
-.qiskit-page h2,
-.qiskit-page h3,
-.qiskit-page h4,
-.qiskit-page h5,
-.qiskit-page h6,
-.qiskit-page .text-4xl,
-.qiskit-page .text-5xl,
-.qiskit-page .text-6xl,
-.qiskit-page .font-bold,
-.qiskit-page .font-black,
-.qiskit-page .font-extrabold,
-.qiskit-page b,
-.qiskit-page strong {
-  color: #31135E !important;
+.qiskit-page .qff-container {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+@media (min-width: 640px)  { .qiskit-page .qff-container { padding-inline: 2rem; } }
+@media (min-width: 1024px) { .qiskit-page .qff-container { padding-inline: 2.5rem; } }
+
+.qiskit-page .qff-section {
+  padding-block: 4.5rem;
+  border-top: 1px solid var(--border);
+}
+@media (min-width: 768px)  { .qiskit-page .qff-section { padding-block: 6.5rem; } }
+
+/* Small mono eyebrow label, e.g. "01 — Schedule" */
+.qiskit-page .qff-label {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+.qiskit-page .qff-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 3rem;
+  padding: 0.75rem 1.5rem;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.qiskit-page .qff-btn:active { transform: translateY(1px); }
+.qiskit-page .qff-btn:focus-visible,
+.qiskit-page a:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 3px;
+}
+
+.qiskit-page .qff-btn-primary {
+  background: var(--ink);
+  color: #fff;
+}
+.qiskit-page .qff-btn-primary:hover { background: #45207F; }
+
+.qiskit-page .qff-btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--ink);
+}
+.qiskit-page .qff-btn-outline:hover { background: var(--ink); color: #fff; }
+
+.qiskit-page .qff-btn-pink {
+  background: var(--pink);
+  color: var(--ink);
+}
+.qiskit-page .qff-btn-pink:hover { background: #FF96C4; }
+
+.qiskit-page .qff-link {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+.qiskit-page .qff-link:hover { text-decoration-color: var(--pink-strong); color: var(--pink-strong); }
+
+/* Hero title drawn with StrokeText — responsive height, left aligned */
+.qiskit-page .qff-hero-title .stroke-text__svg {
+  height: clamp(6.5rem, 30vw, 13rem);
+}
+
+/* Speaker photos use TiltedCard; square the corners to match the page */
+.qiskit-page .qff-tilt .tilted-card-img { border-radius: 2px; }
+
+/* Sticker ribbon — seamless marquee, pauses on hover */
+.qiskit-page .qff-ribbon {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+          mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+.qiskit-page .qff-ribbon-track {
+  display: flex;
+  width: max-content;
+  animation: qff-marquee 120s linear infinite;
+  will-change: transform;
+}
+.qiskit-page .qff-ribbon-half {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem; /* same as gap, so the seam between halves is invisible */
+}
+.qiskit-page .qff-ribbon:hover .qff-ribbon-track { animation-play-state: paused; }
+@keyframes qff-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qiskit-page .qff-ribbon-track { animation: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qiskit-page *,
+  .qiskit-page *::before,
+  .qiskit-page *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

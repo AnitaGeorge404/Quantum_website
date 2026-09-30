@@ -1,73 +1,84 @@
 import React from 'react';
+import SectionHeader, { Reveal } from './SectionHeader';
+import { featuredOrganizer } from '../data/organizers';
+import { stickers } from '../data/stickers';
+import Decor from './Decor';
 
 const studentOrganizers = [
-  { name: 'Thomas Bustamante', role: 'Lead Organiser' },
-  { name: 'Jigyasa Sharma', role: 'Co-Organiser' },
-  { name: 'Tingyao Wang', role: 'Co-Organiser' },
-  { name: 'Afia Fahmida Rahman', role: 'Co-Organiser' },
-  { name: 'Chandhru Karthick', role: 'Co-Organiser' },
-  { name: 'Shaifali Choudhary', role: 'Content writer' },
+  { name: 'Student 1', role: 'Student Organizer' },
+  { name: 'Student 2', role: 'Student Organizer' },
+  { name: 'Student 3', role: 'Student Organizer' },
+  { name: 'Student 4', role: 'Student Organizer' },
+  { name: 'Student 5', role: 'Student Organizer' },
+  { name: 'Student 6', role: 'Student Organizer' },
 ];
+
+const initials = (name) =>
+  name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((w) => w[0])
+    .join('')
+    .toUpperCase();
 
 export default function Organizers() {
   return (
-    <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div className="relative overflow-hidden bg-[var(--panel-bg)]/80 border border-[var(--border-color)] rounded-3xl p-6 sm:p-10 md:p-12 shadow-sm backdrop-blur-md">
-        <div className="relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-[var(--text-primary)]">Event Organizers</h2>
+    <section id="organizers" className="qff-section">
+      <div className="qff-container">
+        <div className="mb-12 flex items-end justify-between gap-6 md:mb-16">
+          <SectionHeader index="04" label="Organizers" title="Event Organizers" className="!mb-0" />
+          <Decor
+            src={stickers.seagulls}
+            amplitude={6}
+            duration={7}
+            className="w-20 shrink-0 sm:w-24 lg:w-28"
+          />
+        </div>
 
-          {/* QuDAIS Lab Logo Card */}
-          <div className="flex justify-center mb-12">
-            <div className="relative w-full max-w-[420px] bg-[var(--background)] border border-[var(--border-color)] rounded-3xl p-6 sm:p-8 flex flex-col items-center justify-center text-center shadow-sm hover:shadow-xl hover:border-[var(--text-primary)]/30 transition-all duration-300 ease-out hover:-translate-y-1">
-              <div className="relative w-full max-w-[320px]">
-                <img 
-                  src="/qiskit-photos/qudais_logo.jpeg" 
-                  alt="QuDAIS Lab Logo" 
-                  className="w-full h-auto object-contain rounded-xl drop-shadow-sm bg-white p-2"
-                />
-              </div>
+        {/* Host lab */}
+        <Reveal className="grid items-center gap-8 border-y border-[var(--border-strong)] py-8 md:grid-cols-[18rem_1fr] md:gap-12 md:py-10">
+          <div className="flex items-center justify-center rounded-sm bg-white p-6 ring-1 ring-[var(--border)]">
+            <img src="/qiskit-photos/qudais_logo.jpeg" alt="QuDAIS Lab logo" className="h-auto w-full max-w-[14rem] object-contain" />
+          </div>
+          <div>
+            <p className="qff-label">{featuredOrganizer.role}</p>
+            <h3 className="mt-2 text-2xl md:text-3xl font-semibold">{featuredOrganizer.name}</h3>
+            <p className="mt-3 max-w-xl text-base md:text-lg leading-relaxed text-[var(--muted-foreground)]">
+              {featuredOrganizer.description}
+            </p>
+            <div className="mt-5 flex flex-wrap items-center gap-2.5">
+              {[stickers.qiskit, stickers.quantum, stickers.computing, stickers.century].map((src) => (
+                <img key={src} src={src} alt="" aria-hidden="true" className="h-7 w-auto md:h-8 transition-transform duration-300 hover:-rotate-3" />
+              ))}
             </div>
           </div>
+        </Reveal>
 
-          {/* Student Organizers Section -> Updated UI */}
-          <div className="border-t border-[var(--border-color)]/60 mt-4">
-            <div className="flex flex-col items-center gap-7 px-4 sm:px-12 lg:px-24 xl:px-40 pt-[120px] pb-12 text-[var(--text-primary)]">
-              <h2 className="text-3xl sm:text-5xl font-medium">Student Organizers</h2>
-              <p className="max-w-lg text-center text-[var(--muted-foreground)] mb-6">
-                A passionate team of digital experts dedicated to your brands success.
-              </p>
+        {/* Student team */}
+        <div className="mt-16 md:mt-20">
+          <Reveal className="mb-8">
+            <h3 className="text-xl md:text-2xl font-semibold">Student Organizers</h3>
+          </Reveal>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1">
-                {studentOrganizers.map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="group flex max-sm:flex-col items-center gap-4 p-4 rounded-xl border border-[var(--border-color)] bg-[var(--background)] shadow-sm hover:shadow-lg hover:shadow-black/10 hover:-translate-y-1 hover:border-[var(--text-primary)]/25 transition-all duration-300 ease-out cursor-default"
-                  >
-                    <svg
-                      className="w-[60px] h-[60px] flex-shrink-0 text-[var(--muted-foreground)] group-hover:text-[var(--text-primary)] group-hover:scale-110 transition-all duration-300 ease-out"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      aria-label={item.name}
-                    >
-                      <circle cx="12" cy="8" r="4" />
-                      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-                    </svg>
-                    <div className="flex flex-col max-sm:items-center">
-                      <h3 className="font-semibold text-[var(--text-primary)] relative w-fit">
-                        {item.name}
-                        <span className="absolute bottom-0 left-0 h-[1.5px] w-0 bg-[var(--text-primary)] group-hover:w-full transition-all duration-300 ease-out rounded-full" />
-                      </h3>
-                      <p className="text-sm text-[var(--muted-foreground)] group-hover:text-[var(--text-primary)]/70 transition-colors duration-300">{item.role}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+            {studentOrganizers.map((person, idx) => (
+              <Reveal
+                as="li"
+                key={person.name}
+                delay={(idx % 3) * 0.05}
+                className="group flex items-center gap-4 rounded-md border border-[var(--border)] bg-[var(--surface)] p-5 shadow-[0_1px_2px_rgba(49,19,94,0.04)] transition-[border-color,box-shadow] duration-300 hover:border-[var(--border-strong)] hover:shadow-[0_8px_24px_-12px_rgba(49,19,94,0.25)]"
+              >
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[var(--border-strong)] font-mono text-sm font-medium text-[var(--ink)] transition-colors group-hover:border-[var(--ink)] group-hover:bg-[var(--ink)] group-hover:text-white">
+                  {initials(person.name)}
+                </span>
+                <div className="min-w-0">
+                  <p className="truncate font-medium text-[var(--ink)]">{person.name}</p>
+                  <p className="text-sm text-[var(--muted-foreground)]">{person.role}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

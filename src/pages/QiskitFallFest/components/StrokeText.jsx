@@ -25,6 +25,7 @@ const StrokeText = ({
   fontWeight = 800,
   letterSpacing = -4,
   reverse = false,
+  align = 'xMidYMid',
   className = '',
   style = {}
 }) => {
@@ -202,7 +203,7 @@ const StrokeText = ({
       role="img"
       aria-label={String(text ?? '')}
     >
-      <svg className="stroke-text__svg" viewBox={viewBox} preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+      <svg className="stroke-text__svg" viewBox={viewBox} preserveAspectRatio={`${align} meet`} aria-hidden="true">
         {fillMode === 'wipe' && box && (
           <defs>
             <clipPath id={wipeId} clipPathUnits="userSpaceOnUse">
