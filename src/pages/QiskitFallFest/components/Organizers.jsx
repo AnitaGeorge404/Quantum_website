@@ -5,12 +5,15 @@ import { stickers } from '../data/stickers';
 import Decor from './Decor';
 
 const studentOrganizers = [
-  { name: 'Student 1', role: 'Student Organizer' },
-  { name: 'Student 2', role: 'Student Organizer' },
-  { name: 'Student 3', role: 'Student Organizer' },
-  { name: 'Student 4', role: 'Student Organizer' },
-  { name: 'Student 5', role: 'Student Organizer' },
-  { name: 'Student 6', role: 'Student Organizer' },
+  { name: 'John Doe', role: 'Student Organizer' },
+  { name: 'Jane Smith', role: 'Student Organizer' },
+  { name: 'Alice Johnson', role: 'Student Organizer' },
+  { name: 'Bob Brown', role: 'Student Organizer' },
+];
+
+const studentVolunteers = [
+  { name: 'Nevil Mathew Sanish', role: 'Student Volunteer' },
+  { name: 'Sanjay S', role: 'Student Volunteer' },
 ];
 
 const initials = (name) =>
@@ -63,6 +66,32 @@ export default function Organizers() {
 
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
             {studentOrganizers.map((person, idx) => (
+              <Reveal
+                as="li"
+                key={person.name}
+                delay={(idx % 3) * 0.05}
+                className="group flex items-center gap-4 rounded-md border border-[var(--border)] bg-[var(--surface)] p-5 shadow-[0_1px_2px_rgba(49,19,94,0.04)] transition-[border-color,box-shadow] duration-300 hover:border-[var(--border-strong)] hover:shadow-[0_8px_24px_-12px_rgba(49,19,94,0.25)]"
+              >
+                <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-[var(--border-strong)] font-mono text-sm font-medium text-[var(--ink)] transition-colors group-hover:border-[var(--ink)] group-hover:bg-[var(--ink)] group-hover:text-white">
+                  {initials(person.name)}
+                </span>
+                <div className="min-w-0">
+                  <p className="truncate font-medium text-[var(--ink)]">{person.name}</p>
+                  <p className="text-sm text-[var(--muted-foreground)]">{person.role}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+
+        {/* Student Volunteers */}
+        <div className="mt-12 md:mt-16">
+          <Reveal className="mb-8">
+            <h3 className="text-xl md:text-2xl font-semibold">Student Volunteers</h3>
+          </Reveal>
+
+          <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+            {studentVolunteers.map((person, idx) => (
               <Reveal
                 as="li"
                 key={person.name}
