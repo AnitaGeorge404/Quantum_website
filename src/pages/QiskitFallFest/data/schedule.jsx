@@ -23,15 +23,15 @@ export const schedule = [
   },
   { 
     time: "8 October 2026", 
-    title: "Introduction to Qiskit Programming", 
+    title: "Quantum and Qiskit 101", 
     speaker: { 
-      name: "Dr. Asha Sebastian", 
-      image: "/qiskit-photos/asha.jpeg", 
+      name: "Kurian Uthuppu", 
+      image: "/qiskit-photos/kurian.jpg", 
       bio: (
         <ul className="list-disc list-inside space-y-2">
           <li>
             (5:00-7:00pm)<br/>
-            Hands-On Qiskit programming Workshop by <span className="font-semibold text-[var(--ink)]">Dr. Asha Sebastian</span>, Member, QuDAIS Lab, Assistant Professor, Indian Institute of Information Technology (IIIT) Kottayam.
+            Quantum and Qiskit 101 by <span className="font-semibold text-[var(--ink)]">Kurian Uthuppu</span>, IBM Qiskit Advocate.
           </li>
         </ul>
       )
@@ -41,13 +41,13 @@ export const schedule = [
     time: "9 October 2026", 
     title: "Introduction to Quantum Algorithms", 
     speaker: { 
-      name: "Dr. Rubell Marion Lincy G & Vishnu Ajith", 
-      image: "/qiskit-photos/Rubell.jpeg", 
+      name: "Dr. Asha Sebastian & Vishnu Ajith", 
+      image: "/qiskit-photos/asha.jpeg", 
       bio: (
         <ul className="list-disc list-inside space-y-2">
           <li>
             (5:00 to 6:00pm)<br/>
-            Introduction to Random Machine Learning by <span className="font-semibold text-[var(--ink)]">Dr. Rubell Marion Lincy G</span>, Founder, QuDAIS Lab, Assistant Professor & Head of the Department of CSE-2 (Applied AI), Indian Institute of Information Technology (IIIT) Kottayam.
+            Hands-On Qiskit programming Workshop by <span className="font-semibold text-[var(--ink)]">Dr. Asha Sebastian</span>, Member, QuDAIS Lab, Assistant Professor, Indian Institute of Information Technology (IIIT) Kottayam.
           </li>
           <li>
             (6:00 to 7:00pm)<br/>
