@@ -16,6 +16,8 @@ const studentOrganizers = [
 const studentVolunteers = [
   { name: 'Nevil Mathew Sanish', role: 'Volunteer' },
   { name: 'Sanjay S', role: 'Volunteer' },
+  { name: 'Pranav Nair', role: 'Volunteer' },
+  { name: 'Kishore Kumar E', role: 'Volunteer' },
 ];
 
 const initials = (name) =>

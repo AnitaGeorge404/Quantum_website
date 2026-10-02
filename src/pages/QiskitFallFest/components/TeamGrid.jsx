@@ -60,12 +60,22 @@ export default function TeamGrid() {
                     rotateAmplitude={9}
                     showMobileWarning={false}
                     showTooltip={false}
-                  />                </div>
+                    displayOverlayContent
+                    overlayContent={
+                      <div className="flex h-full w-full flex-col justify-end overflow-hidden rounded-[15px] bg-gradient-to-t from-[rgba(49,19,94,0.92)] via-[rgba(49,19,94,0.72)] to-[rgba(49,19,94,0.35)] p-3 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100 sm:p-5">
+                        <p className="qff-label !text-[var(--pink)]">{member.department}</p>
+                        <p className="mt-1.5 text-xs font-semibold leading-snug text-white sm:text-base">{member.role}</p>
+                        <p className="mt-2 overflow-y-auto text-[11px] leading-snug text-white sm:text-sm sm:leading-relaxed">
+                          {member.bio}
+                        </p>
+                      </div>
+                    }
+                  />
+                </div>
 
                 <div className="mt-4 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between sm:gap-3">
                   <div className="min-w-0">
                     <h3 className="text-base md:text-lg font-semibold leading-snug">{member.name}</h3>
-                    <p className="mt-1 text-xs md:text-sm leading-snug text-[var(--muted-foreground)]">{member.role}</p>
                   </div>
 
                   {links.length > 0 && (
