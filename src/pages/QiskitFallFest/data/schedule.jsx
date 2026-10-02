@@ -75,6 +75,15 @@ export const schedule = [
           </li>
         </ul>
       )
-    } 
+    }
+  },
+  {
+    time: "11 October 2026",
+    title: "Hackathon Presentations & Closing Ceremony",
+    speaker: {
+      name: "Dr. Rubell Marion Lincy G",
+      image: "/qiskit-photos/Rubell.jpeg",
+      bio: "Hackathon presentations, judging, certificate distribution & closing ceremony."
+    }
   }
 ];

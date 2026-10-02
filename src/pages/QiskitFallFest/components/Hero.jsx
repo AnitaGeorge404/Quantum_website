@@ -12,7 +12,6 @@ import Countdown from './Countdown';
 const facts = [
   { label: 'Dates', value: '7 October 2026 – 11 October 2026' },
   { label: 'Format', value: '5-Day Online Event' },
-  { label: 'Location', value: 'IIIT Kottayam, Kerala, India' },
 ];
 
 const ease = [0.22, 1, 0.36, 1];
@@ -118,7 +117,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-3 border-t border-[var(--border-strong)]"
+            className="mt-16 md:mt-20 grid grid-cols-1 sm:grid-cols-2 border-t border-[var(--border-strong)]"
           >
             {facts.map((fact, i) => (
               <div

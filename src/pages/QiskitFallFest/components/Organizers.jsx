@@ -5,19 +5,23 @@ import { stickers } from '../data/stickers';
 import Decor from './Decor';
 
 const studentOrganizers = [
-  { name: 'Aishik Roy', role: 'Student Organizer' },
-  { name: 'Ashwin S', role: 'Student Organizer' },
+  { name: 'Ashwin S', role: 'Lead Organizer' },
+  { name: 'Dr. Rubell Marion Lincy G', role: 'Co Organizer' },
+  { name: 'Dr. Prajeesh', role: 'Co Organizer' },
+  { name: 'Aishik Roy', role: 'Co Organizer' },
+  { name: 'Joswin M J', role: 'Co Organizer' },
+  { name: 'Saumya S', role: 'Co Organizer' },
 ];
 
 const studentVolunteers = [
-  { name: 'Nevil Mathew Sanish', role: 'Student Volunteer' },
-  { name: 'Sanjay S', role: 'Student Volunteer' },
+  { name: 'Nevil Mathew Sanish', role: 'Volunteer' },
+  { name: 'Sanjay S', role: 'Volunteer' },
 ];
 
 const initials = (name) =>
   name
     .split(' ')
-    .filter(Boolean)
+    .filter((w) => w && w !== 'Dr.')
     .slice(0, 2)
     .map((w) => w[0])
     .join('')
@@ -56,10 +60,10 @@ export default function Organizers() {
           </div>
         </Reveal>
 
-        {/* Student team */}
+        {/* Organizers */}
         <div className="mt-16 md:mt-20">
           <Reveal className="mb-8">
-            <h3 className="text-xl md:text-2xl font-semibold">Student Organizers</h3>
+            <h3 className="text-xl md:text-2xl font-semibold">Organizers</h3>
           </Reveal>
 
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
@@ -82,10 +86,10 @@ export default function Organizers() {
           </ul>
         </div>
 
-        {/* Student Volunteers */}
+        {/* Volunteers */}
         <div className="mt-12 md:mt-16">
           <Reveal className="mb-8">
-            <h3 className="text-xl md:text-2xl font-semibold">Student Volunteers</h3>
+            <h3 className="text-xl md:text-2xl font-semibold">Volunteers</h3>
           </Reveal>
 
           <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
