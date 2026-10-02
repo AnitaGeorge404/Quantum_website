@@ -87,7 +87,7 @@ export const schedule = [
     speaker: {
       name: "Dr. Rubell Marion Lincy G",
       image: "/qiskit-photos/Rubell.jpeg",
-      bio: "Hackathon presentations, judging, certificate distribution & closing ceremony."
+      bio: "Hackathon presentations, judging & closing ceremony."
     }
   }
 ];
