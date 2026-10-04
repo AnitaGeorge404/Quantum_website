@@ -23,7 +23,7 @@ export const schedule = [
   },
   { 
     time: "8 October 2026", 
-    title: "Quantum and Qiskit 101", 
+    title: "Introduction to IBM Quantum and Qiskit", 
     speaker: { 
       name: "Kurian Uthuppu", 
       image: "/qiskit-photos/kurian.jpg", 
@@ -31,7 +31,10 @@ export const schedule = [
         <ul className="list-disc list-inside space-y-2">
           <li>
             (5:00-7:00pm)<br/>
-            Quantum and Qiskit 101 by <span className="font-semibold text-[var(--ink)]">Kurian Uthuppu</span>, IBM Qiskit Advocate.
+            Introduction to IBM Quantum and Qiskit by <span className="font-semibold text-[var(--ink)]">Kurian Uthuppu</span>, IBM Qiskit Advocate.
+            <span className="mt-2 block">
+              A beginner-friendly introduction to the quantum world, no prior background needed. Covers the basics of quantum mechanics, IBM Quantum computers and Qiskit, the NISQ era, and how AI can help write quantum programs, followed by a hands-on lab.
+            </span>
           </li>
         </ul>
       )

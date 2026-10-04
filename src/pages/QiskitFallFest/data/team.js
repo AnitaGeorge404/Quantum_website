@@ -1,16 +1,5 @@
 export const team = [
   {
-    name: "Dr. Rubell Marion Lincy G",
-    role: "Assistant Professor & HoD, CSE-2 (Applied AI)",
-    image: "/qiskit-photos/Rubell.jpeg",
-    idNumber: "001",
-    bio: "Leads the QuDAIS Lab and the Data Science Research Group at IIIT Kottayam. PhD from BITS Pilani; works on stochastic learning, fuzzy decision systems, reinforcement learning and machine learning.",
-    department: "Indian Institute of Information Technology (IIIT) Kottayam",
-    linkedin: "#",
-    email: "#",
-    iiitkLink: "#"
-  },
-  {
     name: "Dr. Asha Sebastian",
     role: "Assistant Professor",
     image: "/qiskit-photos/asha.jpeg",
@@ -34,14 +23,15 @@ export const team = [
   },
   {
     name: "Kurian Uthuppu",
-    role: "IBM Qiskit Advocate",
+    role: "IBM Qiskit Advocate (Tier 2) | IBM Certified Qiskit v2.X Developer",
     image: "/qiskit-photos/kurian.jpg",
     idNumber: "004",
-    bio: "Tier 1+ IBM Qiskit Advocate from India and Senior Project Manager at Tecnotree. BTech from Model Engineering College and PGDRM from the Institute of Rural Management Anand; began his career in ASIC design at Open-Silicon.",
-    department: "Industry",
+    bio: "Kurian Uthuppu is an IBM Qiskit Advocate (Tier 2) and IBM Certified Qiskit v2.X Developer with over 10+ years of cross-sector experience spanning programme management, full-stack engineering, and AI engineering. As a QAMP 2025 contributor, he worked on an Adaptive Error Mitigation Framework for Quantum Circuits. Professionally, he is a Senior Project Manager at Tecnotree Corporation, where he leads agentic AI and GenAI initiatives. He is passionate about making quantum computing approachable for the next generation of builders.",
+    department: "Senior Project Manager, Tecnotree Corporation",
     linkedin: "https://www.linkedin.com/in/kurian-uthuppu-51019b15/",
+    github: "https://github.com/KurianUthuppu",
     email: "#",
-    iiitkLink: "https://www.ibm.com/quantum/qiskit"
+    iiitkLink: "#"
   },
   {
     name: "Satyaprakash P",
