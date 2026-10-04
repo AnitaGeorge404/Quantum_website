@@ -34,7 +34,7 @@ export const team = [
     iiitkLink: "#"
   },
   {
-    name: "Satyaprakash P",
+    name: "Dr.Satyaprakash P",
     role: "Co-founder & COO, Anuthantra Private Limited",
     image: "/qiskit-photos/sathyaprakash.png",
     idNumber: "005",
