@@ -8,6 +8,7 @@ import Gallery from '../pages/Gallery';
 import Collaborations from '../pages/Collaborations';
 import JoinContact from '../pages/JoinContact';
 import QiskitFallFest from '../pages/QiskitFallFest';
+import Hackathon from '../pages/QiskitFallFest/Hackathon';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,7 @@ const router = createBrowserRouter([
     element: <MainLayoutNoFooter />,
     children: [
       { index: true, element: <QiskitFallFest /> },
+      { path: 'hackathon', element: <Hackathon /> },
     ],
   },
 ]);

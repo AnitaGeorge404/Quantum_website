@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import StickerRibbon from './components/StickerRibbon';
 import About from './components/About';
 import Timeline from './components/Timeline';
+import HackathonTeaser from './components/HackathonTeaser';
 import TeamGrid from './components/TeamGrid';
 import Organizers from './components/Organizers';
 import Experience from './components/Experience';
@@ -21,6 +22,7 @@ export default function QiskitFallFest() {
     <div className="qiskit-page min-h-screen">
       <Hero />
       <StickerRibbon />
+      <HackathonTeaser />
       <About />
       <Timeline />
       <TeamGrid />
